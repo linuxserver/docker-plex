@@ -16,4 +16,4 @@ PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support"
 # note that if you change this you might need to move
 # the Application Support directory to not lose your
 # media library
-PLEX_MEDIA_SERVER_USER=plex
+PLEX_MEDIA_SERVER_USER=abc

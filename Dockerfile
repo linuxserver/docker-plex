@@ -22,12 +22,15 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 VOLUME /config
 EXPOSE 32400
 
+#Adduser
+RUN useradd -u 911 -U -s /bin/false abc
+RUN usermod -G users abc
 
-# Define /config in the configuration file not using environment variables
-ADD plexmediaserver /etc/default/plexmediaserver
 
 #Adding Custom files
 ADD init/ /etc/my_init.d/
 ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run
 RUN chmod -v +x /etc/my_init.d/*.sh
+# Define /config in the configuration file not using environment variables
+ADD plexmediaserver /etc/default/plexmediaserver
