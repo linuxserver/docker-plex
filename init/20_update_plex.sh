@@ -1,7 +1,7 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 INSTALLED=`dpkg-query -W -f='${Version}' plexmediaserver`
-if [ -z "$PLEXPASS" ]; then
+if [ "$PLEXPASS" -eq "1" ]; then
 	VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/public)
 else
 	VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/plexpass)
