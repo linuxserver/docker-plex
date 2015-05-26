@@ -2,9 +2,9 @@
 export DEBIAN_FRONTEND=noninteractive
 INSTALLED=`dpkg-query -W -f='${Version}' plexmediaserver`
 if [ -z "$PLEXPASS" ]; then
-	VERSION=$(curl https://lonix.me/mirror/plex/plexPub.ver)
+	VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/public)
 else
-	VERSION=$(curl https://lonix.me/mirror/plex/plexPass.ver)
+	VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/plexpass)
 fi
 if [ "$VERSION" == "$INSTALLED" ]; then
 exit 0;
