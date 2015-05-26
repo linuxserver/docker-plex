@@ -11,10 +11,11 @@ CMD ["/sbin/my_init"]
 
 # Install Plex
 RUN apt-get -q update && \
+VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/public) && \
 apt-get install -qy gdebi-core wget && \
-wget -P /tmp http://downloads.plexapp.com/plex-media-server/0.9.9.14.531-7eef8c6/plexmediaserver_0.9.9.14.531-7eef8c6_amd64.deb && \
-gdebi -n /tmp/plexmediaserver_0.9.9.14.531-7eef8c6_amd64.deb && \
-rm -f /tmp/plexmediaserver_0.9.9.14.531-7eef8c6_amd64.deb && \
+wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb" && \
+gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb && \
+rm -f /tmp/plexmediaserver_${VERSION}_amd64.deb && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
