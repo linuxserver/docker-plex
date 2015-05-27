@@ -23,3 +23,8 @@ Plex organizes video, music and photos from personal media libraries and streams
 ```
 docker create --name=<name> --net=host -e PUID=<UID> -e PGID=<GID> -v </path/to/library>:/config -v <path/to/tvseries>:/data/tvshows -v </path/to/films>:/data/film linuxserver/plex
 ```
+
+## Support at: 
+
+- [linuxserver.io](http://linuxserver.io)
+- #linuxserver.io@freenode
