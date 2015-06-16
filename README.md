@@ -39,7 +39,7 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 ## Updates / Monitoring
 
-* Upgrade to the latest version simply `docker restart plex`.
+* Upgrade to the latest version of Plex simply `docker restart plex`.
 * Monitor the logs of the container in realtime `docker logs -f plex`.
 
 **Credits**
