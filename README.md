@@ -37,13 +37,6 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 In summary the `PGID` and `PUID` values set the user / group you'd like your container to 'run as' to the host OS. This can be a user you've created or even root (not recommended).
 
-#### unRAID notes
-
-If you wish to run this container on unRAID use the following values:
-
-* `-e PUID=99` (nobody)
-* `-e PGID=100` (users)
-
 ## Updates
 
 * Upgrade to the latest version simply `docker restart plex`.
