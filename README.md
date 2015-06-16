@@ -11,7 +11,7 @@ The [LinuxServer.io](http://linuxserver.io) team brings you another quality cont
 ## Usage
 
 ```
-docker create 
+docker create \
 	--name=plex \ 
 	--net=host \
 	-e PLEXPASS=1 \
