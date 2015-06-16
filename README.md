@@ -25,11 +25,11 @@ docker create
 **Parameters**
 
 * `--net=host` - Shares host networking with container, **required**.
-* `-v` /config - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
-* `-v` /data/xyz - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
-* `-e` PLEXPASS=1 - Set to 1 if you have a Plex Pass, if not don't specify it.
-* `-e` PGID for for GroupID - see below for explanation
-* `-e` PUID for for UserID - see below for explanation
+* `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
+* `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
+* `-e PLEXPASS=1` - Set to 1 if you have a Plex Pass, if not don't specify it.
+* `-e PGID` for for GroupID - see below for explanation
+* `-e PUID` for for UserID - see below for explanation
 
 ### User / Group Identifiers
 
