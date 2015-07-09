@@ -15,7 +15,7 @@ docker create \
 	--name=plex \ 
 	--net=host \
 	-e PLEXPASS=1 \
-	-e VERSION="0.9.12.4.1192-9a47d21"
+	-e VERSION="0.9.12.4.1192-9a47d21" \
 	-e PUID=<UID> -e PGID=<GID> \
 	-v </path/to/library>:/config \
 	-v <path/to/tvseries>:/data/tvshows \
@@ -29,7 +29,7 @@ docker create \
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
 * `-e PLEXPASS=1` - Set to 1 if you have a Plex Pass, if not don't specify it.
-* `-e VERSION" - Set this to a full version number if you want to use a spesific version e.g. "0.9.12.4.1192-9a47d21"
+* `-e VERSION` - Set this to a full version number if you want to use a spesific version e.g. "0.9.12.4.1192-9a47d21"
 * `-e PGID` for for GroupID - see below for explanation
 * `-e PUID` for for UserID - see below for explanation
 
@@ -52,11 +52,6 @@ Part of what makes our containers work so well is by allowing you to specify you
 Auto-updating Ubuntu (phusion) based Plex Media Server container, brought to you by LinuxServer.io
 
 ## Changelog
-<<<<<<< 849e34dbf36814dc31604fd13e49b099d04d0c42
-+ **08.07.2015:** Now Truely autoupdate.
-+ **03.07.2015:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.
-=======
 + **09.07.2015:** Now with ability to pick static versionnumber.
 + **08.07.2015:** Now with autoupdates. (Hosted by fanart.tv)
 + **03.07.2015:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.
->>>>>>> d028f2ddbbb31a069fea745b96832488abceeb84
