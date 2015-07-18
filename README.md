@@ -52,6 +52,8 @@ Part of what makes our containers work so well is by allowing you to specify you
 Auto-updating Ubuntu (phusion) based Plex Media Server container, brought to you by LinuxServer.io
 
 ## Changelog
+
++ **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implented bugfix thanks to ljm42.
 + **09.07.2015:** Now with ability to pick static versionnumber.
 + **08.07.2015:** Now with autoupdates. (Hosted by fanart.tv)
 + **03.07.2015:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.
