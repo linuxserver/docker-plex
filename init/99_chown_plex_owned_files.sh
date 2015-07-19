@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-if [ -d "/config/Library/Application Support" ]; then
-find "/config/Library/Application Support" \! -user abc -exec chown -h abc:abc {} \;
-find "/config/Library/Application Support" \! -group abc -exec chown -h abc:abc {} \;
+if [ -d "/config/Library" ]; then
+find "/config/Library" \! -user abc -exec chown -h abc:abc {} \;
+find "/config/Library" \! -group abc -exec chown -h abc:abc {} \;
+chmod -R ug+w "/config/Library"
 fi
