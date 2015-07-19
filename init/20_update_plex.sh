@@ -4,10 +4,10 @@ INSTALLED=`dpkg-query -W -f='${Version}' plexmediaserver`
 if [ $VERSION ]; then 
 	echo "Useing version: $VERSION from Manual"
 elif [ "$PLEXPASS" == "1" ]; then
-	VERSION=$(curl -s http://tools.linuxserver.io/latest-plexpass.json | grep "version" | cut -d '"' -f 4)
+	VERSION=$(curl -s https://tools.linuxserver.io/latest-plexpass.json | grep "version" | cut -d '"' -f 4)
 	echo "Useing version: $VERSION from Plexpass latest"
 else
-	VERSION=$(curl -s http://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4)
+	VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4)
 	echo "Useing version: $VERSION from Public latest"
 fi
 if [ "$VERSION" == "$INSTALLED" ]; then

@@ -11,7 +11,7 @@ CMD ["/sbin/my_init"]
 
 # Install Plex
 RUN apt-get -q update && \
-VERSION=$(curl -s http://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4) && \
+VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4) && \
 apt-get install -qy dbus gdebi-core avahi-daemon wget && \
 wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb" && \
 gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb && \
