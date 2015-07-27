@@ -2,9 +2,10 @@
 
 if [ "$(id -u abc)" != "$PUID" ]; then usermod -u "$PUID" abc ; fi
 if [ "$(id -g abc)" != "$PGID" ]; then groupmod -o -g  "$PGID" abc ; fi
-chown -R abc:abc /config
-chmod ug+rw /config
-find /config -type d -print0 | xargs -0 chmod ug+rwx
+find /config -not \( -user abc -a -group abc \) -exec chown abc:abc {} +
+# May not be a good idea to mess with permissions set by Plex
+#find /config -type f -a -perm -0660 -exec chmod ug+rw {} +
+#find /config -type d -a -perm -0770 -exec chmod ug+rwx {} +
 
 echo "
 -----------------------------------
