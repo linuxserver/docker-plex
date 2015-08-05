@@ -1,9 +1,5 @@
-FROM phusion/baseimage:0.9.16
+FROM linuxserver/baseimage
 MAINTAINER Stian Larsen <lonixx@gmail.com>
-RUN rm -rf /etc/service/sshd /etc/my_init.d/00_regen_ssh_host_keys.sh
-ENV DEBIAN_FRONTEND noninteractive
-ENV HOME /root
-
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
@@ -11,8 +7,8 @@ CMD ["/sbin/my_init"]
 
 # Install Plex
 RUN apt-get -q update && \
-VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/public) && \
-apt-get install -qy dbus avahi-daemon gdebi-core wget && \
+VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4) && \
+apt-get install -qy dbus gdebi-core avahi-daemon wget && \
 wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb" && \
 gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb && \
 rm -f /tmp/plexmediaserver_${VERSION}_amd64.deb && \

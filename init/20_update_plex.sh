@@ -1,10 +1,14 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 INSTALLED=`dpkg-query -W -f='${Version}' plexmediaserver`
-if [ "$PLEXPASS" == "1" ]; then
-	VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/plexpass)
+if [ $VERSION ]; then 
+	echo "Useing version: $VERSION from Manual"
+elif [ "$PLEXPASS" == "1" ]; then
+	VERSION=$(curl -s https://tools.linuxserver.io/latest-plexpass.json | grep "version" | cut -d '"' -f 4)
+	echo "Useing version: $VERSION from Plexpass latest"
 else
-	VERSION=$(curl https://raw.githubusercontent.com/linuxserver/misc-files/master/plex-version/public)
+	VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4)
+	echo "Useing version: $VERSION from Public latest"
 fi
 if [ "$VERSION" == "$INSTALLED" ]; then
 exit 0;
