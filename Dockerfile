@@ -1,10 +1,6 @@
 FROM linuxserver/baseimage
 MAINTAINER Stian Larsen <lonixx@gmail.com>
 
-# Use baseimage-docker's init system
-CMD ["/sbin/my_init"]
-
-
 # Install Plex
 RUN apt-get -q update && \
 VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4) && \
@@ -18,11 +14,6 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #Mappings and ports
 VOLUME /config
 EXPOSE 32400
-
-#Adduser
-RUN useradd -u 911 -U -s /bin/false abc
-RUN usermod -G users abc
-
 
 #Adding Custom files
 ADD init/ /etc/my_init.d/
