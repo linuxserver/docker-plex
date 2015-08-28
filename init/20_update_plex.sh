@@ -18,20 +18,20 @@ else
 fi
 
 last=130
-if [[ ! "$VERSION" == "$INSTALLED " ]]; then
+if [[ "$VERSION" != "$INSTALLED " ]]; then
 	echo "Upgradeing from version: $INSTALLED to version: $VERSION"
 	while [[ $last -ne "0" ]]; do
 		rm -f /tmp/plexmediaserver_*.deb
 		wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
 		last=$?
-		cp /defaults/plexmediaserver /etc/default/plexmediaserver
 	done
+	cp -v /defaults/plexmediaserver /etc/default/plexmediaserver
+	apt-get remove --purge -y plexmediaserver
+	gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb
 else
 	echo "Allready Uptodate"
 fi
 
-apt-get remove --purge -y plexmediaserver
-gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb
 
 
 
