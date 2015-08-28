@@ -1,7 +1,7 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 
- 
+ INSTALLED=`dpkg-query -W -f='${Version}' plexmediaserver`
 
 if [[ "$PLEXPASS" ]]; then 
 	echo "PLEXPASS is depricated, please use VERSION"
@@ -18,12 +18,16 @@ else
 fi
 
 last=130
-
-while [ last -ne "0"]; do
-	rm -f /tmp/plexmediaserver_*.deb
-	wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
-	last=$?
-done
+if [[ ! "$VERSION" == "$INSTALLED "]]; then
+	echo "Upgradeing from version: $INSTALLED to version: $VERSION"
+	while [ last -ne "0"]; do
+		rm -f /tmp/plexmediaserver_*.deb
+		wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
+		last=$?
+	done
+else
+	echo "Allready Uptodate"
+fi
 
 apt-get remove --purge -y plexmediaserver
 gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb
