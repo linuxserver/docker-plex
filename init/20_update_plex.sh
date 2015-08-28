@@ -24,6 +24,7 @@ if [[ ! "$VERSION" == "$INSTALLED " ]]; then
 		rm -f /tmp/plexmediaserver_*.deb
 		wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
 		last=$?
+		cp /defaults/plexmediaserver /etc/default/plexmediaserver
 	done
 else
 	echo "Allready Uptodate"

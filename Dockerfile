@@ -11,9 +11,7 @@ rm -f /tmp/plexmediaserver_${VERSION}_amd64.deb && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#Mappings and ports
-VOLUME /config
-EXPOSE 32400
+
 
 #Adding Custom files
 ADD init/ /etc/my_init.d/
@@ -21,4 +19,8 @@ ADD services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run
 RUN chmod -v +x /etc/my_init.d/*.sh
 # Define /config in the configuration file not using environment variables
-ADD plexmediaserver /etc/default/plexmediaserver
+ADD plexmediaserver /defaults/plexmediaserver
+
+#Mappings and ports
+VOLUME /config
+EXPOSE 32400
