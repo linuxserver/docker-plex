@@ -18,9 +18,9 @@ else
 fi
 
 last=130
-if [[ ! "$VERSION" == "$INSTALLED "]]; then
+if [[ ! "$VERSION" == "$INSTALLED " ]]; then
 	echo "Upgradeing from version: $INSTALLED to version: $VERSION"
-	while [ last -ne "0"]; do
+	while [[ $last -ne "0" ]]; do
 		rm -f /tmp/plexmediaserver_*.deb
 		wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
 		last=$?
