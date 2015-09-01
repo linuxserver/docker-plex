@@ -27,10 +27,10 @@ if [[ "$VERSION" != "$INSTALLED " ]]; then
 	done
 	apt-get remove --purge -y plexmediaserver
 	gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb
-	cp -v /defaults/plexmediaserver /etc/default/plexmediaserver
 else
 	echo "Allready Uptodate"
 fi
+cp -v /defaults/plexmediaserver /etc/default/plexmediaserver
 
 
 
