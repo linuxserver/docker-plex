@@ -22,7 +22,7 @@ if [[ "$VERSION" != "$INSTALLED" ]]; then
 	echo "Upgradeing from version: $INSTALLED to version: $VERSION"
 	while [[ $last -ne "0" ]]; do
 		rm -f /tmp/plexmediaserver_*.deb
-		wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
+		wget -P /tmp "https://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
 		last=$?
 	done
 	apt-get remove --purge -y plexmediaserver
