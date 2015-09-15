@@ -44,6 +44,7 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 ## Changelog
 
++ **19.09.2015:** Plex updateed theyre download servers from http to https
 + **28.08.2015:** Removed plexpass from rutine, and now uses VERSION as a combination fix.
 + **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implented bugfix thanks to ljm42.
 + **09.07.2015:** Now with ability to pick static versionnumber.
