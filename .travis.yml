@@ -1,0 +1,10 @@
+sudo: false
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - shellcheck
+script:
+  - shellcheck --version
+  - find . -type f -name '*.sh' | while read file; do echo "Linting $file"; shellcheck $file || exit 1; done

@@ -7,7 +7,7 @@ PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
 PLEX_MEDIA_SERVER_MAX_STACK_SIZE=3000
 
 # where the mediaserver should store the transcodes
-PLEX_MEDIA_SERVER_TMPDIR=/tmp
+PLEX_MEDIA_SERVER_TMPDIR=/transcode
 
 # uncomment to set it to something else
 PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support"

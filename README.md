@@ -12,22 +12,24 @@ The [LinuxServer.io](http://linuxserver.io) team brings you another quality cont
 
 ```
 docker create \
-	--name=plex \ 
-	--net=host \
-	-e VERSION="plexpass" \
-	-e PUID=<UID> -e PGID=<GID> \
-	-v </path/to/library>:/config \
-	-v <path/to/tvseries>:/data/tvshows \
-	-v </path/to/movies>:/data/movies \
-	linuxserver/plex
+  --name=plex \
+  --net=host \
+  -e VERSION="plexpass" \
+  -e PUID=<UID> -e PGID=<GID> \
+  -v </path/to/library>:/config \
+  -v </path/to/transcode>:/transcode \
+  -v <path/to/tvseries>:/data/tvshows \
+  -v </path/to/movies>:/data/movies \
+  linuxserver/plex
 ```
 
 **Parameters**
 
 * `--net=host` - Shares host networking with container, **required**.
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
+* `-v /transcode` - Transcode directory to offload heavy writes in a docker container.
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
-* `-e VERSION` - Set this to a full version number if you want to use a spesific version e.g. `0.9.12.4.1192-9a47d21`, or set it to `plexpass` or `latest`
+* `-e VERSION` - Set this to a full version number if you want to use a specific version e.g. `0.9.12.4.1192-9a47d21`, or set it to `plexpass` or `latest`
 * `-e PGID` for for GroupID - see below for explanation
 * `-e PUID` for for UserID - see below for explanation
 
@@ -44,10 +46,12 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 ## Changelog
 
++ **17.09.2015:** Added travis-ci support and linting for shell files.
++ **17.09.2015:** Formatting cleanup. Improved update process. Switched to using chpst for runit. Transcoding moved out of /tmp to /transcode.
 + **17.09.2015:** Changed to run chmod only once
-+ **19.09.2015:** Plex updateed theyre download servers from http to https
-+ **28.08.2015:** Removed plexpass from rutine, and now uses VERSION as a combination fix.
-+ **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implented bugfix thanks to ljm42.
-+ **09.07.2015:** Now with ability to pick static versionnumber.
++ **16.09.2015:** Plex updated their download servers from http to https
++ **28.08.2015:** Removed plexpass from routine, and now uses VERSION as a combination fix.
++ **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42.
++ **09.07.2015:** Now with ability to pick static version number.
 + **08.07.2015:** Now with autoupdates. (Hosted by fanart.tv)
 + **03.07.2015:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.

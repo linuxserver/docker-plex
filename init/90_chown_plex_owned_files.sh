@@ -1,11 +1,10 @@
 #!/bin/bash
 
-if [ ! -d "/config/Library" ]; then
-  mkdir /config/Library
-  chown abc:abc /config/Library
-fi
+[ ! -d "/config/Library" ] && mkdir /config/Library
+[ ! -d "/transcode" ] && mkdir /transcode && chown abc:abc /transcode
 
-if [ ! -f "/config/Library/linuxserver-chown.lock" ]; then
-  find /config/Library ! \( -user abc -a -group root \) -print0 | xargs -0 chown abc:root
-  touch /config/Library/linuxserver-chown.lock
+# this is to allow users to import an existing plex install
+if [ ! -f "/config/Library/linuxserverio-chown.lock" ]; then
+  find /config/Library ! \( -user abc -a -group abc \) -print0 | xargs -0 chown abc:abc
+  touch /config/Library/linuxserverio-chown.lock
 fi
