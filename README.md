@@ -16,6 +16,7 @@ docker create \
 	--net=host \
 	-e VERSION="plexpass" \
 	-e PUID=<UID> -e PGID=<GID> \
+	-v </path/to/transcode>:/transcode \
 	-v </path/to/library>:/config \
 	-v <path/to/tvseries>:/data/tvshows \
 	-v </path/to/movies>:/data/movies \
@@ -26,6 +27,7 @@ docker create \
 
 * `--net=host` - Shares host networking with container, **required**.
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
+* `-v /transcode` *(optional)* - Transcode directory to offload heavy writes in a docker container.
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
 * `-e VERSION` - Set this to a full version number if you want to use a specific version e.g. `0.9.12.4.1192-9a47d21`, or set it to `plexpass` or `latest`
 * `-e PGID` for for GroupID - see below for explanation
@@ -44,6 +46,7 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 ## Changelog
 
++ **24.09.2015:** added optional support for volume transcoding (/transcode), and various typo fixes.
 + **17.09.2015:** Changed to run chmod only once
 + **19.09.2015:** Plex updated their download servers from http to https
 + **28.08.2015:** Removed plexpass from routine, and now uses VERSION as a combination fix.
