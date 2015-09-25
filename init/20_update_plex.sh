@@ -1,20 +1,31 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
-INSTALLED=`dpkg-query -W -f='${Version}' plexmediaserver`
-if [ $VERSION ]; then 
-	echo "Useing version: $VERSION from Manual"
-elif [ "$PLEXPASS" == "1" ]; then
+
+ INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
+
+[ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
+
+if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then
 	VERSION=$(curl -s https://tools.linuxserver.io/latest-plexpass.json | grep "version" | cut -d '"' -f 4)
 	echo "Useing version: $VERSION from Plexpass latest"
-else
+elif [[ $VERSION = "latest" || -z $VERSION ]]; then
 	VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4)
 	echo "Useing version: $VERSION from Public latest"
+else
+	echo "Useing version: $VERSION from Manual"
 fi
-if [ "$VERSION" == "$INSTALLED" ]; then
-exit 0;
+
+last=130
+if [[ "$VERSION" != "$INSTALLED" ]]; then
+  echo "Upgradeing from version: $INSTALLED to version: $VERSION"
+    while [[ $last -ne "0" ]]; do
+	  rm -f /tmp/plexmediaserver_*.deb
+	  wget -P /tmp "https://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
+	  last=$?
+	done
+	apt-get remove --purge -y plexmediaserver
+	gdebi -n /tmp/plexmediaserver_"${VERSION}"_amd64.deb
+else
+	echo "No need to update!"
 fi
-mv /etc/default/plexmediaserver /tmp/
-apt-get remove --purge -y plexmediaserver
-wget -P /tmp "http://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
-gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb
-mv /tmp/plexmediaserver /etc/default/
+cp -v /defaults/plexmediaserver /etc/default/plexmediaserver

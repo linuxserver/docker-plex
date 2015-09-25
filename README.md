@@ -6,7 +6,7 @@ The [LinuxServer.io](http://linuxserver.io) team brings you another quality cont
 
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
 
-![](https://plex.tv/assets/img/everywhere-img-en-2023ecb8d6373416cf9e7dc247d83951.jpg)
+![](https://press.plex.tv/wp-content/themes/plex-press/img/assets/plex-pms-icon.png)
 
 ## Usage
 
@@ -14,9 +14,9 @@ The [LinuxServer.io](http://linuxserver.io) team brings you another quality cont
 docker create \
 	--name=plex \ 
 	--net=host \
-	-e PLEXPASS=1 \
-	-e VERSION="0.9.12.4.1192-9a47d21" \
+	-e VERSION="plexpass" \
 	-e PUID=<UID> -e PGID=<GID> \
+	-v </path/to/transcode>:/transcode \
 	-v </path/to/library>:/config \
 	-v <path/to/tvseries>:/data/tvshows \
 	-v </path/to/movies>:/data/movies \
@@ -27,9 +27,9 @@ docker create \
 
 * `--net=host` - Shares host networking with container, **required**.
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
+* `-v /transcode` *(optional)* - Transcode directory to offload heavy writes in a docker container.
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
-* `-e PLEXPASS=1` - Set to 1 if you have a Plex Pass, if not don't specify it.
-* `-e VERSION` - Set this to a full version number if you want to use a spesific version e.g. "0.9.12.4.1192-9a47d21"
+* `-e VERSION` - Set this to a full version number if you want to use a specific version e.g. `0.9.12.4.1192-9a47d21`, or set it to `plexpass` or `latest`
 * `-e PGID` for for GroupID - see below for explanation
 * `-e PUID` for for UserID - see below for explanation
 
@@ -44,16 +44,13 @@ Part of what makes our containers work so well is by allowing you to specify you
 * Upgrade to the latest version of Plex simply `docker restart plex`.
 * Monitor the logs of the container in realtime `docker logs -f plex`.
 
-**Credits**
-
-* lonix <lonixx@gmail.com>
-* IronicBadger <ironicbadger@linuxserver.io>
-
-Auto-updating Ubuntu (phusion) based Plex Media Server container, brought to you by LinuxServer.io
-
 ## Changelog
 
-+ **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implented bugfix thanks to ljm42.
-+ **09.07.2015:** Now with ability to pick static versionnumber.
++ **24.09.2015:** added optional support for volume transcoding (/transcode), and various typo fixes.
++ **17.09.2015:** Changed to run chmod only once
++ **19.09.2015:** Plex updated their download servers from http to https
++ **28.08.2015:** Removed plexpass from routine, and now uses VERSION as a combination fix.
++ **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42.
++ **09.07.2015:** Now with ability to pick static version number.
 + **08.07.2015:** Now with autoupdates. (Hosted by fanart.tv)
 + **03.07.2015:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.
