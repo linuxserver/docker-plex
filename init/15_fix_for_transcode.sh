@@ -1,1 +1,3 @@
-chown abc:abc /transcode
+#!/bin/bash
+
+chown -c abc:abc /transcode
