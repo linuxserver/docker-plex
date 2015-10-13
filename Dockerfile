@@ -11,8 +11,6 @@ rm -f /tmp/plexmediaserver_${VERSION}_amd64.deb && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-
-
 #Adding Custom files
 ADD init/ /etc/my_init.d/
 ADD services/ /etc/service/
