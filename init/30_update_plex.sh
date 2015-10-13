@@ -1,7 +1,8 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 
- INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
+#The following error is not a error.
+INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 [ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
 
