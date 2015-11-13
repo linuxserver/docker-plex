@@ -5,7 +5,7 @@ MAINTAINER Stian Larsen <lonixx@gmail.com>
 RUN apt-get -q update && \
 VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4) && \
 apt-get install -qy dbus gdebi-core avahi-daemon wget && \
-wget -P /tmp "https://downloads.plexapp.com/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb" && \
+wget -P /tmp "https://downloads.plex.tv/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb" && \
 gdebi -n /tmp/plexmediaserver_${VERSION}_amd64.deb && \
 rm -f /tmp/plexmediaserver_${VERSION}_amd64.deb && \
 apt-get clean && \
