@@ -22,4 +22,3 @@ ADD plexmediaserver /defaults/plexmediaserver
 
 #Mappings and ports
 VOLUME ["/config", "/transcode"]
-EXPOSE 32400
