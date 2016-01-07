@@ -1,6 +1,8 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 
+while ! ping -c1 tools.linuxserver.io &>/dev/null; do :; done
+
 #The following error is not an error.
 INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
