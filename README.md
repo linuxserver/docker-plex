@@ -14,7 +14,7 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another quality con
 docker create \
 	--name=plex \ 
 	--net=host \
-	-e VERSION="plexpass" \
+	-e VERSION=plexpass \
 	-e PUID=<UID> -e PGID=<GID> \
 	-v </path/to/transcode>:/transcode \
 	-v </path/to/library>:/config \
@@ -29,7 +29,7 @@ docker create \
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
 * `-v /transcode` *(optional)* - Transcode directory to offload heavy writes in a docker container.
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
-* `-e VERSION` - Set this to a full version number if you want to use a specific version e.g. `0.9.12.4.1192-9a47d21`, or set it to `plexpass` or `latest`
+* `-e VERSION=` - Set this to a full version number if you want to use a specific version e.g. `0.9.12.4.1192-9a47d21`, or set it to `plexpass` or `latest`
 * `-e PGID` for for GroupID - see below for explanation
 * `-e PUID` for for UserID - see below for explanation
 
