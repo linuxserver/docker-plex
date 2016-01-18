@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# opt out for autoupdates
+[ "$ADVANCED_DISABLEUPDATES" ] && exit 0
+
 export DEBIAN_FRONTEND=noninteractive
 
 while ! ping -c1 tools.linuxserver.io &>/dev/null; do :; done
