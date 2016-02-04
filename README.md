@@ -9,7 +9,7 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
 
-![https://plex.tv](https://press.plex.tv/wp-content/themes/plex-press/img/assets/plex-pms-icon.png)
+![https://plex.tv](http://i2.wp.com/moonbooks.net/wp-content/uploads/2014/12/plex-logo-dark-small-77202045f47146129647bee8b1cac77c.png?resize=770%2C250)
 
 ## Usage
 
