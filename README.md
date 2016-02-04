@@ -54,7 +54,7 @@ Sometimes when using data volumes (`-v` flags) permissions issues can arise betw
 In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
 
 ```
-  $ `id <dockeruser>`
+  $ id <dockeruser>
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
