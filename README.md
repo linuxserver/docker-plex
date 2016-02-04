@@ -38,12 +38,12 @@ docker create \
 
 *Special note* - If you'd like to run Plex without requiring `--net=host` then you will need the following ports in your `docker create` command:
 
-		-p 32400:32400 \
-		-p 32400:32400/udp \
-		-p 32469:32469 \
-		-p 32469:32469/udp \
-		-p 5353:5353/udp \
-		-p 1900:1900/udp
+  -p 32400:32400 \
+  -p 32400:32400/udp \
+  -p 32469:32469 \
+  -p 32469:32469/udp \
+  -p 5353:5353/udp \
+  -p 1900:1900/udp
 
 ### User / Group Identifiers
 
@@ -51,8 +51,8 @@ Sometimes when using data volumes (`-v` flags) permissions issues can arise betw
 
 In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as below:
 
-	$ id dockeruser
-		uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+  $ id dockeruser
+    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 
 ## Updates / Monitoring
 
