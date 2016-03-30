@@ -13,11 +13,10 @@ INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 [ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
 
 if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then
-	VERSION=$(curl -s https://tools.linuxserver.io/latest-plexpass.json | grep "version" | cut -d '"' -f 4)
-	echo "Using version: $VERSION from Plexpass latest"
+	echo "Usage of VERSION=PLEXPASS is depricated. latest\plexpass is automatic based upon your plex account."
 elif [[ $VERSION = "latest" || -z $VERSION ]]; then
 	VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4)
-	echo "Using version: $VERSION from Public latest"
+	echo "Using version: $VERSION from latest"
 else
 	echo "Using version: $VERSION from Manual"
 fi
