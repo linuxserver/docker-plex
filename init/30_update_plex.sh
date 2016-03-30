@@ -44,7 +44,7 @@ elif [[ "$VERSION" != "$INSTALLED" ]]; then
 	  last=$?
 	done
 	apt-get remove --purge -y plexmediaserver
-	gdebi -n /tmp/plexmediaserver_"${VERSION}"_amd64.deb
+	dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
 else
 	echo "No need to update!"
 fi
