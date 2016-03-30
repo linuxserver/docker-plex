@@ -10,16 +10,28 @@ while ! ping -c1 tools.linuxserver.io &>/dev/null; do :; done
 #The following error is not an error.
 INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
-[ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
 
-if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then
-	echo "Usage of VERSION=PLEXPASS is depricated. latest\plexpass is automatic based upon your plex account."
-elif [[ $VERSION = "latest" || -z $VERSION ]]; then
-	VERSION=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "version" | cut -d '"' -f 4)
-	echo "Using version: $VERSION from latest"
+#Get stuff from things.
+PLEX_TOKEN=$()
+[ -z PLEX_TOKEN ] && echo "Plex token not avalible, please login " && exit 0
+PLEX_LATEST=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
+
+[ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
+if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is depricated please use version latest"; fi
+
+
+#Start update rutine
+
+
+if [ "$VERSION" = latest || "$VERSION" = plexpass ]; then
+	VERSION=$PLEX_LATEST
+	echo "Target version: $VERSION set by: latest\plexpass"
 else
-	echo "Using version: $VERSION from Manual"
+	echo "Target version: $VERSION set by: manually"
 fi
+
+
+
 
 last=130
 if [[ "$VERSION" == "" ]]; then
