@@ -6,7 +6,7 @@ RUN apt-get -q update && \
 PLEXURL=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "ubuntu64" | cut -d '"' -f 4) && \
 apt-get install -qy dbus avahi-daemon wget && \
 wget -P /tmp "$PLEXURL" && \
-gdebi -n /tmp/plexmediaserver_*_amd64.deb && \
+dpkg -i /tmp/plexmediaserver_*_amd64.deb && \
 rm -f /tmp/plexmediaserver_*_amd64.deb && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
