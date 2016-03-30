@@ -23,7 +23,7 @@ if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "
 #Start update rutine
 
 
-if [ "$VERSION" = latest || "$VERSION" = plexpass ]; then
+if [[] "$VERSION" = latest || "$VERSION" = plexpass ]]; then
 	VERSION=$PLEX_LATEST
 	echo "Target version: $VERSION set by: latest\plexpass"
 else
