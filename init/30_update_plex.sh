@@ -26,6 +26,7 @@ if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "
 if [[ "$VERSION" = latest || "$VERSION" = plexpass ]]; then
 	VERSION=$PLEX_LATEST
 	echo "Target version: $VERSION set by: latest\plexpass"
+elif [[ -z "$VERSION" ]]; then
 else
 	echo "Target version: $VERSION set by: manually"
 fi
