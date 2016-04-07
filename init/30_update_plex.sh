@@ -13,7 +13,7 @@ INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 #Get stuff from things.
 PLEX_TOKEN=$(cat "/config/Library/Application Support/Plex Media Server/Preferences.xml" | sed -n 's/.*PlexOnlineToken="//p' | sed "s/\".*//")
-[ -z PLEX_TOKEN ] && echo "Plex token not avalible, please login " && exit 0
+[ -z $PLEX_TOKEN ] && echo "Plex token not avalible, please login " && exit 0
 PLEX_LATEST=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 
 [ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
