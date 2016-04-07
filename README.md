@@ -17,7 +17,7 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 docker create \
 	--name=plex \
 	--net=host \
-	-e VERSION=plexpass \
+	-e VERSION=latest \
 	-e PUID=<UID> -e PGID=<GID> \
 	-v </path/to/library>:/config \
 	-v <path/to/tvseries>:/data/tvshows \
@@ -30,7 +30,7 @@ docker create \
 * `--net=host` - Shares host networking with container, **required**.
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
-* `-e VERSION=` - *(optional)* - Permits specific version selection e.g. `0.9.12.4.1192-9a47d21`, also supports `plexpass` or `latest`
+* `-e VERSION=latest` - Permits specific version selection e.g. `0.9.12.4.1192-9a47d21`, also supports `latest`. If left blank, auto update is disabled until set.
 * `-e PGID=` for for GroupID - see below for explanation
 * `-e PUID=` for for UserID - see below for explanation
 
@@ -64,6 +64,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ## Changelog
 
++ **07.04.2016:** removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS
 + **24.09.2015:** added optional support for volume transcoding (/transcode), and various typo fixes.
 + **17.09.2015:** Changed to run chmod only once
 + **19.09.2015:** Plex updated their download servers from http to https
