@@ -7,6 +7,8 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 # linuxserver/plex
 
+[![](https://badge.imagelayers.io/linuxserver/plex:latest.svg)](https://imagelayers.io/?images=linuxserver/plex:latest 'Get your own badge on imagelayers.io')
+
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
 
 ![https://plex.tv](http://i2.wp.com/moonbooks.net/wp-content/uploads/2014/12/plex-logo-dark-small-77202045f47146129647bee8b1cac77c.png?resize=770%2C250 "Plex logo")
