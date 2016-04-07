@@ -4,9 +4,9 @@ MAINTAINER Stian Larsen <lonixx@gmail.com>
 # Install Plex
 RUN apt-get -q update && \
 PLEXURL=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "ubuntu64" | cut -d '"' -f 4) && \
-apt-get install -qy dbus gdebi-core avahi-daemon wget && \
+apt-get install -qy dbus avahi-daemon wget && \
 wget -P /tmp "$PLEXURL" && \
-gdebi -n /tmp/plexmediaserver_*_amd64.deb && \
+dpkg -i /tmp/plexmediaserver_*_amd64.deb && \
 rm -f /tmp/plexmediaserver_*_amd64.deb && \
 apt-get clean && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -22,4 +22,4 @@ ADD plexmediaserver /defaults/plexmediaserver
 
 #Mappings and ports
 VOLUME ["/config", "/transcode"]
-EXPOSE 32400
+EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
