@@ -3,7 +3,6 @@ MAINTAINER Stian Larsen <lonixx@gmail.com>
 
 # Install Plex
 RUN apt-get -q update && \
-PLEXURL=$(curl -s https://tools.linuxserver.io/latest-plex.json| grep "ubuntu64" | cut -d '"' -f 4) && \
 apt-get install -qy dbus avahi-daemon wget && \
 curl -L 'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' -o /tmp/plexmediaserver.deb && \
 dpkg -i /tmp/plexmediaserver.deb && rm -f /tmp/plexmediaserver.deb && \
@@ -17,7 +16,7 @@ COPY services/ /etc/service/
 RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
 
 # Define /config in the configuration file not using environment variables
-ADD plexmediaserver /defaults/plexmediaserver
+COPY plexmediaserver /defaults/plexmediaserver
 
 #Mappings and ports
 VOLUME ["/config", "/transcode"]
