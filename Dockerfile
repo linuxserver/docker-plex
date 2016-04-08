@@ -19,5 +19,5 @@ RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
 COPY plexmediaserver /defaults/plexmediaserver
 
 #Mappings and ports
-VOLUME ["/config", "/transcode"]
+VOLUME ["/config"]
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
