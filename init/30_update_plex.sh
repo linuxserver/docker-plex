@@ -14,7 +14,6 @@ INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 #Get stuff from things.
 PLEX_TOKEN=$( sed -n 's/.*PlexOnlineToken="//p' "/config/Library/Application Support/Plex Media Server/Preferences.xml" | sed "s/\".*//")
 [ -z "$PLEX_TOKEN" ] && echo "Plex token not avalible, please login " && exit 0
-PLEX_LATEST=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 
 [ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
 if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is depricated please use version latest"; fi
@@ -24,8 +23,11 @@ if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "
 
 
 if [[ "$VERSION" = latest || "$VERSION" = plexpass ]]; then
-	VERSION=$PLEX_LATEST
+	VERSION=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 	echo "Target version: $VERSION set by: latest\plexpass"
+elif [[ "$VERSION" = public ]]; then
+	VERSION=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token="| cut -d "/" -f 5 )
+	echo "Target version: $VERSION set by: public"
 elif [[ -z "$VERSION" ]]; then
 	echo "Target version: Version not set, Defaulting to supplied version"
 else
