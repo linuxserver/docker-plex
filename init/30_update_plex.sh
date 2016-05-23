@@ -18,7 +18,7 @@ PLEX_TOKEN=$( sed -n 's/.*PlexOnlineToken="//p' "/config/Library/Application Sup
 [ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
 if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is depricated please use version latest"; fi
 
-v
+
 #Start update rutine
 
 
