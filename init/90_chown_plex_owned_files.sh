@@ -6,6 +6,6 @@ if [ ! -d "/config/Library" ]; then
 fi
 
 if [ ! -f "/config/Library/linuxserver-chown.lock" ]; then
-  find /config/Library ! \( -user abc -a -group root \) -print0 | xargs -0 chown abc:root
+  find /config/Library ! \( -user abc -a -group abc \) -print0 | xargs -0 chown abc:abc
   touch /config/Library/linuxserver-chown.lock
 fi
