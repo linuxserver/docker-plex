@@ -1,23 +1,53 @@
-FROM linuxserver/baseimage
-MAINTAINER Stian Larsen <lonixx@gmail.com>
+FROM ubuntu:16.04
+MAINTAINER Stian Larsen, sparklyballs
 
-# Install Plex
-RUN apt-get -q update && \
-apt-get install -qy dbus avahi-daemon wget && \
-curl -L 'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' -o /tmp/plexmediaserver.deb && \
-dpkg -i /tmp/plexmediaserver.deb && rm -f /tmp/plexmediaserver.deb && \
-apt-get clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# global environment settings
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV HOME="/config"
+ENV TERM="xterm"
+
+# add abc user and make folders
+RUN \
+ useradd -u 911 -U -d /config -s /bin/false abc && \
+ usermod -G users abc && \
+ mkdir -p \
+	/config
+
+# install packages
+RUN \
+ apt-get update && \
+ apt-get install -y \
+	apt-utils && \
+ apt-get install -y \
+	avahi-daemon \
+	curl \
+	dbus \
+	wget && \
+
+# add s6 overlay
+ curl -o \
+	/tmp/s6.tar.gz -L \
+	https://github.com/just-containers/s6-overlay/releases/download/v1.17.2.0/s6-overlay-amd64.tar.gz && \
+ tar xvf /tmp/s6.tar.gz -C / && \
+
+# cleanup
+ apt-get clean && \
+ rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+
+# install plex
+RUN \
+ curl -o \
+	/tmp/plexmediaserver.deb -L \
+	'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' && \
+ dpkg -i /tmp/plexmediaserver.deb && \
+	rm -f /tmp/plexmediaserver.deb
 
 
-#Adding Custom files
-COPY init/ /etc/my_init.d/
-COPY services/ /etc/service/
-RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
+ENTRYPOINT ["/init"]
 
-# Define /config in the configuration file not using environment variables
-COPY plexmediaserver /defaults/plexmediaserver
+# add local files
+COPY root/ /
 
-#Mappings and ports
-VOLUME ["/config"]
+# ports and volumes
+VOLUME /config
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp

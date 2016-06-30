@@ -66,12 +66,13 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 ## Changelog
 
-+ **07.04.2016:** removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS
-+ **24.09.2015:** added optional support for volume transcoding (/transcode), and various typo fixes.
-+ **17.09.2015:** Changed to run chmod only once
-+ **19.09.2015:** Plex updated their download servers from http to https
-+ **28.08.2015:** Removed plexpass from routine, and now uses VERSION as a combination fix.
-+ **18.07.2015:** Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42.
-+ **09.07.2015:** Now with ability to pick static version number.
-+ **08.07.2015:** Now with autoupdates. (Hosted by fanart.tv)
-+ **03.07.2015:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.
++ **30.06.16:** Rebased to xenial and s6 overlay
++ **07.04.16:** removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS
++ **24.09.15:** added optional support for volume transcoding (/transcode), and various typo fixes.
++ **17.09.15:** Changed to run chmod only once
++ **19.09.15:** Plex updated their download servers from http to https
++ **28.08.15:** Removed plexpass from routine, and now uses VERSION as a combination fix.
++ **18.07.15:** Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42.
++ **09.07.15:** Now with ability to pick static version number.
++ **08.07.15:** Now with autoupdates. (Hosted by fanart.tv)
++ **03.07.15:** Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this.
