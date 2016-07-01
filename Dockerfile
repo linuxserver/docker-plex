@@ -4,7 +4,6 @@ MAINTAINER Stian Larsen, sparklyballs
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config"
-ENV TERM="xterm"
 
 # install packages
 RUN \
