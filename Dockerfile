@@ -11,6 +11,7 @@ RUN \
  apt-get install -y \
 	avahi-daemon \
 	dbus \
+	less \
 	wget && \
 # cleanup
  apt-get clean && \
