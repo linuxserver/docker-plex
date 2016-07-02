@@ -10,7 +10,8 @@ cat > "${NOTOKEN_SET}" <<-EOFTOKEN
 
 
 #####################################################
-# Login via webui and restart, because there was no #
+#   Login via the webui at http://<ip>:32400/web    #
+#   and restart the docker, because there was no    #
 EOFTOKEN
 
 # if preferences files doesn't exist, exit out
@@ -33,7 +34,7 @@ PLEX_TOKEN=$( sed -n 's/.*PlexOnlineToken="//p' \
 # if plex token isn't found, exit out
 if [ -z "$PLEX_TOKEN" ]; then
 cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
-#   plex token in the preferences file in config    #
+#      plex token found in the preference file      #
 #####################################################
 
 
