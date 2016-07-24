@@ -67,7 +67,7 @@ fi
 
 last=130
 if [[ "$VERSION" == "" ]]; then
-  echo "ERROR: No version found, running installed version $INSTALLED"
+  echo "VERSION variable not set, current installed version $INSTALLED"
 elif [[ "$VERSION" != "$INSTALLED" ]]; then
   echo "Upgrading from version: $INSTALLED to version: $VERSION"
     while [[ $last -ne "0" ]]; do
@@ -75,6 +75,7 @@ elif [[ "$VERSION" != "$INSTALLED" ]]; then
 	  wget -P /tmp "https://downloads.plex.tv/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
 	  last=$?
 	done
+	[[ ! -e /tmp/plexmediaserver_"${VERSION}"_amd64.deb ]] && exit 0
 	apt-get remove --purge -y plexmediaserver
 	dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
 else
