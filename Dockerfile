@@ -1,6 +1,9 @@
 FROM lsiobase/xenial
 MAINTAINER Stian Larsen, sparklyballs
 
+# package version
+ARG PLEX_WWW="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
+
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config"
@@ -13,6 +16,7 @@ RUN \
 	dbus \
 	less \
 	wget && \
+
 # cleanup
  apt-get clean && \
  rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
@@ -21,9 +25,9 @@ RUN \
 RUN \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
-	'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' && \
+	"${PLEX_WWW}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
-	rm -f /tmp/plexmediaserver.deb
+	rm -f /tmp/*
 
 # add local files
 COPY root/ /
