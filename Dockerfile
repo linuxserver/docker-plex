@@ -2,7 +2,8 @@ FROM lsiobase/xenial
 MAINTAINER Stian Larsen, sparklyballs
 
 # package version
-ARG PLEX_WWW="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
+ENV PLEX_URL="https://plex.tv/downloads"
+ARG PLEX_WWW="${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
