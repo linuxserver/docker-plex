@@ -34,5 +34,5 @@ RUN \
 COPY root/ /
 
 # ports and volumes
-VOLUME /config
+VOLUME /config /transcode
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
