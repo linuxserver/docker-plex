@@ -24,6 +24,7 @@ docker create \
 	-v </path/to/library>:/config \
 	-v <path/to/tvseries>:/data/tvshows \
 	-v </path/to/movies>:/data/movies \
+	-v </path for transcoding>:/transcode \
 	linuxserver/plex
 ```
 
@@ -32,6 +33,7 @@ docker create \
 * `--net=host` - Shares host networking with container, **required**.
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
+* `-v /transcode` - Path for transcoding folder, *optional*.
 * `-e VERSION=latest` - Permits specific version selection e.g. `0.9.12.4.1192-9a47d21`, also supports `public` (this forces plex so stick with ). If left blank, auto update is disabled until set.
 * `-e PGID=` for for GroupID - see below for explanation
 * `-e PUID=` for for UserID - see below for explanation
