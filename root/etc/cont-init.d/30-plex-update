@@ -22,7 +22,7 @@ cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
 
 
 EOFTOKEN
-less /tmp/no-token.nfo
+echo "$(cat less /tmp/no-token.nfo)"
 exit 0
 fi
 
