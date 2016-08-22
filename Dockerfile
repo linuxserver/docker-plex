@@ -26,6 +26,7 @@ RUN \
 # cleanup
  apt-get clean && \
  rm -rf \
+	/etc/default/plexmediaserver \
 	/tmp/* \
 	/var/lib/apt/lists/* \
 	/var/tmp/*

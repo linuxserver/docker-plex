@@ -1,8 +1,12 @@
 #!/usr/bin/with-contenv bash
 
+# copy config on first run, regardless of update status
+[[ ! -e /etc/default/plexmediaserver ]] && \
+	cp /defaults/plexmediaserver /etc/default/plexmediaserver
+
 # set no update message
 [[ -e /tmp/no-version.nfo ]] && \
-        rm /tmp/no-version.nfo
+	rm /tmp/no-version.nfo
 NOVERSION_SET='/tmp/no-version.nfo'
 cat > "${NOVERSION_SET}" <<-EOFVERSION
 
@@ -61,39 +65,30 @@ fi
 INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
-
-[[ "$PLEXPASS" ]] && \
-	echo "PLEXPASS is deprecated, please use VERSION"
-
-if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is deprecated please use version latest"; fi
-
-if [[ "$VERSION" = latest || "$VERSION" = plexpass ]]; then
-	VERSION=$(curl -s "${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
-	echo "Target version: $VERSION"
-elif [[ "$VERSION" = public ]]; then
-	VERSION=$(curl -s "${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token="| cut -d "/" -f 5 )
-	echo "Target version: $VERSION"
+if [[ "$VERSION" = latest ]] || [[ "$VERSION" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
+PLEX_TOKEN="${PLEX_TOKEN}"
 else
-	echo "Target version: $VERSION"
+PLEX_TOKEN=""
+fi
+VERSION=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
+
+if [[ "$VERSION" == "$INSTALLED" ]]; then
+echo "No update required"
+exit 0
 fi
 
+echo "Atempting to upgrade to: $VERSION"
 last=130
-if [[ "$VERSION" != "$INSTALLED" ]]; then
- echo "Upgrading from version: $INSTALLED to version: $VERSION"
-	while [[ $last -ne "0" ]]; do
+while [[ $last -ne "0" ]]; do
 	rm -f /tmp/plexmediaserver_*.deb
 	curl -o /tmp/plexmediaserver_"${VERSION}"_amd64.deb -L \
 		"${PLEX_URL}/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
 	last=$?
-	done
-	[[ ! -e /tmp/plexmediaserver_"${VERSION}"_amd64.deb ]] && \
-	exit 0
+done
  apt-get remove --purge -y \
 	plexmediaserver
- dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
- rm -f /tmp/plexmediaserver_*.deb
-else
-	echo "No updates found!"
-fi
+dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
+rm -f /tmp/plexmediaserver_*.deb
 
+# recopy config file in case update overwrites our copy
 cp -v /defaults/plexmediaserver /etc/default/plexmediaserver
