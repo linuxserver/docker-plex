@@ -1,6 +1,6 @@
 ![https://linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring auto-update on startup, easy user mapping and community support. Find us for support at:
+The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring easy user mapping and community support. Find us for support at:
 * [forum.linuxserver.io](https://forum.linuxserver.io)
 * [IRC](https://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`
 * [Podcast](https://www.linuxserver.io/index.php/category/podcast/) covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
@@ -34,11 +34,13 @@ docker create \
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
 * `-v /transcode` - Path for transcoding folder, *optional*.
-* `-e VERSION=latest` - Permits specific version selection e.g. `0.9.12.4.1192-9a47d21`, also supports `public` (this forces plex so stick with ). If left blank, auto update is disabled until set.
+* `-e VERSION=latest` - Set whether to update plex or not - see Setting up application section.
 * `-e PGID=` for for GroupID - see below for explanation
 * `-e PUID=` for for UserID - see below for explanation
 
-*Special note* - If you'd like to run Plex without requiring `--net=host` then you will need the following ports in your `docker create` command:
+It is based on ubuntu xenial with s6 overlay, for shell access whilst the container is running do `docker exec -it plex /bin/bash`.
+
+*Special note* - If you'd like to run Plex without requiring `--net=host` (not recommended) then you will need the following ports in your `docker create` command:
 
 ```
   -p 32400:32400 \
@@ -60,15 +62,26 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-## Updates / Monitoring
+## Setting up the application 
+Webui can be found at `<your-ip>:32400/web`
+
+** Note about updates, if there is no value set for the VERSION variable, then no updates will take place.**
+
+Valid settings for VERSION are:-
+
++**latest**: will update plex to the latest version available that you are entitled to. `NOTE YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
++**public**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge, but still want the latest public updates.
++**<specific-version>**: will select a specific version of plex to install, note you cannot use this to access plexpass versions, if you do not have plexpass.
+
+## Info
 
 * Shell access whilst the container is running: `docker exec -it plex /bin/bash`
-* Upgrade to the latest version: `docker restart plex`
 * To monitor the logs of the container in realtime: `docker logs -f plex`
+* Upgrade to the latest version (see setting up application setting) : `docker restart plex`
 
-## Changelog
+## Versions
 
-+ **30.06.16:** Rebased to xenial and s6 overlay
++ **22.08.16:** Rebased to xenial and s6 overlay
 + **07.04.16:** removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS
 + **24.09.15:** added optional support for volume transcoding (/transcode), and various typo fixes.
 + **17.09.15:** Changed to run chmod only once
