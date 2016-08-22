@@ -1,16 +1,24 @@
 #!/usr/bin/with-contenv bash
 
 # set no update message
+[[ -e /tmp/no-version.nfo ]] && \
+        rm /tmp/no-version.nfo
+NOVERSION_SET='/tmp/no-version.nfo'
+cat > "${NOVERSION_SET}" <<-EOFVERSION
+
+
 #######################################################
-# Update routine will not run, this is either because #
-# you havent set the VERSION variable or have set     #
-# $ADVANCED_DISABLEUPDATES, for more information, see #
-# <link not placed yet>                               #
+# Update routine will not run because you havent set  #
+# the VERSION variable, for more information checkout #
+#    https://github.com/linuxserver/docker-plex       #
 #######################################################
+EOFVERSION
 
 # test for no version set or opt out for autoupdates
-[[ "$ADVANCED_DISABLEUPDATES" ]] && \
-	exit 0
+if [[ -z "$VERSION" ]] || [[ "$VERSION"=="0" ]] || [ "$ADVANCED_DISABLEUPDATES" ]; then
+echo "$(cat /tmp/no-version.nfo)"
+exit 0
+fi
 
 # set header for no preferences/token message
 [[ -e /tmp/no-token.nfo ]] && \
@@ -59,27 +67,23 @@ INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
 
-[ "$PLEXPASS" ] && \
+[[ "$PLEXPASS" ]] && \
 	echo "PLEXPASS is deprecated, please use VERSION"
 
-if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is depricated please use version latest"; fi
+if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is deprecated please use version latest"; fi
 
 if [[ "$VERSION" = latest || "$VERSION" = plexpass ]]; then
 	VERSION=$(curl -s "${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
-	echo "Target version: $VERSION set by: latest\plexpass"
+	echo "Target version: $VERSION set to: latest\plexpass"
 elif [[ "$VERSION" = public ]]; then
 	VERSION=$(curl -s "${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token="| cut -d "/" -f 5 )
-	echo "Target version: $VERSION set by: public"
-elif [[ -z "$VERSION" ]]; then
-	echo "Target version: Version not set, Defaulting to supplied version"
+	echo "Target version: $VERSION set to: public"
 else
-	echo "Target version: $VERSION set by: manually"
+	echo "Target version: $VERSION set to: manual"
 fi
 
 last=130
-if [[ "$VERSION" == "" ]]; then
- echo "VERSION variable not set, current installed version $INSTALLED"
-elif [[ "$VERSION" != "$INSTALLED" ]]; then
+if [[ "$VERSION" != "$INSTALLED" ]]; then
  echo "Upgrading from version: $INSTALLED to version: $VERSION"
 	while [[ $last -ne "0" ]]; do
 	rm -f /tmp/plexmediaserver_*.deb
@@ -98,4 +102,3 @@ else
 fi
 
 cp -v /defaults/plexmediaserver /etc/default/plexmediaserver
-
