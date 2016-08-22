@@ -69,9 +69,9 @@ Webui can be found at `<your-ip>:32400/web`
 
 Valid settings for VERSION are:-
 
-+ **latest**: will update plex to the latest version available that you are entitled to. `NOTE YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
-+ **public**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge, but still want the latest public updates.
-+ **<specific-version>**: will select a specific version of plex to install, note you cannot use this to access plexpass versions, if you do not have plexpass.
++ **`latest`**: will update plex to the latest version available that you are entitled to. `NOTE YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
++ **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge, but still want the latest public updates.
++ **`<specific-version>`**: will select a specific version of plex to install, note you cannot use this to access plexpass versions, if you do not have plexpass.
 
 ## Info
 
