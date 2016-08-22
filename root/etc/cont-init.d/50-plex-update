@@ -9,18 +9,17 @@
 	rm /tmp/no-version.nfo
 NOVERSION_SET='/tmp/no-version.nfo'
 cat > "${NOVERSION_SET}" <<-EOFVERSION
-
-
 #######################################################
 # Update routine will not run because you havent set  #
-# the VERSION variable, for more information checkout #
+# the VERSION variable or you opted out of updates.   #
+#          For more information checkout :-           #
 #    https://github.com/linuxserver/docker-plex       #
 #######################################################
 EOFVERSION
 
 # test for no version set or opt out for autoupdates
 if [[ -z "$VERSION" ]] || [[ "$VERSION" == "0" ]] || [[ ! -z "$ADVANCED_DISABLEUPDATES" ]]; then
-printf "%s\n\n\n" "$(</tmp/no-version.nfo)"
+printf "\n\n\n%s\n\n\n" "$(</tmp/no-version.nfo)"
 exit 0
 fi
 
@@ -29,8 +28,6 @@ fi
 	rm /tmp/no-token.nfo
 NOTOKEN_SET='/tmp/no-token.nfo'
 cat > "${NOTOKEN_SET}" <<-EOFTOKEN
-
-
 #####################################################
 #   Login via the webui at http://<ip>:32400/web    #
 #   and restart the docker, because there was no    #
@@ -42,7 +39,7 @@ cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
 #   preference file found, possibly first startup.  #
 #####################################################
 EOFTOKEN
-printf "%s\n\n\n" "$(</tmp/no-token.nfo)"
+printf "\n\n\n%s\n\n\n" "$(</tmp/no-token.nfo)"
 exit 0
 fi
 
@@ -57,7 +54,7 @@ cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
 #      plex token found in the preference file      #
 #####################################################
 EOFTOKEN
-printf "%s\n\n\n" "$(</tmp/no-token.nfo)"
+printf "\n\n\n%s\n\n\n" "$(</tmp/no-token.nfo)"
 exit 0
 fi
 
