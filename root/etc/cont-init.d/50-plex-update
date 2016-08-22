@@ -9,7 +9,7 @@
 #######################################################
 
 # test for no version set or opt out for autoupdates
-[[ "$ADVANCED_DISABLEUPDATES" ]] || && \
+[[ "$ADVANCED_DISABLEUPDATES" ]] && \
 	exit 0
 
 # set header for no preferences/token message
