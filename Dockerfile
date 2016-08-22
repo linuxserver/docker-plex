@@ -17,21 +17,22 @@ RUN \
 	dbus \
 	wget && \
 
-# cleanup
- apt-get clean && \
- rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
-
 # install plex
-RUN \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
 	"${PLEX_WWW}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
-	rm -f /tmp/*
+
+# cleanup
+ apt-get clean && \
+ rm -rf \
+	/tmp/* \
+	/var/lib/apt/lists/* \
+	/var/tmp/*
 
 # add local files
 COPY root/ /
 
 # ports and volumes
-VOLUME /config /transcode
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
+VOLUME /config /transcode

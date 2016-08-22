@@ -1,10 +1,12 @@
 #!/usr/bin/with-contenv bash
 
 # opt out for autoupdates
-[ "$ADVANCED_DISABLEUPDATES" ] && exit 0
+[ "$ADVANCED_DISABLEUPDATES" ] && \
+	exit 0
 
 # set header for no preferences/token message
-[[ -e /tmp/no-token.nfo ]] && rm /tmp/no-token.nfo
+[[ -e /tmp/no-token.nfo ]] && \
+	rm /tmp/no-token.nfo
 NOTOKEN_SET='/tmp/no-token.nfo'
 cat > "${NOTOKEN_SET}" <<-EOFTOKEN
 
@@ -28,8 +30,8 @@ fi
 
 # attempt to read plex token
 PLEX_TOKEN=$( sed -n 's/.*PlexOnlineToken="//p' \
-"/config/Library/Application Support/Plex Media Server/Preferences.xml" \
-| sed "s/\".*//")
+	"/config/Library/Application Support/Plex Media Server/Preferences.xml" \
+	| sed "s/\".*//")
 
 # if plex token isn't found, exit out
 if [ -z "$PLEX_TOKEN" ]; then
@@ -39,7 +41,7 @@ cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
 
 
 EOFTOKEN
-less /tmp/no-token.nfo
+echo "$(cat /tmp/no-token.nfo)"
 exit 0
 fi
 
@@ -49,7 +51,8 @@ INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
 
-[ "$PLEXPASS" ] && echo "PLEXPASS is deprecated, please use VERSION"
+[ "$PLEXPASS" ] && \
+	echo "PLEXPASS is deprecated, please use VERSION"
 
 if [[ -z $VERSION && "$PLEXPASS" == "1" || $VERSION = "plexpass" ]]; then echo "VERSION=plexpass is depricated please use version latest"; fi
 
@@ -67,18 +70,21 @@ fi
 
 last=130
 if [[ "$VERSION" == "" ]]; then
-  echo "VERSION variable not set, current installed version $INSTALLED"
+ echo "VERSION variable not set, current installed version $INSTALLED"
 elif [[ "$VERSION" != "$INSTALLED" ]]; then
-  echo "Upgrading from version: $INSTALLED to version: $VERSION"
-    while [[ $last -ne "0" ]]; do
+ echo "Upgrading from version: $INSTALLED to version: $VERSION"
+	while [[ $last -ne "0" ]]; do
 	rm -f /tmp/plexmediaserver_*.deb
 	curl -o /tmp/plexmediaserver_"${VERSION}"_amd64.deb -L \
-	"${PLEX_URL}/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
-	  last=$?
+		"${PLEX_URL}/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
+	last=$?
 	done
-	[[ ! -e /tmp/plexmediaserver_"${VERSION}"_amd64.deb ]] && exit 0
-	apt-get remove --purge -y plexmediaserver
-	dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
+	[[ ! -e /tmp/plexmediaserver_"${VERSION}"_amd64.deb ]] && \
+	exit 0
+ apt-get remove --purge -y \
+	plexmediaserver
+ dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
+
 else
 	echo "No need to update!"
 fi
