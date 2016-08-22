@@ -15,7 +15,7 @@ cat > "${NOVERSION_SET}" <<-EOFVERSION
 EOFVERSION
 
 # test for no version set or opt out for autoupdates
-if [[ -z "$VERSION" ]] || [[ "$VERSION"=="0" ]] || [ "$ADVANCED_DISABLEUPDATES" ]; then
+if [ -z "$VERSION" -o "$VERSION" == "0" -o ! -z "$ADVANCED_DISABLEUPDATES" ]; then
 echo "$(cat /tmp/no-version.nfo)"
 exit 0
 fi
