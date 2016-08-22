@@ -1,7 +1,8 @@
 #!/usr/bin/with-contenv bash
 
 # make folders
-mkdir -p /var/run/dbus
+mkdir -p \
+	/var/run/dbus
 
 # delete existing pid if found
 [[ -e /var/run/dbus/pid ]] && \

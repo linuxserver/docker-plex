@@ -1,7 +1,15 @@
 #!/usr/bin/with-contenv bash
 
-# opt out for autoupdates
-[ "$ADVANCED_DISABLEUPDATES" ] && \
+# set no update message
+#######################################################
+# Update routine will not run, this is either because #
+# you havent set the VERSION variable or have set     #
+# $ADVANCED_DISABLEUPDATES, for more information, see #
+# <link not placed yet>                               #
+#######################################################
+
+# test for no version set or opt out for autoupdates
+[[ "$ADVANCED_DISABLEUPDATES" ]] || && \
 	exit 0
 
 # set header for no preferences/token message
