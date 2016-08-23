@@ -92,15 +92,16 @@ fi
 
 echo "Atempting to upgrade to: $REMOTE_VERSION"
 last=130
-down_tries=3
-if curl --output /dev/null --silent --head --fail "${PLEX_URL}/plex-media-server/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"; then
-while [[ $last -ne "0" ]] || [[ down_tries -gt 0 ]]; do
+down_tries=0
+while [[ $last -ne "0" ]]; do
 	rm -f /tmp/plexmediaserver_*.deb
 	curl -o /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb -L \
-		"${PLEX_URL}/plex-media-server/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
-	down_tries=$((down_tries-1))
-last=$?
+		"${PLEX_URL}/plex-media-server/${REMOTE_VERSION}/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+	last=$?
 done
+
+# test if deb exists, install it or exit out
+if [[ $(stat -c %s /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb) -gt 10000 ]]; then
  apt-get remove --purge -y \
 	plexmediaserver
 dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
