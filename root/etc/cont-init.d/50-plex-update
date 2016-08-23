@@ -17,6 +17,20 @@ cat > "${NOVERSION_SET}" <<-EOFVERSION
 #######################################################
 EOFVERSION
 
+# set update failed message
+[[ -e /tmp/update_fail.nfo ]] && \
+	rm /tmp/update_fail.nfo
+UPGRADE_FAIL='/tmp/update_fail.nfo'
+cat > "${UPGRADE_FAIL}" <<-EOFFAIL
+########################################################
+# Upgrade attempt failed, this could be because either #
+# plex update site is down, local network issues, or   #
+# you were trying to get a version that simply doesn't #
+# exist, check over the VERSION variable thoroughly &  #
+# correct it or try again later.                       #
+########################################################
+EOFFAIL
+
 # test for no version set or opt out for autoupdates
 if [[ -z "$VERSION" ]] || [[ "$VERSION" == "0" ]] || [[ ! -z "$ADVANCED_DISABLEUPDATES" ]]; then
 printf "\n\n\n%s\n\n\n" "$(</tmp/no-version.nfo)"
@@ -59,33 +73,42 @@ exit 0
 fi
 
 # determine installed version of plex
-INSTALLED=$(dpkg-query -W -f='${Version}' plexmediaserver)
+INSTALLED_VERSION=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
 if [[ "$VERSION" = latest ]] || [[ "$VERSION" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
-PLEX_TOKEN="${PLEX_TOKEN}"
-else
+REMOTE_VERSION=$(curl -s "${PLEX_WWW}"| cut -d "/" -f 5 )
+elif [[ "$VERSION" = public ]]; then
 PLEX_TOKEN=""
+REMOTE_VERSION=$(curl -s "${PLEX_WWW}"| cut -d "/" -f 5 )
+else
+REMOTE_VERSION="${VERSION}"
 fi
-VERSION=$(curl -s "https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 
-if [[ "$VERSION" == "$INSTALLED" ]]; then
+if [[ "$REMOTE_VERSION" == "$INSTALLED_VERSION" ]]; then
 echo "No update required"
 exit 0
 fi
 
-echo "Atempting to upgrade to: $VERSION"
+echo "Atempting to upgrade to: $REMOTE_VERSION"
 last=130
-while [[ $last -ne "0" ]]; do
+down_tries=3
+if curl --output /dev/null --silent --head --fail "${PLEX_URL}/plex-media-server/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"; then
+while [[ $last -ne "0" ]] || [[ down_tries -gt 0 ]]; do
 	rm -f /tmp/plexmediaserver_*.deb
-	curl -o /tmp/plexmediaserver_"${VERSION}"_amd64.deb -L \
-		"${PLEX_URL}/plex-media-server/$VERSION/plexmediaserver_${VERSION}_amd64.deb"
-	last=$?
+	curl -o /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb -L \
+		"${PLEX_URL}/plex-media-server/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+	down_tries=$((down_tries-1))
+last=$?
 done
  apt-get remove --purge -y \
 	plexmediaserver
-dpkg -i /tmp/plexmediaserver_"${VERSION}"_amd64.deb
+dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
 rm -f /tmp/plexmediaserver_*.deb
+else
+printf "\n\n\n%s\n\n\n" "$(</tmp/update_fail.nfo)"
+exit 0
+fi
 
 # recopy config file in case update overwrites our copy
 cp -v /defaults/plexmediaserver /etc/default/plexmediaserver

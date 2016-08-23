@@ -3,11 +3,12 @@ MAINTAINER Stian Larsen, sparklyballs
 
 # package version
 ENV PLEX_URL="https://plex.tv/downloads"
-ARG PLEX_WWW="${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
+ENV PLEX_INSTALL="${PLEX_URL}/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config"
+ENV PLEX_WWW="${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"
 
 # install packages
 RUN \
@@ -20,7 +21,7 @@ RUN \
 # install plex
  curl -o \
 	/tmp/plexmediaserver.deb -L \
-	"${PLEX_WWW}" && \
+	"${PLEX_INSTALL}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
 
 # cleanup
