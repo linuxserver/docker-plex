@@ -77,10 +77,10 @@ INSTALLED_VERSION=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
 if [[ "$VERSION" = latest ]] || [[ "$VERSION" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
-REMOTE_VERSION=$(curl -s "${PLEX_WWW}"| cut -d "/" -f 5 )
+REMOTE_VERSION=$(curl -s "${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 elif [[ "$VERSION" = public ]]; then
 PLEX_TOKEN=""
-REMOTE_VERSION=$(curl -s "${PLEX_WWW}"| cut -d "/" -f 5 )
+REMOTE_VERSION=$(curl -s "${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 else
 REMOTE_VERSION="${VERSION}"
 fi
@@ -92,12 +92,11 @@ fi
 
 echo "Atempting to upgrade to: $REMOTE_VERSION"
 last=130
-down_tries=0
 while [[ $last -ne "0" ]]; do
 	rm -f /tmp/plexmediaserver_*.deb
 	curl -o /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb -L \
-		"${PLEX_URL}/plex-media-server/${REMOTE_VERSION}/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
-	last=$?
+	"${PLEX_DOWNLOAD}/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+last=$?
 done
 
 # test if deb exists, install it or exit out
