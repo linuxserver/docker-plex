@@ -81,7 +81,7 @@ Valid settings for VERSION are:-
 
 * Shell access whilst the container is running: `docker exec -it plex /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f plex`
-* Upgrade to the latest version (see setting up application setting) : `docker restart plex`
+* Upgrade to the latest version (see setting up application section) : `docker restart plex`
 
 ## Versions
 
