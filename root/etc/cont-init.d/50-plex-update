@@ -4,6 +4,17 @@
 [[ ! -e /etc/default/plexmediaserver ]] && \
 	cp /defaults/plexmediaserver /etc/default/plexmediaserver
 
+# test if plex is installed and try re-pulling latest if not
+if dpkg -s plexmediaserver > /dev/null 2>&1 ; then
+:
+else echo "for some reason plex doesn't appear to be installed, pulling a new copy and exiting out of update script"
+curl -o /tmp/plexmediaserver.deb -L \
+	"${PLEX_INSTALL}" && \
+dpkg -i --force-confold /tmp/plexmediaserver.deb
+rm -f /tmp/plexmediaserver.deb
+exit 0
+fi
+
 # set no update message
 [[ -e /tmp/no-version.nfo ]] && \
 	rm /tmp/no-version.nfo
@@ -102,13 +113,9 @@ printf "\n\n\n%s\n\n\n" "$(</tmp/update_fail.nfo)"
 exit 0
 # if ok, try to install it.
 else
-dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
+dpkg -i --force-confold /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
 rm -f /tmp/plexmediaserver_*.deb
 fi
 
-# test if plex is installed and try re-pulling latest if not
-dpkg -s plexmediaserver > /dev/null 2>&1 || \
-(echo "for some reason the update has failed and plex doesn't seem to be installed, retrying a known version" && curl -o /tmp/plexmediaserver.deb -L "${PLEX_INSTALL}" && dpkg -i /tmp/plexmediaserver.deb)
-
-# recopy config file in case update overwrites our copy
+# recopy config file
 cp /defaults/plexmediaserver /etc/default/plexmediaserver
