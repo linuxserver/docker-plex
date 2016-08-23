@@ -91,24 +91,24 @@ exit 0
 fi
 
 echo "Atempting to upgrade to: $REMOTE_VERSION"
-last=130
-while [[ $last -ne "0" ]]; do
-	rm -f /tmp/plexmediaserver_*.deb
-	curl -o /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb -L \
-	"${PLEX_DOWNLOAD}/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
-last=$?
-done
-
-# test if deb exists, install it or exit out
-if [[ $(stat -c %s /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb) -gt 10000 ]]; then
- apt-get remove --purge -y \
-	plexmediaserver
-dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
 rm -f /tmp/plexmediaserver_*.deb
-else
+wget -nv -P /tmp \
+"${PLEX_DOWNLOAD}/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+last=$?
+
+# test if deb file size is ok, or if download failed
+if [[ "$last" -gt "0" ]] || [[ $(stat -c %s /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb) -lt 10000 ]]; then
 printf "\n\n\n%s\n\n\n" "$(</tmp/update_fail.nfo)"
 exit 0
+# if ok, try to install it.
+else
+dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb || exit 0
+rm -f /tmp/plexmediaserver_*.deb
 fi
 
+# test if plex is installed and try re-pulling latest if not
+dpkg -s plexmediaserver > /dev/null 2>&1 || \
+(echo "for some reason the update has failed and plex doesn't seem to be installed, retrying a known version" && curl -o /tmp/plexmediaserver.deb -L "${PLEX_INSTALL}" && dpkg -i /tmp/plexmediaserver.deb)
+
 # recopy config file in case update overwrites our copy
-cp -v /defaults/plexmediaserver /etc/default/plexmediaserver
+cp /defaults/plexmediaserver /etc/default/plexmediaserver
