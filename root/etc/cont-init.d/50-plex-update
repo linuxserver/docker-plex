@@ -2,14 +2,15 @@
 
 # copy config on first run, regardless of update status
 [[ ! -e /etc/default/plexmediaserver ]] && \
-	cp /defaults/plexmediaserver /etc/default/plexmediaserver
+       	cp /defaults/plexmediaserver /etc/default/plexmediaserver
 
 # test if plex is installed and try re-pulling latest if not
-if dpkg -s plexmediaserver > /dev/null 2>&1 ; then
+if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
 :
-else echo "for some reason plex doesn't appear to be installed, pulling a new copy and exiting out of update script"
+else
+echo "for some reason plex doesn't appear to be installed, pulling a new copy and exiting out of update script"
 curl -o /tmp/plexmediaserver.deb -L \
-	"${PLEX_INSTALL}" && \
+       	"${PLEX_INSTALL}" && \
 dpkg -i --force-confold /tmp/plexmediaserver.deb
 rm -f /tmp/plexmediaserver.deb
 exit 0
@@ -17,7 +18,7 @@ fi
 
 # set no update message
 [[ -e /tmp/no-version.nfo ]] && \
-	rm /tmp/no-version.nfo
+       	rm /tmp/no-version.nfo
 NOVERSION_SET='/tmp/no-version.nfo'
 cat > "${NOVERSION_SET}" <<-EOFVERSION
 #######################################################
@@ -30,7 +31,7 @@ EOFVERSION
 
 # set update failed message
 [[ -e /tmp/update_fail.nfo ]] && \
-	rm /tmp/update_fail.nfo
+       	rm /tmp/update_fail.nfo
 UPGRADE_FAIL='/tmp/update_fail.nfo'
 cat > "${UPGRADE_FAIL}" <<-EOFFAIL
 ########################################################
@@ -50,7 +51,7 @@ fi
 
 # set header for no preferences/token message
 [[ -e /tmp/no-token.nfo ]] && \
-	rm /tmp/no-token.nfo
+       	rm /tmp/no-token.nfo
 NOTOKEN_SET='/tmp/no-token.nfo'
 cat > "${NOTOKEN_SET}" <<-EOFTOKEN
 #####################################################
@@ -70,8 +71,8 @@ fi
 
 # attempt to read plex token
 PLEX_TOKEN=$( sed -n 's/.*PlexOnlineToken="//p' \
-	"/config/Library/Application Support/Plex Media Server/Preferences.xml" \
-	| sed "s/\".*//")
+       	"/config/Library/Application Support/Plex Media Server/Preferences.xml" \
+       	| sed "s/\".*//")
 
 # if plex token isn't found, exit out
 if [ -z "$PLEX_TOKEN" ]; then
