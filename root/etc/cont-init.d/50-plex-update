@@ -102,7 +102,7 @@ printf "\n\n\n%s\n\n\n" "$(</tmp/update_fail.nfo)"
 exit 0
 # if ok, try to install it.
 else
-dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb || exit 0
+dpkg -i /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
 rm -f /tmp/plexmediaserver_*.deb
 fi
 
