@@ -14,6 +14,17 @@ rm -f /tmp/plexmediaserver.deb
 exit 0
 fi
 
+# test if plex is modified and try re-pulling latest if it is
+plexmodified=`debsums -s 2>&1 | grep debsums | cut -f6 -d" " | sort -u | grep plexmediaserver | wc -l`
+if [[ $plexmodified -gt 0 ]]; then
+echo "for some reason plex appear to be modified, pulling a new copy and exiting out of update script"
+curl -o /tmp/plexmediaserver.deb -L \
+       	"${PLEX_INSTALL}" && \
+dpkg -i --force-confold /tmp/plexmediaserver.deb
+rm -f /tmp/plexmediaserver.deb
+exit 0
+fi
+
 # set no update message
 [[ -e /tmp/no-version.nfo ]] && \
        	rm /tmp/no-version.nfo

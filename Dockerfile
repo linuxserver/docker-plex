@@ -15,6 +15,7 @@ RUN \
  apt-get install -y \
 	avahi-daemon \
 	dbus \
+	debsums \
 	wget && \
 
 # install plex
