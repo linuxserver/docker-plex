@@ -5,9 +5,7 @@
        	cp /defaults/plexmediaserver /etc/default/plexmediaserver
 
 # test if plex is installed and try re-pulling latest if not
-if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
-:
-else
+if (!(dpkg --get-selections plexmediaserver | grep -wq "install")); then
 echo "for some reason plex doesn't appear to be installed, pulling a new copy and exiting out of update script"
 curl -o /tmp/plexmediaserver.deb -L \
        	"${PLEX_INSTALL}" && \
