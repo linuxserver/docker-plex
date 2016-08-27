@@ -10,6 +10,7 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)][hub]
 [![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)][hub]
+[![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-plex)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-plex/)
 [hub]: https://hub.docker.com/r/linuxserver/plex/
 
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
@@ -89,6 +90,7 @@ Valid settings for VERSION are:-
 
 ## Versions
 
++ **27.08.16:** Add badges to README.
 + **22.08.16:** Rebased to xenial and s6 overlay
 + **07.04.16:** removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS
 + **24.09.15:** added optional support for volume transcoding (/transcode), and various typo fixes.
