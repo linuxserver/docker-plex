@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+
+# make folders
+mkdir -p \
+	/var/run/dbus
+
+# delete existing pid if found
+[[ -e /var/run/dbus/pid ]] && \
+	rm -f /var/run/dbus/pid
+
+# permissions
+chown messagebus:messagebus \
+	/var/run/dbus
+dbus-uuidgen --ensure
+sleep 1

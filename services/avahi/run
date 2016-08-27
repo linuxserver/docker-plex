@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "Starting Avahi daemon"
-exec avahi-daemon --no-chroot

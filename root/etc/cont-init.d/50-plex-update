@@ -1,0 +1,122 @@
+#!/usr/bin/with-contenv bash
+
+# copy config on first run, regardless of update status
+[[ ! -e /etc/default/plexmediaserver ]] && \
+       	cp /defaults/plexmediaserver /etc/default/plexmediaserver
+
+# test if plex is installed and try re-pulling latest if not
+if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
+:
+else
+echo "for some reason plex doesn't appear to be installed, pulling a new copy and exiting out of update script"
+curl -o /tmp/plexmediaserver.deb -L \
+       	"${PLEX_INSTALL}" && \
+dpkg -i --force-confold /tmp/plexmediaserver.deb
+rm -f /tmp/plexmediaserver.deb
+exit 0
+fi
+
+# set no update message
+[[ -e /tmp/no-version.nfo ]] && \
+       	rm /tmp/no-version.nfo
+NOVERSION_SET='/tmp/no-version.nfo'
+cat > "${NOVERSION_SET}" <<-EOFVERSION
+#######################################################
+# Update routine will not run because you havent set  #
+# the VERSION variable or you opted out of updates.   #
+#          For more information checkout :-           #
+#    https://github.com/linuxserver/docker-plex       #
+#######################################################
+EOFVERSION
+
+# set update failed message
+[[ -e /tmp/update_fail.nfo ]] && \
+       	rm /tmp/update_fail.nfo
+UPGRADE_FAIL='/tmp/update_fail.nfo'
+cat > "${UPGRADE_FAIL}" <<-EOFFAIL
+########################################################
+# Upgrade attempt failed, this could be because either #
+# plex update site is down, local network issues, or   #
+# you were trying to get a version that simply doesn't #
+# exist, check over the VERSION variable thoroughly &  #
+# correct it or try again later.                       #
+########################################################
+EOFFAIL
+
+# test for no version set or opt out for autoupdates
+if [[ -z "$VERSION" ]] || [[ "$VERSION" == "0" ]] || [[ ! -z "$ADVANCED_DISABLEUPDATES" ]]; then
+printf "\n\n\n%s\n\n\n" "$(</tmp/no-version.nfo)"
+exit 0
+fi
+
+# set header for no preferences/token message
+[[ -e /tmp/no-token.nfo ]] && \
+       	rm /tmp/no-token.nfo
+NOTOKEN_SET='/tmp/no-token.nfo'
+cat > "${NOTOKEN_SET}" <<-EOFTOKEN
+#####################################################
+#   Login via the webui at http://<ip>:32400/web    #
+#   and restart the docker, because there was no    #
+EOFTOKEN
+
+# if preferences files doesn't exist, exit out
+if [ ! -e "/config/Library/Application Support/Plex Media Server/Preferences.xml" ]; then
+cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
+#   preference file found, possibly first startup.  #
+#####################################################
+EOFTOKEN
+printf "\n\n\n%s\n\n\n" "$(</tmp/no-token.nfo)"
+exit 0
+fi
+
+# attempt to read plex token
+PLEX_TOKEN=$( sed -n 's/.*PlexOnlineToken="//p' \
+       	"/config/Library/Application Support/Plex Media Server/Preferences.xml" \
+       	| sed "s/\".*//")
+
+# if plex token isn't found, exit out
+if [ -z "$PLEX_TOKEN" ]; then
+cat >> "${NOTOKEN_SET}" <<-EOFTOKEN
+#      plex token found in the preference file      #
+#####################################################
+EOFTOKEN
+printf "\n\n\n%s\n\n\n" "$(</tmp/no-token.nfo)"
+exit 0
+fi
+
+# determine installed version of plex
+INSTALLED_VERSION=$(dpkg-query -W -f='${Version}' plexmediaserver)
+
+# start update routine
+if [[ "$VERSION" = latest ]] || [[ "$VERSION" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
+REMOTE_VERSION=$(curl -s "${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
+elif [[ "$VERSION" = public ]]; then
+PLEX_TOKEN=""
+REMOTE_VERSION=$(curl -s "${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
+else
+REMOTE_VERSION="${VERSION}"
+fi
+
+if [[ "$REMOTE_VERSION" == "$INSTALLED_VERSION" ]]; then
+echo "No update required"
+exit 0
+fi
+
+echo "Atempting to upgrade to: $REMOTE_VERSION"
+rm -f /tmp/plexmediaserver_*.deb
+wget -nv -P /tmp \
+"${PLEX_DOWNLOAD}/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+last=$?
+
+# test if deb file size is ok, or if download failed
+if [[ "$last" -gt "0" ]] || [[ $(stat -c %s /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb) -lt 10000 ]]; then
+printf "\n\n\n%s\n\n\n" "$(</tmp/update_fail.nfo)"
+exit 0
+# if ok, try to install it.
+else
+dpkg -i --force-confold /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
+rm -f /tmp/plexmediaserver_*.deb
+fi
+
+# recopy config file
+cp /defaults/plexmediaserver /etc/default/plexmediaserver

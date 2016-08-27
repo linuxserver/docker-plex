@@ -1,23 +1,39 @@
-FROM linuxserver/baseimage
-MAINTAINER Stian Larsen <lonixx@gmail.com>
+FROM lsiobase/xenial
+MAINTAINER Stian Larsen, sparklyballs
 
-# Install Plex
-RUN apt-get -q update && \
-apt-get install -qy dbus avahi-daemon wget && \
-curl -L 'https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu' -o /tmp/plexmediaserver.deb && \
-dpkg -i /tmp/plexmediaserver.deb && rm -f /tmp/plexmediaserver.deb && \
-apt-get clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# package version
+ENV PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
 
+# global environment settings
+ENV DEBIAN_FRONTEND="noninteractive"
+ENV HOME="/config"
+ENV PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server"
 
-#Adding Custom files
-COPY init/ /etc/my_init.d/
-COPY services/ /etc/service/
-RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
+# install packages
+RUN \
+ apt-get update && \
+ apt-get install -y \
+	avahi-daemon \
+	dbus \
+	wget && \
 
-# Define /config in the configuration file not using environment variables
-COPY plexmediaserver /defaults/plexmediaserver
+# install plex
+ curl -o \
+	/tmp/plexmediaserver.deb -L \
+	"${PLEX_INSTALL}" && \
+ dpkg -i /tmp/plexmediaserver.deb && \
 
-#Mappings and ports
-VOLUME ["/config"]
+# cleanup
+ apt-get clean && \
+ rm -rf \
+	/etc/default/plexmediaserver \
+	/tmp/* \
+	/var/lib/apt/lists/* \
+	/var/tmp/*
+
+# add local files
+COPY root/ /
+
+# ports and volumes
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
+VOLUME /config /transcode
