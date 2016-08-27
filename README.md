@@ -7,7 +7,10 @@ The [LinuxServer.io](https://linuxserver.io) team brings you another container r
 
 # linuxserver/plex
 
-[![](https://badge.imagelayers.io/linuxserver/plex:latest.svg)](https://imagelayers.io/?images=linuxserver/plex:latest 'Get your own badge on imagelayers.io')
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)][hub]
+[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)][hub]
+[hub]: https://hub.docker.com/r/linuxserver/plex/
 
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
 
