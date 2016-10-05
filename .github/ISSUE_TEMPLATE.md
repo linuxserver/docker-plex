@@ -1,7 +1,7 @@
 <!--- Provide a general summary of the issue in the Title above -->
 
 [linuxserverurl]: https://linuxserver.io
-[![linuxserver.io](https://www.linuxserver.io/wp-content/uploads/2015/06/linuxserver_medium.png)][linuxserverurl]
+[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 	
 
 <!--- If you have an issue with the project, please provide us with the following information -->
