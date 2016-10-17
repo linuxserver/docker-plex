@@ -1,4 +1,6 @@
 #!/usr/bin/with-contenv bash
+# Check variable status
+export VERSION=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
 
 # copy config on first run, regardless of update status
 [[ ! -e /etc/default/plexmediaserver ]] && \
