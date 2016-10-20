@@ -12,7 +12,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 
 # linuxserver/plex
 
-[![](https://images.microbadger.com/badges/image/linuxserver/plex.svg)](http://microbadger.com/images/linuxserver/plex "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-plex)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-plex/)
+[![](https://images.microbadger.com/badges/image/linuxserver/plex.svg)](http://microbadger.com/images/linuxserver/plex "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io-hub-built/linuxserver-plex)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io-hub-built/job/linuxserver-plex/)
 [hub]: https://hub.docker.com/r/linuxserver/plex/
 
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
