@@ -8,7 +8,7 @@ if [ ! -e "/config/Library/Application Support/Plex Media Server/Preferences.xml
   exit 0
 fi
 
-if [ ! "$(stat -c %U /config/Library)" = "abc" ]; then
+if [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
   echo "Change in ownership detected, please be patient while we chown existing files"
   echo "This could take some time"
   chown abc:abc -R \
