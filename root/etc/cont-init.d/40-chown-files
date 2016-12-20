@@ -1,23 +1,12 @@
 #!/usr/bin/with-contenv bash
 
-# check for preferences file, make lock file if not found and exit out
-if [ ! -e "/config/Library/Application Support/Plex Media Server/Preferences.xml" ]; then
-mkdir -p /config/Library
-touch /config/Library/linuxserver-chown.lock
-chown abc:abc \
+# check for Library existence and permissions
+if [ ! -d "/config/Library" ]; then
+  mkdir -p /config/Library
+  chown abc:abc /config/Library
+elif [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
+  echo "Change in ownership detected, please be patient while we chown existing files"
+  echo "This could take some time"
+  chown abc:abc -R \
 	/config/Library
-chown abc:abc \
-	/config/Library/linuxserver-chown.lock
-exit 0
-fi
-
-if [ ! -f "/config/Library/linuxserver-chown.lock" ]; then
-echo "Possible migration from existing version detected, please be patient while we chown existing files"
-echo "This could take some time"
-chown abc:abc -R \
-	/config/Library
-touch /config/Library/linuxserver-chown.lock
-chown abc:abc \
-	/config/Library/linuxserver-chown.lock
-echo "chown operation completed"
 fi
