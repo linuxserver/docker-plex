@@ -100,6 +100,7 @@ Valid settings for VERSION are:-
 
 ## Versions
 
++ **03.01.17:** Use case insensitive version variable matching rather than export and make lowercase.
 + **17.10.16:** Allow use of uppercase version variable
 + **01.10.16:** Add TZ info to README.
 + **09.09.16:** Add layer badges to README.

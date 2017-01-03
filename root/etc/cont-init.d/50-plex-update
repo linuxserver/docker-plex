@@ -1,6 +1,4 @@
 #!/usr/bin/with-contenv bash
-# Check variable status
-export VERSION=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
 
 # copy config on first run, regardless of update status
 [[ ! -e /etc/default/plexmediaserver ]] && \
@@ -90,9 +88,9 @@ fi
 INSTALLED_VERSION=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
-if [[ "$VERSION" = latest ]] || [[ "$VERSION" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
+if [[ "${VERSION,,}" = latest ]] || [[ "${VERSION,,}" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
 REMOTE_VERSION=$(curl -s "${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
-elif [[ "$VERSION" = public ]]; then
+elif [[ "${VERSION,,}" = public ]]; then
 PLEX_TOKEN=""
 REMOTE_VERSION=$(curl -s "${PLEX_INSTALL}&X-Plex-Token=$PLEX_TOKEN"| cut -d "/" -f 5 )
 else
