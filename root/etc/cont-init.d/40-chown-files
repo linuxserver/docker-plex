@@ -1,9 +1,9 @@
 #!/usr/bin/with-contenv bash
 
 # create folders
-if [[ ! -d ${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR} ]]; then \
+if [ ! -d "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}" ]; then \
 mkdir -p "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
-chown -R abc:abc "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
+chown -R abc:abc /config
 fi
 
 # check Library permissions
