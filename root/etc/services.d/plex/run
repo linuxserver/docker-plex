@@ -2,7 +2,7 @@
 
 echo "Starting Plex Media Server."
 exec \
-	s6-setuidgid abc /bin/sh -c \
+	s6-setuidgid abc /bin/bash -c \
 	'/usr/lib/plexmediaserver/Plex\ Media\ Server'
 
 
