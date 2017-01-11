@@ -1,12 +1,16 @@
 #!/usr/bin/with-contenv bash
 
 # check for Library existence and permissions
-if [ ! -d "/config/Library" ]; then
-  mkdir -p /config/Library
-  chown abc:abc /config/Library
-elif [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
-  echo "Change in ownership detected, please be patient while we chown existing files"
-  echo "This could take some time"
-  chown abc:abc -R \
-	/config/Library
+if [ ! -d "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}" ]; then
+	mkdir -p "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
+	chown abc:abc "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
+elif [ ! "$(stat -c %u ${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR})" = "$PUID" ]; then
+	echo "Change in ownership detected, please be patient while we chown existing files"
+	echo "This could take some time"
+	chown abc:abc -R \
+	"${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
 fi
+
+chown abc:abc \
+	/config \
+	/config/*

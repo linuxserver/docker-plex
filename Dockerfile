@@ -5,9 +5,11 @@ MAINTAINER Stian Larsen, sparklyballs
 ENV PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
 
 # global environment settings
-ENV DEBIAN_FRONTEND="noninteractive"
-ENV HOME="/config"
-ENV PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server"
+ENV DEBIAN_FRONTEND="noninteractive" \
+PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server" \
+PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
+PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
+PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6"
 
 # install packages
 RUN \
@@ -22,6 +24,9 @@ RUN \
 	/tmp/plexmediaserver.deb -L \
 	"${PLEX_INSTALL}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
+
+# change abc home folder to fix plex hanging at runtime with usermod
+ usermod -d /app abc && \
 
 # cleanup
  apt-get clean && \
