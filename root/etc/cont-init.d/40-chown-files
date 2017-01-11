@@ -14,4 +14,3 @@ if [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
 	chown abc:abc -R \
 	/config/Library
 fi
-

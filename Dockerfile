@@ -10,6 +10,7 @@ PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" 
 PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
 PLEX_MEDIA_SERVER_INFO_DEVICE=docker \
 PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
+PLEX_MEDIA_SERVER_USER=abc \
 LD_LIBRARY_PATH="/usr/lib/plexmediaserver:$LD_LIBRARY_PATH"
 
 # install packages
