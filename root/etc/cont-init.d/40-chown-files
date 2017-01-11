@@ -4,7 +4,7 @@
 if [ ! -d "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}" ]; then
 	mkdir -p "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
 	chown abc:abc "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
-elif [ ! "$(stat -c %u ${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR})" = "$PUID" ]; then
+elif [ ! "$(stat -c %u "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}")" = "$PUID" ]; then
 	echo "Change in ownership detected, please be patient while we chown existing files"
 	echo "This could take some time"
 	chown abc:abc -R \
