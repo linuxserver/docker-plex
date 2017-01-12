@@ -14,3 +14,8 @@ if [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
 	chown abc:abc -R \
 	/config/Library
 fi
+
+# permissions (non-recursive) on config root and folders
+chown abc:abc \
+	/config \
+	/config/*
