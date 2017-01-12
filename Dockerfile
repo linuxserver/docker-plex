@@ -8,7 +8,7 @@ ENV PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubunt
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config"
 ENV PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server"
-
+ENV test=test
 # install packages
 RUN \
  apt-get update && \
