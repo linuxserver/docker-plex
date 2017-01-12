@@ -1,5 +1,6 @@
 #!/usr/bin/with-contenv bash
 
 echo "Starting Plex Media Server."
-exec s6-setuidgid abc /usr/sbin/start_pms
-
+exec \
+	s6-setuidgid abc /bin/bash -c \
+	'/usr/lib/plexmediaserver/Plex\ Media\ Server'
