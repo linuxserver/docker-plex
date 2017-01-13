@@ -66,6 +66,12 @@ It is based on ubuntu xenial with s6 overlay, for shell access whilst the contai
   -p 1900:1900/udp
 ```
 
+Additionally, you may need to add a 'customConnections' flag in your Preferences.xml (`</path/to/library>/Application Support/Plex Media Server/Preferences.xml`) to persuade Plex that it is available on your host's IP (to force using LAN while on the same network as the client)
+
+```
+... customConnections="https://<your.host.server.ip:32400"/>
+```
+
 ### User / Group Identifiers
 
 Sometimes when using data volumes (`-v` flags) permissions issues can arise between the host OS and the container. We avoid this issue by allowing you to specify the user `PUID` and group `PGID`. Ensure the data volume directory on the host is owned by the same user you specify and it will "just work" <sup>TM</sup>.
