@@ -1,9 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-# copy config on first run, regardless of update status
-[[ ! -e /etc/default/plexmediaserver ]] && \
-       	cp /defaults/plexmediaserver /etc/default/plexmediaserver
-
 # test if plex is installed and try re-pulling latest if not
 if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
 :
@@ -117,6 +113,3 @@ else
 dpkg -i --force-confold /tmp/plexmediaserver_"${REMOTE_VERSION}"_amd64.deb
 rm -f /tmp/plexmediaserver_*.deb
 fi
-
-# recopy config file
-cp /defaults/plexmediaserver /etc/default/plexmediaserver
