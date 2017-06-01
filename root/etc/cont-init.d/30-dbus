@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
-
+cd /test
 # make folders
 mkdir -p \
 	/var/run/dbus
