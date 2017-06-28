@@ -100,6 +100,7 @@ Valid settings for VERSION are:-
 
 ## Versions
 
++ **28.06.17:** Add udev package for TV Butler
 + **28.05.17:** Add unrar package as per requests, for subzero plugin.
 + **11.01.17:** Use Plex environemt variables from pms docker,
 change abc home folder to /app to alleviate usermod chowning library folder by default (thanks gbooker, plexinc).
