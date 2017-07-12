@@ -13,8 +13,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/plex
-
-[![](https://images.microbadger.com/badges/image/linuxserver/plex.svg)](http://microbadger.com/images/linuxserver/plex "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io-hub-built/linuxserver-plex)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io-hub-built/job/linuxserver-plex/)
+[![](https://images.microbadger.com/badges/version/linuxserver/plex.svg)](https://microbadger.com/images/linuxserver/plex "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/plex.svg)](https://microbadger.com/images/linuxserver/plex "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)][hub][![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Builders/x86-64/x86-64-plex)](https://ci.linuxserver.io/job/Docker-Builders/job/x86-64/job/x86-64-plex/)
 
 [Plex](https://plex.tv/) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server.
 
@@ -96,10 +95,20 @@ Valid settings for VERSION are:-
 
 * Shell access whilst the container is running: `docker exec -it plex /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f plex`
-* Upgrade to the latest version (see setting up application section) : `docker restart plex`
+
+To upgrade to the latest version (see setting up application section) : `docker restart plex`
+
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' plex`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/plex`
 
 ## Versions
 
++ **12.07.17:** Add inspect commands to README, move to jenkins build and push.
 + **28.05.17:** Add unrar package as per requests, for subzero plugin.
 + **11.01.17:** Use Plex environemt variables from pms docker,
 change abc home folder to /app to alleviate usermod chowning library folder by default (thanks gbooker, plexinc).
