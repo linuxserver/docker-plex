@@ -1,10 +1,10 @@
 FROM lsiobase/xenial
-MAINTAINER Stian Larsen, sparklyballs
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="stian larsen,sparklyballs"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -16,25 +16,22 @@ PLEX_MEDIA_SERVER_INFO_DEVICE=docker \
 PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
 PLEX_MEDIA_SERVER_USER=abc
 
-# install packages
 RUN \
+ echo "**** install packages ****" && \
  apt-get update && \
  apt-get install -y \
 	avahi-daemon \
 	dbus \
 	unrar \
 	wget && \
-
-# install plex
+ echo "**** install plex ****" && \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
 	"${PLEX_INSTALL}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
-
-# change abc home folder to fix plex hanging at runtime with usermod
+ echo "**** change abc home folder to fix plex hanging at runtime with usermod ****" && \
  usermod -d /app abc && \
-
-# cleanup
+ echo "**** cleanup ****" && \
  apt-get clean && \
  rm -rf \
 	/etc/default/plexmediaserver \

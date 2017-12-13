@@ -108,6 +108,7 @@ To upgrade to the latest version (see setting up application section) : `docker 
 
 ## Versions
 
++ **09.12.17:** Fix continuation lines.
 + **12.07.17:** Add inspect commands to README, move to jenkins build and push.
 + **28.05.17:** Add unrar package as per requests, for subzero plugin.
 + **11.01.17:** Use Plex environemt variables from pms docker,
