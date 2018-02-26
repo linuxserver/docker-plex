@@ -31,6 +31,7 @@ RUN \
  dpkg -i /tmp/plexmediaserver.deb && \
  echo "**** change abc home folder to fix plex hanging at runtime with usermod ****" && \
  usermod -d /app abc && \
+ usermod -G video abc && \
  echo "**** cleanup ****" && \
  apt-get clean && \
  rm -rf \
