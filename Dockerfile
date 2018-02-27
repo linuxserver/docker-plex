@@ -31,6 +31,8 @@ RUN \
  dpkg -i /tmp/plexmediaserver.deb && \
  echo "**** change abc home folder to fix plex hanging at runtime with usermod ****" && \
  usermod -d /app abc && \
+ chmod -fR 777 /dev/dri || echo "*** hardware transcoding will not be possible ****" && \
+ 
  echo "**** cleanup ****" && \
  apt-get clean && \
  rm -rf \
