@@ -51,6 +51,7 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-e PGID=` for for GroupID - see below for explanation
 * `-e PUID=` for for UserID - see below for explanation
 * `-e TZ` - for timezone information *eg Europe/London, etc*
+* `-e VIDEO_GID` - to set a custom video user GID *optional* (see Hardware Transcoding)
 
 It is based on ubuntu xenial with s6 overlay, for shell access whilst the container is running do `docker exec -it plex /bin/bash`.
 
@@ -74,6 +75,28 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ```
   $ id <dockeruser>
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+```
+
+### Hardware Transcoding
+
+If you need to use hardware accelerated transcoding you will also mount your video devices inside the container:
+
+```
+--device=/dev/dri:/dev/dri
+```
+
+By default our container will add the Plex application user to the video group to access this device. This container is a debian based distribution , so if your video group id is not 44 you will need to pass an additional environment variable to the container. 
+
+Use this command to determine the GID of your video group: 
+
+```
+cat /etc/group | awk -F  ":" '/video/ {print $3}'
+```
+
+If this is not 44 pass the variable to your docker create command: 
+
+```
+-e VIDEO_GID=<your gid here>
 ```
 
 ## Setting up the application
@@ -108,6 +131,7 @@ To upgrade to the latest version (see setting up application section) : `docker 
 
 ## Versions
 
++ **18.06.18:** Add support for hardware transcoding.
 + **09.12.17:** Fix continuation lines.
 + **12.07.17:** Add inspect commands to README, move to jenkins build and push.
 + **28.05.17:** Add unrar package as per requests, for subzero plugin.

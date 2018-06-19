@@ -1,5 +1,12 @@
 #!/usr/bin/with-contenv bash
 
+# Add UID to video group
+if [ -z ${VIDEO_GID+x} ]; then
+	usermod -a -G video abc
+else
+	usermod -a -G ${VIDEO_GID} abc
+fi
+
 echo "Starting Plex Media Server."
 exec \
 	s6-setuidgid abc /bin/bash -c \
