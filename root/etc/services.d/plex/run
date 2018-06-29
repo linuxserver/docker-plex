@@ -1,21 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-# Add UID to video group
-if [ -z ${VIDEO_GID+x} ]; then
-        usermod -a -G video abc
-else
-        # Check if the GID is taken and swap to 65533
-        CURRENT=$(getent group ${VIDEO_GID} | awk -F: '{print $1}')
-        if [ -z "${CURRENT}" ] || [ "${CURRENT}" == 'video' ]; then
-                groupmod -g ${VIDEO_GID} video
-                usermod -a -G video abc
-        else
-                groupmod -g 65533 ${CURRENT}
-                groupmod -g ${VIDEO_GID} video
-                usermod -a -G video abc
-        fi
-fi
-
 echo "Starting Plex Media Server."
 exec \
 	s6-setuidgid abc /bin/bash -c \
