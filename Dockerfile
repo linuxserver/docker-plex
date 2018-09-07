@@ -1,10 +1,10 @@
-FROM lsiobase/ubuntu:xenial
+FROM lsiobase/ubuntu:bionic
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="stian larsen,sparklyballs"
+LABEL maintainer="sparklyballs"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -17,19 +17,20 @@ PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
 PLEX_MEDIA_SERVER_USER=abc
 
 RUN \
- echo "**** install packages ****" && \
+ echo "**** install runtime packages ****" && \
  apt-get update && \
  apt-get install -y \
 	avahi-daemon \
 	dbus \
+	udev \
 	unrar \
 	wget && \
  echo "**** install plex ****" && \
  curl -o \
-	/tmp/plexmediaserver.deb -L \
+ /tmp/plexmediaserver.deb -L \
 	"${PLEX_INSTALL}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
- echo "**** change abc home folder to fix plex hanging at runtime with usermod ****" && \
+ echo "**** ensure abc user's home folder is /app ****" && \
  usermod -d /app abc && \
  echo "**** cleanup ****" && \
  apt-get clean && \

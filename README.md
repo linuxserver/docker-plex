@@ -108,6 +108,7 @@ To upgrade to the latest version (see setting up application section) : `docker 
 
 ## Versions
 
++ **07.09.18:** Rebase to ubuntu bionic, add udev package.
 + **09.12.17:** Fix continuation lines.
 + **12.07.17:** Add inspect commands to README, move to jenkins build and push.
 + **28.05.17:** Add unrar package as per requests, for subzero plugin.
