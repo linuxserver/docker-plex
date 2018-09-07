@@ -40,7 +40,7 @@ cat > "${UPGRADE_FAIL}" <<-EOFFAIL
 EOFFAIL
 
 # test for no version set or opt out for autoupdates
-if [[ -z "$VERSION" ]] || [[ "$VERSION" == "0" ]] || [[ ! -z "$ADVANCED_DISABLEUPDATES" ]]; then
+if [[ -z "$VERSION" ]] || [[ "$VERSION" == "0" ]] || [[ -n "$ADVANCED_DISABLEUPDATES" ]]; then
 printf '\n\n\n%s\n\n\n' "$(</tmp/no-version.nfo)"
 exit 0
 fi
