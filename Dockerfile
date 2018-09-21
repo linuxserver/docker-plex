@@ -18,27 +18,31 @@ PLEX_MEDIA_SERVER_USER=abc
 
 RUN \
  echo "**** install runtime packages ****" && \
+ echo "$TZ > /etc/timezone" && \
  apt-get update && \
  apt-get install -y \
-	avahi-daemon \
-	dbus \
-	udev \
-	unrar \
-	wget && \
+        avahi-daemon \
+        dbus \
+        udev \
+        unrar \
+        tzdata \
+        wget && \
+ rm /etc/localtime && \
+ ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
  echo "**** install plex ****" && \
  curl -o \
  /tmp/plexmediaserver.deb -L \
-	"${PLEX_INSTALL}" && \
+        "${PLEX_INSTALL}" && \
  dpkg -i /tmp/plexmediaserver.deb && \
  echo "**** ensure abc user's home folder is /app ****" && \
  usermod -d /app abc && \
  echo "**** cleanup ****" && \
  apt-get clean && \
  rm -rf \
-	/etc/default/plexmediaserver \
-	/tmp/* \
-	/var/lib/apt/lists/* \
-	/var/tmp/*
+        /etc/default/plexmediaserver \
+        /tmp/* \
+        /var/lib/apt/lists/* \
+        /var/tmp/*
 
 # add local files
 COPY root/ /
