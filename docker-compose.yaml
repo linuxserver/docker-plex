@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+
+    # To use the pre-built image, comment out the lines between `build:` and `restart:`.
+    # docker-compose will default to building an image rather than downloading one.
+    app:
+        image: linuxserver/plex:public # Switch to :latest for more fast paced updates
+        build:
+            context: ./
+            dockerfile: Dockerfile
+            args:
+                build_date: $date
+                version: custom
+        restart: unless-stopped
+        networks:
+            - net
+        # The left column is the host port used, the right column is inside the docker container
+        ports:
+            - "32400:32400"
+            - "32400:32400/udp"
+            - "32469:32469"
+            - "32469:32469/udp"
+            - "5353:5353/udp"
+            - "1900:1900/udp"
+        volumes:
+            - "./data/plex-config:/config"
+            - "./data/plex-tvshows:/data/tvshows"
+            - "./data/plex-movies:/data/movies"
+            - "./data/plex-transcode:/transcode"
+        env_file: ./environment-vars.env
+
+networks:
+    net:
