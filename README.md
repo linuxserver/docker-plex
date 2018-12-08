@@ -76,6 +76,22 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
+## Docker-Compose
+
+Docker-Compose can also be used to bring up a plex service in one command, while keeping your data in the host filesystem for easy access and interfacing.
+
+```Bash
+docker-compose up -d
+```
+
+### Changing the Version
+
+Edit the `environment-vars.env` file to choose the version for the plex server.
+
+### Update with Docker-Compose
+
+Update docker-compose by running `docker-compose restart` to update the plex server container.
+
 ## Setting up the application
 Webui can be found at `<your-ip>:32400/web`
 
