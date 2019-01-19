@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bash
+
+# Check for the existence of the Intel video device
+if [ -e /dev/dri ]; then
+	VIDEO_GID=$(stat -c '%g' /dev/dri/* | head -n 1)
+else
+	exit 0
+fi
+
+# Check if this GID matches the current abc user
+ABCGID=$(getent group abc | awk -F: '{print $3}')
+if [ "${ABCGID}" == "${VIDEO_GID}" ]; then
+	exit 0
+fi
+
+# Check if the GID is taken and swap to 65533
+CURRENT=$(getent group ${VIDEO_GID} | awk -F: '{print $1}')
+if [ -z "${CURRENT}" ] || [ "${CURRENT}" == 'video' ]; then
+	groupmod -g ${VIDEO_GID} video
+	usermod -a -G video abc
+else
+	groupmod -g 65533 ${CURRENT}
+	groupmod -g ${VIDEO_GID} video
+	usermod -a -G video abc
+fi

@@ -25,7 +25,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 docker create \
 --name=plex \
 --net=host \
--e VERSION=latest \
+-e VERSION=docker \
 -e PUID=<UID> -e PGID=<GID> \
 -e TZ=<timezone> \
 -v </path/to/library>:/config \
@@ -37,7 +37,7 @@ linuxserver/plex
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -47,7 +47,8 @@ http://192.168.x.x:8080 would show you what's running INSIDE the container on po
 * `-v /config` - Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*
 * `-v /data/xyz` - Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc.
 * `-v /transcode` - Path for transcoding folder, *optional*.
-* `-e VERSION=latest` - Set whether to update plex or not - see Setting up application section.
+* `--device=/dev/dri:/dev/dri` - Add this option to your run command if you plan on using Quicksync hardware acceleration - see Setting up application section.
+* `-e VERSION=docker` - Set whether to update plex or not - see Setting up application section.
 * `-e PGID=` for for GroupID - see below for explanation
 * `-e PUID=` for for UserID - see below for explanation
 * `-e TZ` - for timezone information *eg Europe/London, etc*
@@ -87,9 +88,20 @@ Valid settings for VERSION are:-
 
 `IMPORTANT NOTE:- YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
 
++ **`docker`**: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.
 + **`latest`**: will update plex to the latest version available that you are entitled to.
 + **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.
 + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
+
+Hardware accelleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
+
+```--device=/dev/dri:/dev/dri```
+
+We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
+
+Hardware accelleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
+
+https://github.com/NVIDIA/nvidia-container-runtime/
 
 ## Info
 
@@ -98,7 +110,7 @@ Valid settings for VERSION are:-
 
 To upgrade to the latest version (see setting up application section) : `docker restart plex`
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' plex`
 
@@ -108,6 +120,7 @@ To upgrade to the latest version (see setting up application section) : `docker 
 
 ## Versions
 
++ **16.01.19:** Add pipeline logic, multi arch, and HW transcoding configuration.
 + **07.09.18:** Rebase to ubuntu bionic, add udev package.
 + **09.12.17:** Fix continuation lines.
 + **12.07.17:** Add inspect commands to README, move to jenkins build and push.

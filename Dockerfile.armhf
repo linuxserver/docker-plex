@@ -1,4 +1,7 @@
-FROM lsiobase/ubuntu:bionic
+FROM lsiobase/ubuntu.armhf:bionic
+
+# Add qemu to build on x86_64 systems
+COPY qemu-arm-static /usr/bin
 
 # set version label
 ARG BUILD_DATE
@@ -36,7 +39,7 @@ RUN \
  fi && \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
-	"https://artifacts.plex.tv/plex-media-server-stable/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_amd64.deb" && \
+	"https://artifacts.plex.tv/plex-media-server-stable/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_armhf.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
  rm -f /sbin/udevadm && \
  mv /sbin/udevadm.bak /sbin/udevadm && \
