@@ -9,6 +9,8 @@ LABEL maintainer="sparklyballs, thelamer"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
+PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server" \
+PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu" \
 PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
 PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
 PLEX_MEDIA_SERVER_INFO_DEVICE=docker \
@@ -38,7 +40,6 @@ RUN \
 	/tmp/plexmediaserver.deb -L \
 	"https://artifacts.plex.tv/plex-media-server-stable/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_amd64.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
- rm -f /sbin/udevadm && \
  mv /sbin/udevadm.bak /sbin/udevadm && \
  echo "**** ensure abc user's home folder is /app ****" && \
  usermod -d /app abc && \
