@@ -54,6 +54,11 @@ RUN \
 # add local files
 COPY root/ /
 
+#Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
+ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
+
+ENV NVIDIA_DRIVER_CAPABILITIES="all"
+
 # ports and volumes
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
 VOLUME /config /transcode
