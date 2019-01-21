@@ -75,7 +75,9 @@ app_setup_block: |
 
   Hardware accelleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
 
-  https://github.com/NVIDIA/nvidia-container-runtime/
+  https://github.com/NVIDIA/nvidia-docker
+  
+  We automatically add the necessary environment variables that will use all available GPU's on the host. Once nvidia-docker is installed on your host you will need to just start the docker with the nvidia container runtime ```--runtime=nvidia```. NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 
 # changelog
 changelogs:
