@@ -108,6 +108,7 @@ To upgrade to the latest version (see setting up application section) : `docker 
 
 ## Versions
 
++ **23.01.19:** Add new ld library path.
 + **07.09.18:** Rebase to ubuntu bionic, add udev package.
 + **09.12.17:** Fix continuation lines.
 + **12.07.17:** Add inspect commands to README, move to jenkins build and push.
