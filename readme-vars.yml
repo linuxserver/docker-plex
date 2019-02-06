@@ -1,0 +1,107 @@
+---
+
+# project information
+project_name: plex
+project_url: "https://plex.tv"
+project_logo: "http://the-gadgeteer.com/wp-content/uploads/2015/10/plex-logo-e1446990678679.png"
+project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.
+
+  *To All Arm Users* - Plex is currently transitioning to a new build system allowing everyone to ingest software releases for all popular architectures. In the mean time releases on this channel for armv7 and aarch64 will be frozen at a beta release version of 1.15, including plex pass users. For armv7 users that want a stable release please use our legacy repo [Here](https://hub.docker.com/r/lsioarmhf/plex) ."
+project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+
+# supported architectures
+available_architectures:
+  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+
+# container parameters
+common_param_env_vars_enabled: true #PGID, PUID, etc
+param_container_name: "{{ project_name }}"
+param_usage_include_vols: true
+param_volumes:
+  - { vol_path: "/config", vol_host_path: "</path/to/library>", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*" }
+  - { vol_path: "/data/tvshows", vol_host_path: "<path/to/tvseries>", desc: "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc." }
+  - { vol_path: "/data/movies", vol_host_path: "</path/to/movies>", desc: "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc." }
+  - { vol_path: "/transcode", vol_host_path: "</path for transcoding>", desc: "Path for transcoding folder, *optional*." }
+param_usage_include_ports: false
+param_usage_include_net: true
+param_net: "host"
+param_net_desc: "Use Host Networking"
+param_usage_include_env: true
+param_env_vars:
+  - { env_var: "VERSION", env_value: "docker", desc: "Set whether to update plex or not - see Application Setup section."}
+
+optional_parameters: |
+  *Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command:
+
+  ```
+    -p 32400:32400 \
+    -p 32400:32400/udp \
+    -p 32469:32469 \
+    -p 32469:32469/udp \
+    -p 5353:5353/udp \
+    -p 1900:1900/udp
+  ```
+
+  The application accepts a series of environment variables to further customize itself on boot:
+
+  | Parameter | Function |
+  | :---: | --- |
+  | `-v /transcode` | Path for transcoding folder|
+  | `--device=/dev/dri:/dev/dri` | Add this option to your run command if you plan on using Quicksync hardware acceleration - see Application Setup section.|
+
+# application setup block
+app_setup_block_enabled: true
+app_setup_block: |
+  Webui can be found at `<your-ip>:32400/web`
+
+  ** Note about updates, if there is no value set for the VERSION variable, then no updates will take place.**
+
+  ** For new users, no updates will take place on the first run of the container as there is no preferences file to read your token from, to update restart the Docker container after logging in through the webui**
+
+  Valid settings for VERSION are:-
+
+  `IMPORTANT NOTE:- YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
+
+  + **`docker`**: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.
+  + **`latest`**: will update plex to the latest version available that you are entitled to.
+  + **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.
+  + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
+
+  Hardware accelleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
+
+  ```--device=/dev/dri:/dev/dri```
+
+  We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
+
+  Hardware accelleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
+
+  https://github.com/NVIDIA/nvidia-docker
+  
+  We automatically add the necessary environment variables that will use all available GPU's on the host. Once nvidia-docker is installed on your host you will need to just start the docker with the nvidia container runtime ```--runtime=nvidia```. NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
+
+# changelog
+changelogs:
+  - { date: "16.01.19:", desc: "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service." }
+  - { date: "07.09.18:", desc: "Rebase to ubuntu bionic, add udev package." }
+  - { date: "09.12.17:", desc: "Fix continuation lines." }
+  - { date: "12.07.17:", desc: "Add inspect commands to README, move to jenkins build and push." }
+  - { date: "28.05.17:", desc: "Add unrar package as per requests, for subzero plugin." }
+  - { date: "11.01.17:", desc: "Use Plex environment variables from pms docker,
+  change abc home folder to /app to alleviate usermod chowning library" }
+  - { date: "03.01.17:", desc: "Use case insensitive version variable matching rather than export and make lowercase." }
+  - { date: "17.10.16:", desc: "Allow use of uppercase version variable" }
+  - { date: "01.10.16:", desc: "Add TZ info to README." }
+  - { date: "09.09.16:", desc: "Add layer badges to README." }
+  - { date: "27.08.16:", desc: "Add badges to README." }
+  - { date: "22.08.16:", desc: "Rebased to xenial and s6 overlay" }
+  - { date: "07.04.16:", desc: "removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS" }
+  - { date: "24.09.15:", desc: "added optional support for volume transcoding (/transcode), and various typo fixes." }
+  - { date: "17.09.15:", desc: "Changed to run chmod only once" }
+  - { date: "19.09.15:", desc: "Plex updated their download servers from http to https" }
+  - { date: "28.08.15:", desc: "Removed plexpass from routine, and now uses VERSION as a combination fix." }
+  - { date: "18.07.15:", desc: "Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42." }
+  - { date: "09.07.15:", desc: "Now with ability to pick static version number." }
+  - { date: "08.07.15:", desc: "Now with autoupdates. (Hosted by fanart.tv)" }
+  - { date: "03.07.15:", desc: "Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this." }
