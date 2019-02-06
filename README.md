@@ -26,14 +26,19 @@ TLDR: Multi-arch support is changing from multiple repos to one repo per contain
 [![](https://images.microbadger.com/badges/image/linuxserver/plex.svg)](https://microbadger.com/images/linuxserver/plex "Get your own version badge on microbadger.com")
 ![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/plex.svg)
 ![Docker Stars](https://img.shields.io/docker/stars/linuxserver/plex.svg)
+[![Build Status](https://ci.linuxserver.io/buildStatus/icon?job=Docker-Pipeline-Builders/docker-plex/master)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-plex/job/master/)
+[![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/plex/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/plex/latest/index.html)
 
 [Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.
+*To All Arm Users* - Plex is currently transitioning to a new build system allowing everyone to ingest software releases for all popular architectures. In the mean time releases on this channel for armv7 and aarch64 will be frozen at a beta release version of 1.15, including plex pass users. For armv7 users that want a stable release please use our legacy repo [Here](https://hub.docker.com/r/lsioarmhf/plex) .
 
 [![plex](http://the-gadgeteer.com/wp-content/uploads/2015/10/plex-logo-e1446990678679.png)](https://plex.tv)
 
 ## Supported Architectures
 
 Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list). 
+
+Simply pulling `linuxserver/plex` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
 The architectures supported by this image are:
 
@@ -42,6 +47,7 @@ The architectures supported by this image are:
 | x86-64 | amd64-latest |
 | arm64 | arm64v8-latest |
 | armhf | arm32v6-latest |
+
 
 ## Usage
 
@@ -165,7 +171,9 @@ We will automatically ensure the abc user inside of the container has the proper
 
 Hardware accelleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
 
-https://github.com/NVIDIA/nvidia-container-runtime/
+https://github.com/NVIDIA/nvidia-docker
+
+We automatically add the necessary environment variables that will use all available GPU's on the host. Once nvidia-docker is installed on your host you will need to just start the docker with the nvidia container runtime ```--runtime=nvidia```. NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 
 
 

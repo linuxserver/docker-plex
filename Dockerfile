@@ -7,6 +7,10 @@ ARG PLEX_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="sparklyballs, thelamer"
 
+#Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
+ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
+ENV NVIDIA_DRIVER_CAPABILITIES="all"
+
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
 PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server" \
@@ -33,12 +37,12 @@ RUN \
  chmod +x /sbin/udevadm && \
  echo "**** install plex ****" && \
  if [ -z ${PLEX_RELEASE+x} ]; then \
- 	PLEX_RELEASE=$(curl -sX GET https://artifacts.plex.tv/api/storage/plex-media-server-stable?lastModified \
-	| jq -r '.| .uri' | awk -F '/' '{print $8}'); \
+ 	PLEX_RELEASE=$(curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' \
+	|grep -oP 'version="\K[^"]+' | tail -n 1); \
  fi && \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
-	"https://artifacts.plex.tv/plex-media-server-stable/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_amd64.deb" && \
+	"https://downloads.plex.tv/plex-media-server/${PLEX_RELEASE}/plexmediaserver_${PLEX_RELEASE}_amd64.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
  mv /sbin/udevadm.bak /sbin/udevadm && \
  echo "**** ensure abc user's home folder is /app ****" && \
@@ -53,11 +57,6 @@ RUN \
 
 # add local files
 COPY root/ /
-
-#Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
-ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
-
-ENV NVIDIA_DRIVER_CAPABILITIES="all"
 
 # ports and volumes
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp

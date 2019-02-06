@@ -3,4 +3,4 @@
 echo "Starting Plex Media Server."
 exec \
 	s6-setuidgid abc /bin/bash -c \
-	'LD_LIBRARY_PATH=/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server /usr/lib/plexmediaserver'
+	'LD_LIBRARY_PATH=/usr/lib/plexmediaserver:/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server'

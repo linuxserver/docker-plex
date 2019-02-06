@@ -96,7 +96,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -sX GET https://artifacts.plex.tv/api/storage/plex-media-server-stable?lastModified | jq -r '.| .uri' | awk -F '/' '{print $8}' ''',
+            script: ''' curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\K[^"]+' | tail -n 1 ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
@@ -198,6 +198,15 @@ pipeline {
                 echo "true" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
               else
                 echo "false" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
+              fi
+              mkdir -p ${TEMPDIR}/gitbook
+              git clone https://github.com/linuxserver/docker-documentation.git ${TEMPDIR}/gitbook/docker-documentation
+              if [ ! -f ${TEMPDIR}/gitbook/docker-documentation/images/docker-${CONTAINER_NAME}.md ] || [ "$(md5sum ${TEMPDIR}/gitbook/docker-documentation/images/docker-${CONTAINER_NAME}.md | awk '{ print $1 }')" != "$(md5sum ${TEMPDIR}/${CONTAINER_NAME}/docker-${CONTAINER_NAME}.md | awk '{ print $1 }')" ]; then
+                cp ${TEMPDIR}/${CONTAINER_NAME}/docker-${CONTAINER_NAME}.md ${TEMPDIR}/gitbook/docker-documentation/images/
+                cd ${TEMPDIR}/gitbook/docker-documentation/
+                git add images/docker-${CONTAINER_NAME}.md
+                git commit -m 'Bot Updating Templated Files'
+                git push https://LinuxServer-CI:${GITHUB_TOKEN}@github.com/linuxserver/docker-documentation.git --all
               fi
               rm -Rf ${TEMPDIR}'''
         script{
