@@ -1,4 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-echo "Starting dbus-daemon"
-exec dbus-daemon --system --nofork
