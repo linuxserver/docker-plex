@@ -3,7 +3,7 @@
 # jenkins variables
 project_name: docker-plex
 external_type: na
-custom_version_command: curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\K[^"]+' | tail -n 1
+custom_version_command: curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\\K[^"]+' | tail -n 1
 release_type: stable
 release_tag: latest
 ls_branch: master

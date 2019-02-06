@@ -96,7 +96,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\K[^"]+' | tail -n 1 ''',
+            script: ''' curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\\K[^"]+' | tail -n 1 ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
