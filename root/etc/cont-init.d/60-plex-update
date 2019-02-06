@@ -110,8 +110,13 @@ fi
 
 echo "Atempting to upgrade to: $REMOTE_VERSION"
 rm -f /tmp/plexmediaserver_*.deb
+if [[ $REMOTE_VERSION == 1.15* ]]; then
+wget -nv -P /tmp \
+"https://downloads.plex.tv/plex-media-server-new/$REMOTE_VERSION/debian/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+else
 wget -nv -P /tmp \
 "${PLEX_DOWNLOAD}/$REMOTE_VERSION/plexmediaserver_${REMOTE_VERSION}_amd64.deb"
+fi
 last=$?
 
 # test if deb file size is ok, or if download failed

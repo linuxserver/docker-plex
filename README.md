@@ -188,12 +188,12 @@ We automatically add the necessary environment variables that will use all avail
 
 ## Versions
 
-* **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration.
+* **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service.
 * **07.09.18:** - Rebase to ubuntu bionic, add udev package.
 * **09.12.17:** - Fix continuation lines.
 * **12.07.17:** - Add inspect commands to README, move to jenkins build and push.
 * **28.05.17:** - Add unrar package as per requests, for subzero plugin.
-* **11.01.17:** - Use Plex environemt variables from pms docker, change abc home folder to /app to alleviate usermod chowning library
+* **11.01.17:** - Use Plex environment variables from pms docker, change abc home folder to /app to alleviate usermod chowning library
 * **03.01.17:** - Use case insensitive version variable matching rather than export and make lowercase.
 * **17.10.16:** - Allow use of uppercase version variable
 * **01.10.16:** - Add TZ info to README.
