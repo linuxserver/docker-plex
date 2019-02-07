@@ -10,6 +10,12 @@ elif [[ "${ARCH}" == "aarch64" ]]; then
         exit 0
 fi
 
+# If docker manages versioning exit
+if [ "${VERSION}" ] && [ "${VERSION}" == 'docker' ]; then
+	echo "Docker is used for verisoning skip update check"
+	exit 0
+fi
+
 # test if plex is installed and try re-pulling latest if not
 if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
 :
