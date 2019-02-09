@@ -83,6 +83,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "09.02.19:", desc: "Fix nvidia variables, add device variables." }
   - { date: "16.01.19:", desc: "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service." }
   - { date: "07.09.18:", desc: "Rebase to ubuntu bionic, add udev package." }
   - { date: "09.12.17:", desc: "Fix continuation lines." }
