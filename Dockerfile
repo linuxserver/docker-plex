@@ -8,7 +8,6 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="sparklyballs, thelamer"
 
 #Add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
-ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 ENV NVIDIA_DRIVER_CAPABILITIES="all"
 
 # global environment settings
