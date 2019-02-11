@@ -17,7 +17,7 @@ PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
 PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
 PLEX_MEDIA_SERVER_USER="abc" \
 PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
-PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (linuxserver.io)"
+PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (LinuxServer.io)"
 
 RUN \
  echo "**** install runtime packages ****" && \

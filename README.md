@@ -174,7 +174,7 @@ Hardware accelleration users for Nvidia will need to install the container runti
 
 https://github.com/NVIDIA/nvidia-docker
 
-We automatically add the necessary environment variables that will use all available GPU's on the host. Once nvidia-docker is installed on your host you will need to just start the docker with the nvidia container runtime ```--runtime=nvidia```. NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
+We automatically add the necessary environment variables that will use all available GPU's on the host. Once nvidia-docker is installed on your host you will need to just start the docker with the nvidia container runtime ```--runtime=nvidia``` and add an environment variable ```-e NVIDIA_VISIBLE_DEVICES=all``` (can also be set to a specific gpu's UUID). NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 
 
 
@@ -208,7 +208,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
-* **09.02.19:** - Fix nvidia variables, add device variables.
+* **11.02.19:** - Fix nvidia variables, add device variables.
 * **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service.
 * **07.09.18:** - Rebase to ubuntu bionic, add udev package.
 * **09.12.17:** - Fix continuation lines.
