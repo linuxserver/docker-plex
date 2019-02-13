@@ -145,6 +145,7 @@ In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
+
 &nbsp;
 ## Application Setup
 
@@ -163,17 +164,17 @@ Valid settings for VERSION are:-
 + **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.
 + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
 
-Hardware accelleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
+Hardware acceleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
 
 ```--device=/dev/dri:/dev/dri```
 
 We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
 
-Hardware accelleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
+Hardware acceleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
 
 https://github.com/NVIDIA/nvidia-docker
 
-We automatically add the necessary environment variables that will use all available GPU's on the host. Once nvidia-docker is installed on your host you will need to just start the docker with the nvidia container runtime ```--runtime=nvidia```. NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
+We automatically add the necessary environment variable that will utilise all the features available on a GPU on the host. Once nvidia-docker is installed on your host you will need to re/create the docker container with the nvidia container runtime `--runtime=nvidia` and add an environment variable `-e NVIDIA_VISIBLE_DEVICES=all` (can also be set to a specific gpu's UUID, this can be discovered by running `nvidia-smi --query-gpu=gpu_name,gpu_uuid --format=csv` ). NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 
 
 
@@ -186,8 +187,28 @@ We automatically add the necessary environment variables that will use all avail
 * image version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/plex`
 
+## Updating Info
+
+Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.  
+  
+Below are the instructions for updating containers:  
+  
+### Via Docker Run/Create
+* Update the image: `docker pull linuxserver/plex`
+* Stop the running container: `docker stop plex`
+* Delete the container: `docker rm plex`
+* Recreate a new container with the same docker create parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
+* Start the new container: `docker start plex`
+* You can also remove the old dangling images: `docker image prune`
+
+### Via Docker Compose
+* Update the image: `docker-compose pull linuxserver/plex`
+* Let compose update containers as necessary: `docker-compose up -d`
+* You can also remove the old dangling images: `docker image prune`
+
 ## Versions
 
+* **11.02.19:** - Fix nvidia variables, add device variables.
 * **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service.
 * **07.09.18:** - Rebase to ubuntu bionic, add udev package.
 * **09.12.17:** - Fix continuation lines.
