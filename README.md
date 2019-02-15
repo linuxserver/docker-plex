@@ -157,7 +157,7 @@ Webui can be found at `<your-ip>:32400/web`
 
 Valid settings for VERSION are:-
 
-`IMPORTANT NOTE:- YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
+`IMPORTANT NOTE:- YOU CANNOT UPDATE TO A PLEXPASS ONLY (BETA) VERSION IF YOU ARE NOT LOGGED IN WITH A PLEXPASS ACCOUNT`
 
 + **`docker`**: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.
 + **`latest`**: will update plex to the latest version available that you are entitled to.
@@ -208,6 +208,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **15.02.19:** - Clean up plex pid after unclean stop.
 * **11.02.19:** - Fix nvidia variables, add device variables.
 * **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service.
 * **07.09.18:** - Rebase to ubuntu bionic, add udev package.
