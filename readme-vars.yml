@@ -62,7 +62,7 @@ app_setup_block: |
 
   Valid settings for VERSION are:-
 
-  `IMPORTANT NOTE:- YOU CANNOT UPDATE TO A PLEXPASS ONLY VERSION IF YOU DO NOT HAVE PLEXPASS`
+  `IMPORTANT NOTE:- YOU CANNOT UPDATE TO A PLEXPASS ONLY (BETA) VERSION IF YOU ARE NOT LOGGED IN WITH A PLEXPASS ACCOUNT`
 
   + **`docker`**: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.
   + **`latest`**: will update plex to the latest version available that you are entitled to.
@@ -83,6 +83,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "15.02.19:", desc: "Clean up plex pid after unclean stop." }
   - { date: "11.02.19:", desc: "Fix nvidia variables, add device variables." }
   - { date: "16.01.19:", desc: "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service." }
   - { date: "07.09.18:", desc: "Rebase to ubuntu bionic, add udev package." }
