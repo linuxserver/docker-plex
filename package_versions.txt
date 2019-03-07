@@ -1,131 +1,131 @@
-adduser/now 3.116ubuntu1 all [installed,local]
-apt/now 1.6.8 amd64 [installed,local]
-apt-utils/now 1.6.8 amd64 [installed,local]
-base-files/now 10.1ubuntu2.4 amd64 [installed,local]
-base-passwd/now 3.5.44 amd64 [installed,local]
-bash/now 4.4.18-2ubuntu1 amd64 [installed,local]
-bsdutils/now 1:2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-bzip2/now 1.0.6-8.1 amd64 [installed,local]
-ca-certificates/now 20180409 all [installed,local]
-coreutils/now 8.28-1ubuntu1 amd64 [installed,local]
-curl/now 7.58.0-2ubuntu3.6 amd64 [installed,local]
-dash/now 0.5.8-2.10 amd64 [installed,local]
-debconf/now 1.5.66 all [installed,local]
-debianutils/now 4.8.4 amd64 [installed,local]
-diffutils/now 1:3.6-1 amd64 [installed,local]
-dpkg/now 1.19.0.5ubuntu2.1 amd64 [installed,local]
-e2fsprogs/now 1.44.1-1ubuntu1.1 amd64 [installed,local]
-fdisk/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-findutils/now 4.6.0+git+20170828-2 amd64 [installed,local]
-gcc-8-base/now 8.2.0-1ubuntu2~18.04 amd64 [installed,local]
-gpgv/now 2.2.4-1ubuntu1.2 amd64 [installed,local]
-grep/now 3.1-2 amd64 [installed,local]
-gzip/now 1.6-5ubuntu1 amd64 [installed,local]
-hostname/now 3.20 amd64 [installed,local]
-init-system-helpers/now 1.51 all [installed,local]
-jq/now 1.5+dfsg-2 amd64 [installed,local]
-krb5-locales/now 1.16-2ubuntu0.1 all [installed,local]
-libacl1/now 2.2.52-3build1 amd64 [installed,local]
-libapt-inst2.0/now 1.6.8 amd64 [installed,local]
-libapt-pkg5.0/now 1.6.8 amd64 [installed,local]
-libasn1-8-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libattr1/now 1:2.4.47-2build1 amd64 [installed,local]
-libaudit-common/now 1:2.8.2-1ubuntu1 all [installed,local]
-libaudit1/now 1:2.8.2-1ubuntu1 amd64 [installed,local]
-libblkid1/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-libbz2-1.0/now 1.0.6-8.1 amd64 [installed,local]
-libc-bin/now 2.27-3ubuntu1 amd64 [installed,local]
-libc6/now 2.27-3ubuntu1 amd64 [installed,local]
-libcap-ng0/now 0.7.7-3.1 amd64 [installed,local]
-libcom-err2/now 1.44.1-1ubuntu1.1 amd64 [installed,local]
-libcurl4/now 7.58.0-2ubuntu3.6 amd64 [installed,local]
-libdb5.3/now 5.3.28-13.1ubuntu1 amd64 [installed,local]
-libdebconfclient0/now 0.213ubuntu1 amd64 [installed,local]
-libext2fs2/now 1.44.1-1ubuntu1.1 amd64 [installed,local]
-libfdisk1/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-libffi6/now 3.2.1-8 amd64 [installed,local]
-libgcc1/now 1:8.2.0-1ubuntu2~18.04 amd64 [installed,local]
-libgcrypt20/now 1.8.1-4ubuntu1.1 amd64 [installed,local]
-libgmp10/now 2:6.1.2+dfsg-2 amd64 [installed,local]
-libgnutls30/now 3.5.18-1ubuntu1 amd64 [installed,local]
-libgpg-error0/now 1.27-6 amd64 [installed,local]
-libgssapi-krb5-2/now 1.16-2ubuntu0.1 amd64 [installed,local]
-libgssapi3-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libhcrypto4-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libheimbase1-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libheimntlm0-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libhogweed4/now 3.4-1 amd64 [installed,local]
-libhx509-5-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libidn2-0/now 2.0.4-1.1build2 amd64 [installed,local]
-libjq1/now 1.5+dfsg-2 amd64 [installed,local]
-libk5crypto3/now 1.16-2ubuntu0.1 amd64 [installed,local]
-libkeyutils1/now 1.5.9-9.2ubuntu2 amd64 [installed,local]
-libkmod2/now 24-1ubuntu3.2 amd64 [installed,local]
-libkrb5-26-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libkrb5-3/now 1.16-2ubuntu0.1 amd64 [installed,local]
-libkrb5support0/now 1.16-2ubuntu0.1 amd64 [installed,local]
-libldap-2.4-2/now 2.4.45+dfsg-1ubuntu1.1 amd64 [installed,local]
-libldap-common/now 2.4.45+dfsg-1ubuntu1.1 all [installed,local]
-liblz4-1/now 0.0~r131-2ubuntu3 amd64 [installed,local]
-liblzma5/now 5.2.2-1.3 amd64 [installed,local]
-libmount1/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-libncurses5/now 6.1-1ubuntu1.18.04 amd64 [installed,local]
-libncursesw5/now 6.1-1ubuntu1.18.04 amd64 [installed,local]
-libnettle6/now 3.4-1 amd64 [installed,local]
-libnghttp2-14/now 1.30.0-1ubuntu1 amd64 [installed,local]
-libonig4/now 6.7.0-1 amd64 [installed,local]
-libp11-kit0/now 0.23.9-2 amd64 [installed,local]
-libpam-modules/now 1.1.8-3.6ubuntu2 amd64 [installed,local]
-libpam-modules-bin/now 1.1.8-3.6ubuntu2 amd64 [installed,local]
-libpam-runtime/now 1.1.8-3.6ubuntu2 all [installed,local]
-libpam0g/now 1.1.8-3.6ubuntu2 amd64 [installed,local]
-libpcre3/now 2:8.39-9 amd64 [installed,local]
-libprocps6/now 2:3.3.12-3ubuntu1.1 amd64 [installed,local]
-libpsl5/now 0.19.1-5build1 amd64 [installed,local]
-libroken18-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-librtmp1/now 2.4+20151223.gitfa8646d.1-1 amd64 [installed,local]
-libsasl2-2/now 2.1.27~101-g0780600+dfsg-3ubuntu2 amd64 [installed,local]
-libsasl2-modules/now 2.1.27~101-g0780600+dfsg-3ubuntu2 amd64 [installed,local]
-libsasl2-modules-db/now 2.1.27~101-g0780600+dfsg-3ubuntu2 amd64 [installed,local]
-libseccomp2/now 2.3.1-2.1ubuntu4 amd64 [installed,local]
-libselinux1/now 2.7-2build2 amd64 [installed,local]
-libsemanage-common/now 2.7-2build2 all [installed,local]
-libsemanage1/now 2.7-2build2 amd64 [installed,local]
-libsepol1/now 2.7-1 amd64 [installed,local]
-libsmartcols1/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-libsqlite3-0/now 3.22.0-1 amd64 [installed,local]
-libss2/now 1.44.1-1ubuntu1.1 amd64 [installed,local]
-libssl1.1/now 1.1.0g-2ubuntu4.3 amd64 [installed,local]
-libstdc++6/now 8.2.0-1ubuntu2~18.04 amd64 [installed,local]
-libsystemd0/now 237-3ubuntu10.13 amd64 [installed,local]
-libtasn1-6/now 4.13-2 amd64 [installed,local]
-libtinfo5/now 6.1-1ubuntu1.18.04 amd64 [installed,local]
-libudev1/now 237-3ubuntu10.13 amd64 [installed,local]
-libunistring2/now 0.9.9-0ubuntu1 amd64 [installed,local]
-libuuid1/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-libwind0-heimdal/now 7.5.0+dfsg-1 amd64 [installed,local]
-libzstd1/now 1.3.3+dfsg-2ubuntu1 amd64 [installed,local]
-locales/now 2.27-3ubuntu1 all [installed,local]
-login/now 1:4.5-1ubuntu1 amd64 [installed,local]
-lsb-base/now 9.20170808ubuntu1 all [installed,local]
-mawk/now 1.3.3-17ubuntu3 amd64 [installed,local]
-mount/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-ncurses-base/now 6.1-1ubuntu1.18.04 all [installed,local]
-ncurses-bin/now 6.1-1ubuntu1.18.04 amd64 [installed,local]
-openssl/now 1.1.0g-2ubuntu4.3 amd64 [installed,local]
-passwd/now 1:4.5-1ubuntu1 amd64 [installed,local]
-perl-base/now 5.26.1-6ubuntu0.3 amd64 [installed,local]
-plexmediaserver/now 1.14.1.5488-cc260c476 amd64 [installed,local]
-procps/now 2:3.3.12-3ubuntu1.1 amd64 [installed,local]
-publicsuffix/now 20180223.1310-1 all [installed,local]
-sed/now 4.4-2 amd64 [installed,local]
-sensible-utils/now 0.0.12 all [installed,local]
-sysvinit-utils/now 2.88dsf-59.10ubuntu1 amd64 [installed,local]
-tar/now 1.29b-2ubuntu0.1 amd64 [installed,local]
-tzdata/now 2018i-0ubuntu0.18.04 all [installed,local]
-ubuntu-keyring/now 2018.09.18.1~18.04.0 all [installed,local]
-udev/now 237-3ubuntu10.13 amd64 [installed,local]
-unrar/now 1:5.5.8-1 amd64 [installed,local]
-util-linux/now 2.31.1-0.4ubuntu3.3 amd64 [installed,local]
-wget/now 1.19.4-1ubuntu2.1 amd64 [installed,local]
-zlib1g/now 1:1.2.11.dfsg-0ubuntu2 amd64 [installed,local]
+adduser/now 3.116ubuntu1
+apt/now 1.6.8
+apt-utils/now 1.6.8
+base-files/now 10.1ubuntu2.4
+base-passwd/now 3.5.44
+bash/now 4.4.18-2ubuntu1
+bsdutils/now 1:2.31.1-0.4ubuntu3.3
+bzip2/now 1.0.6-8.1
+ca-certificates/now 20180409
+coreutils/now 8.28-1ubuntu1
+curl/now 7.58.0-2ubuntu3.6
+dash/now 0.5.8-2.10
+debconf/now 1.5.66
+debianutils/now 4.8.4
+diffutils/now 1:3.6-1
+dpkg/now 1.19.0.5ubuntu2.1
+e2fsprogs/now 1.44.1-1ubuntu1.1
+fdisk/now 2.31.1-0.4ubuntu3.3
+findutils/now 4.6.0+git+20170828-2
+gcc-8-base/now 8.2.0-1ubuntu2~18.04
+gpgv/now 2.2.4-1ubuntu1.2
+grep/now 3.1-2
+gzip/now 1.6-5ubuntu1
+hostname/now 3.20
+init-system-helpers/now 1.51
+jq/now 1.5+dfsg-2
+krb5-locales/now 1.16-2ubuntu0.1
+libacl1/now 2.2.52-3build1
+libapt-inst2.0/now 1.6.8
+libapt-pkg5.0/now 1.6.8
+libasn1-8-heimdal/now 7.5.0+dfsg-1
+libattr1/now 1:2.4.47-2build1
+libaudit-common/now 1:2.8.2-1ubuntu1
+libaudit1/now 1:2.8.2-1ubuntu1
+libblkid1/now 2.31.1-0.4ubuntu3.3
+libbz2-1.0/now 1.0.6-8.1
+libc-bin/now 2.27-3ubuntu1
+libc6/now 2.27-3ubuntu1
+libcap-ng0/now 0.7.7-3.1
+libcom-err2/now 1.44.1-1ubuntu1.1
+libcurl4/now 7.58.0-2ubuntu3.6
+libdb5.3/now 5.3.28-13.1ubuntu1
+libdebconfclient0/now 0.213ubuntu1
+libext2fs2/now 1.44.1-1ubuntu1.1
+libfdisk1/now 2.31.1-0.4ubuntu3.3
+libffi6/now 3.2.1-8
+libgcc1/now 1:8.2.0-1ubuntu2~18.04
+libgcrypt20/now 1.8.1-4ubuntu1.1
+libgmp10/now 2:6.1.2+dfsg-2
+libgnutls30/now 3.5.18-1ubuntu1
+libgpg-error0/now 1.27-6
+libgssapi-krb5-2/now 1.16-2ubuntu0.1
+libgssapi3-heimdal/now 7.5.0+dfsg-1
+libhcrypto4-heimdal/now 7.5.0+dfsg-1
+libheimbase1-heimdal/now 7.5.0+dfsg-1
+libheimntlm0-heimdal/now 7.5.0+dfsg-1
+libhogweed4/now 3.4-1
+libhx509-5-heimdal/now 7.5.0+dfsg-1
+libidn2-0/now 2.0.4-1.1build2
+libjq1/now 1.5+dfsg-2
+libk5crypto3/now 1.16-2ubuntu0.1
+libkeyutils1/now 1.5.9-9.2ubuntu2
+libkmod2/now 24-1ubuntu3.2
+libkrb5-26-heimdal/now 7.5.0+dfsg-1
+libkrb5-3/now 1.16-2ubuntu0.1
+libkrb5support0/now 1.16-2ubuntu0.1
+libldap-2.4-2/now 2.4.45+dfsg-1ubuntu1.1
+libldap-common/now 2.4.45+dfsg-1ubuntu1.1
+liblz4-1/now 0.0~r131-2ubuntu3
+liblzma5/now 5.2.2-1.3
+libmount1/now 2.31.1-0.4ubuntu3.3
+libncurses5/now 6.1-1ubuntu1.18.04
+libncursesw5/now 6.1-1ubuntu1.18.04
+libnettle6/now 3.4-1
+libnghttp2-14/now 1.30.0-1ubuntu1
+libonig4/now 6.7.0-1
+libp11-kit0/now 0.23.9-2
+libpam-modules/now 1.1.8-3.6ubuntu2
+libpam-modules-bin/now 1.1.8-3.6ubuntu2
+libpam-runtime/now 1.1.8-3.6ubuntu2
+libpam0g/now 1.1.8-3.6ubuntu2
+libpcre3/now 2:8.39-9
+libprocps6/now 2:3.3.12-3ubuntu1.1
+libpsl5/now 0.19.1-5build1
+libroken18-heimdal/now 7.5.0+dfsg-1
+librtmp1/now 2.4+20151223.gitfa8646d.1-1
+libsasl2-2/now 2.1.27~101-g0780600+dfsg-3ubuntu2
+libsasl2-modules/now 2.1.27~101-g0780600+dfsg-3ubuntu2
+libsasl2-modules-db/now 2.1.27~101-g0780600+dfsg-3ubuntu2
+libseccomp2/now 2.3.1-2.1ubuntu4
+libselinux1/now 2.7-2build2
+libsemanage-common/now 2.7-2build2
+libsemanage1/now 2.7-2build2
+libsepol1/now 2.7-1
+libsmartcols1/now 2.31.1-0.4ubuntu3.3
+libsqlite3-0/now 3.22.0-1
+libss2/now 1.44.1-1ubuntu1.1
+libssl1.1/now 1.1.0g-2ubuntu4.3
+libstdc++6/now 8.2.0-1ubuntu2~18.04
+libsystemd0/now 237-3ubuntu10.13
+libtasn1-6/now 4.13-2
+libtinfo5/now 6.1-1ubuntu1.18.04
+libudev1/now 237-3ubuntu10.13
+libunistring2/now 0.9.9-0ubuntu1
+libuuid1/now 2.31.1-0.4ubuntu3.3
+libwind0-heimdal/now 7.5.0+dfsg-1
+libzstd1/now 1.3.3+dfsg-2ubuntu1
+locales/now 2.27-3ubuntu1
+login/now 1:4.5-1ubuntu1
+lsb-base/now 9.20170808ubuntu1
+mawk/now 1.3.3-17ubuntu3
+mount/now 2.31.1-0.4ubuntu3.3
+ncurses-base/now 6.1-1ubuntu1.18.04
+ncurses-bin/now 6.1-1ubuntu1.18.04
+openssl/now 1.1.0g-2ubuntu4.3
+passwd/now 1:4.5-1ubuntu1
+perl-base/now 5.26.1-6ubuntu0.3
+plexmediaserver/now 1.14.1.5488-cc260c476
+procps/now 2:3.3.12-3ubuntu1.1
+publicsuffix/now 20180223.1310-1
+sed/now 4.4-2
+sensible-utils/now 0.0.12
+sysvinit-utils/now 2.88dsf-59.10ubuntu1
+tar/now 1.29b-2ubuntu0.1
+tzdata/now 2018i-0ubuntu0.18.04
+ubuntu-keyring/now 2018.09.18.1~18.04.0
+udev/now 237-3ubuntu10.13
+unrar/now 1:5.5.8-1
+util-linux/now 2.31.1-0.4ubuntu3.3
+wget/now 1.19.4-1ubuntu2.1
+zlib1g/now 1:1.2.11.dfsg-0ubuntu2
