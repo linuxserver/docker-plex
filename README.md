@@ -53,8 +53,8 @@ Here are some example snippets to help you get started creating a container.
 docker create \
   --name=plex \
   --net=host \
-  -e PUID=1001 \
-  -e PGID=1001 \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -e VERSION=docker \
   -v </path/to/library>:/config \
   -v <path/to/tvseries>:/data/tvshows \
@@ -78,15 +78,14 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=1000
+      - PGID=1000
       - VERSION=docker
     volumes:
       - </path/to/library>:/config
       - <path/to/tvseries>:/data/tvshows
       - </path/to/movies>:/data/movies
       - </path for transcoding>:/transcode
-    mem_limit: 4096m
     restart: unless-stopped
 ```
 
@@ -97,8 +96,8 @@ Container images are configured using parameters passed at runtime (such as thos
 | Parameter | Function |
 | :----: | --- |
 | `--net=host` | Use Host Networking |
-| `-e PUID=1001` | for UserID - see below for explanation |
-| `-e PGID=1001` | for GroupID - see below for explanation |
+| `-e PUID=1000` | for UserID - see below for explanation |
+| `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e VERSION=docker` | Set whether to update plex or not - see Application Setup section. |
 | `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
 | `-v /data/tvshows` | Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc. |
@@ -132,11 +131,11 @@ When using volumes (`-v` flags) permissions issues can arise between the host OS
 
 Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
 
-In this instance `PUID=1001` and `PGID=1001`, to find yours use `id user` as below:
+In this instance `PUID=1000` and `PGID=1000`, to find yours use `id user` as below:
 
 ```
   $ id username
-    uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
 ```
 
 
@@ -195,9 +194,20 @@ Below are the instructions for updating containers:
 * Start the new container: `docker start plex`
 * You can also remove the old dangling images: `docker image prune`
 
+### Via Taisun auto-updater (especially useful if you don't remember the original parameters)
+* Pull the latest image at its tag and replace it with the same env variables in one shot:
+  ```
+  docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock taisun/updater \
+  --oneshot plex
+  ```
+* You can also remove the old dangling images: `docker image prune`
+
 ### Via Docker Compose
-* Update the image: `docker-compose pull linuxserver/plex`
-* Let compose update containers as necessary: `docker-compose up -d`
+* Update all images: `docker-compose pull`
+  * or update a single image: `docker-compose pull plex`
+* Let compose update all containers as necessary: `docker-compose up -d`
+  * or update a single container: `docker-compose up -d plex`
 * You can also remove the old dangling images: `docker image prune`
 
 ## Versions
