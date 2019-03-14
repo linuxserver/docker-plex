@@ -22,13 +22,13 @@ pipeline {
     DIST_IMAGE = 'ubuntu'
     MULTIARCH='true'
     CI='true'
-    CI_WEB='false'
+    CI_WEB='true'
     CI_PORT='32400'
     CI_SSL='false'
     CI_DELAY='120'
     CI_DOCKERENV='TZ=US/Pacific'
     CI_AUTH='user:password'
-    CI_WEBPATH='/web'
+    CI_WEBPATH=''
   }
   stages {
     // Setup all the basic environment variables needed for the build
