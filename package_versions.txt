@@ -75,10 +75,10 @@ libnettle6/now 3.4-1
 libnghttp2-14/now 1.30.0-1ubuntu1
 libonig4/now 6.7.0-1
 libp11-kit0/now 0.23.9-2
-libpam-modules/now 1.1.8-3.6ubuntu2
-libpam-modules-bin/now 1.1.8-3.6ubuntu2
-libpam-runtime/now 1.1.8-3.6ubuntu2
-libpam0g/now 1.1.8-3.6ubuntu2
+libpam-modules/now 1.1.8-3.6ubuntu2.18.04.1
+libpam-modules-bin/now 1.1.8-3.6ubuntu2.18.04.1
+libpam-runtime/now 1.1.8-3.6ubuntu2.18.04.1
+libpam0g/now 1.1.8-3.6ubuntu2.18.04.1
 libpcre3/now 2:8.39-9
 libprocps6/now 2:3.3.12-3ubuntu1.1
 libpsl5/now 0.19.1-5build1
@@ -100,7 +100,7 @@ libstdc++6/now 8.2.0-1ubuntu2~18.04
 libsystemd0/now 237-3ubuntu10.13
 libtasn1-6/now 4.13-2
 libtinfo5/now 6.1-1ubuntu1.18.04
-libudev1/now 237-3ubuntu10.13
+libudev1/now 237-3ubuntu10.15
 libunistring2/now 0.9.9-0ubuntu1
 libuuid1/now 2.31.1-0.4ubuntu3.3
 libwind0-heimdal/now 7.5.0+dfsg-1
@@ -124,7 +124,7 @@ sysvinit-utils/now 2.88dsf-59.10ubuntu1
 tar/now 1.29b-2ubuntu0.1
 tzdata/now 2018i-0ubuntu0.18.04
 ubuntu-keyring/now 2018.09.18.1~18.04.0
-udev/now 237-3ubuntu10.13
+udev/now 237-3ubuntu10.15
 unrar/now 1:5.5.8-1
 util-linux/now 2.31.1-0.4ubuntu3.3
 wget/now 1.19.4-1ubuntu2.1
