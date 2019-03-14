@@ -36,7 +36,7 @@ RUN \
  echo "**** install plex ****" && \
  if [ -z ${PLEX_RELEASE+x} ]; then \
  	PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \
-	| jq -r 'first(.[] | .Linux.version)'); \
+	| jq -r '.computer.Linux.version'); \
  fi && \
  curl -o \
 	/tmp/plexmediaserver.deb -L \

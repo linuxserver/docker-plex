@@ -2,12 +2,13 @@
 
 # jenkins variables
 project_name: docker-plex
-external_type: na
-custom_version_command: curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\\K[^"]+' | tail -n 1
+external_type: custom_json
 release_type: stable
 release_tag: latest
 ls_branch: master
 repo_vars:
+  - JSON_URL = 'https://plex.tv/api/downloads/5.json'
+  - JSON_PATH = '.computer.Linux.version'
   - BUILD_VERSION_ARG = 'PLEX_RELEASE'
   - LS_USER = 'linuxserver'
   - LS_REPO = 'docker-plex'

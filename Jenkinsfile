@@ -10,6 +10,8 @@ pipeline {
   environment {
     BUILDS_DISCORD=credentials('build_webhook_url')
     GITHUB_TOKEN=credentials('498b4638-2d02-4ce5-832d-8a57d01d97ab')
+    JSON_URL = 'https://plex.tv/api/downloads/5.json'
+    JSON_PATH = '.computer.Linux.version'
     BUILD_VERSION_ARG = 'PLEX_RELEASE'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-plex'
@@ -91,16 +93,16 @@ pipeline {
     /* ########################
        External Release Tagging
        ######################## */
-    // If this is a custom command to determine version use that command
-    stage("Set tag custom bash"){
-      steps{
-        script{
-          env.EXT_RELEASE = sh(
-            script: ''' curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' |grep -oP 'version="\\K[^"]+' | tail -n 1 ''',
-            returnStdout: true).trim()
-            env.RELEASE_LINK = 'custom_command'
-        }
-      }
+    // If this is a custom json endpoint parse the return to get external tag
+    stage("Set ENV custom_json"){
+     steps{
+       script{
+         env.EXT_RELEASE = sh(
+           script: '''curl -s ${JSON_URL} | jq -r ". | ${JSON_PATH}" ''',
+           returnStdout: true).trim()
+         env.RELEASE_LINK = env.JSON_URL
+       }
+     }
     }
     // Sanitize the release tag and strip illegal docker or github characters
     stage("Sanitize tag"){
@@ -558,7 +560,7 @@ pipeline {
              "tagger": {"name": "LinuxServer Jenkins","email": "jenkins@linuxserver.io","date": "'${GITHUB_DATE}'"}}' '''
         echo "Pushing New release for Tag"
         sh '''#! /bin/bash
-              echo "Updating to ${EXT_RELEASE_CLEAN}" > releasebody.json
+              echo "Data change at JSON endpoint ${JSON_URL}" > releasebody.json
               echo '{"tag_name":"'${EXT_RELEASE_CLEAN}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}'",\
                      "target_commitish": "master",\
                      "name": "'${EXT_RELEASE_CLEAN}'-pkg-'${PACKAGE_TAG}'-ls'${LS_TAG_NUMBER}'",\
