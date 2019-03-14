@@ -12,8 +12,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
-PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server" \
-PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu" \
+PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server-new" \
+PLEX_ARCH="amd64" \
 PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
 PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
 PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
@@ -35,12 +35,12 @@ RUN \
  chmod +x /sbin/udevadm && \
  echo "**** install plex ****" && \
  if [ -z ${PLEX_RELEASE+x} ]; then \
- 	PLEX_RELEASE=$(curl -s 'https://plex.tv/downloads/details/1?build=linux-ubuntu-x86_64&distro=ubuntu' \
-	|grep -oP 'version="\K[^"]+' | tail -n 1); \
+ 	PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \
+	| jq -r 'first(.[] | .Linux.version)'); \
  fi && \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
-	"https://downloads.plex.tv/plex-media-server/${PLEX_RELEASE}/plexmediaserver_${PLEX_RELEASE}_amd64.deb" && \
+	"${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
  mv /sbin/udevadm.bak /sbin/udevadm && \
  echo "**** ensure abc user's home folder is /app ****" && \

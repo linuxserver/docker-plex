@@ -83,6 +83,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "14.03.19:", desc: "Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64." }
   - { date: "15.02.19:", desc: "Clean up plex pid after unclean stop." }
   - { date: "11.02.19:", desc: "Fix nvidia variables, add device variables." }
   - { date: "16.01.19:", desc: "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service." }

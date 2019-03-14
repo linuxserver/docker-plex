@@ -12,6 +12,8 @@ LABEL maintainer="sparklyballs, thelamer"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
+PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server-new" \
+PLEX_ARCH="armhf" \
 PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
 PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
 PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
@@ -26,15 +28,19 @@ RUN \
 	udev \
 	unrar \
 	wget \
-	jq && \
+  jq && \
  echo "**** Udevadm hack ****" && \
  mv /sbin/udevadm /sbin/udevadm.bak && \
  echo "exit 0" > /sbin/udevadm && \
  chmod +x /sbin/udevadm && \
  echo "**** install plex ****" && \
+ if [ -z ${PLEX_RELEASE+x} ]; then \
+ 	PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \
+	| jq -r 'first(.[] | .Linux.version)'); \
+ fi && \
  curl -o \
 	/tmp/plexmediaserver.deb -L \
-	"https://downloads.plex.tv/plex-media-server-new/1.15.0.647-67e950f12/debian/plexmediaserver_1.15.0.647-67e950f12_armhf.deb" && \
+	"${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
  mv /sbin/udevadm.bak /sbin/udevadm && \
  echo "**** ensure abc user's home folder is /app ****" && \

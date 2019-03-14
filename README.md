@@ -212,6 +212,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **14.03.19:** - Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64.
 * **15.02.19:** - Clean up plex pid after unclean stop.
 * **11.02.19:** - Fix nvidia variables, add device variables.
 * **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service.
