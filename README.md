@@ -24,7 +24,6 @@ Find us at:
 [![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/plex/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/plex/latest/index.html)
 
 [Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.
-*To All Arm Users* - Plex is currently transitioning to a new build system allowing everyone to ingest software releases for all popular architectures. In the mean time releases on this channel for armv7 and aarch64 will be frozen at a beta release version of 1.15, including plex pass users. For armv7 users that want a stable release please use our legacy repo [Here](https://hub.docker.com/r/lsioarmhf/plex) .
 
 [![plex](http://the-gadgeteer.com/wp-content/uploads/2015/10/plex-logo-e1446990678679.png)](https://plex.tv)
 
@@ -212,6 +211,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **14.03.19:** - Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64.
 * **15.02.19:** - Clean up plex pid after unclean stop.
 * **11.02.19:** - Fix nvidia variables, add device variables.
 * **16.01.19:** - Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service.
