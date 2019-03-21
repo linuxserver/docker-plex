@@ -87,7 +87,7 @@ librtmp1/now 2.4+20151223.gitfa8646d.1-1
 libsasl2-2/now 2.1.27~101-g0780600+dfsg-3ubuntu2
 libsasl2-modules/now 2.1.27~101-g0780600+dfsg-3ubuntu2
 libsasl2-modules-db/now 2.1.27~101-g0780600+dfsg-3ubuntu2
-libseccomp2/now 2.3.1-2.1ubuntu4
+libseccomp2/now 2.3.1-2.1ubuntu4.1
 libselinux1/now 2.7-2build2
 libsemanage-common/now 2.7-2build2
 libsemanage1/now 2.7-2build2
@@ -97,7 +97,7 @@ libsqlite3-0/now 3.22.0-1
 libss2/now 1.44.1-1ubuntu1.1
 libssl1.1/now 1.1.0g-2ubuntu4.3
 libstdc++6/now 8.2.0-1ubuntu2~18.04
-libsystemd0/now 237-3ubuntu10.13
+libsystemd0/now 237-3ubuntu10.15
 libtasn1-6/now 4.13-2
 libtinfo5/now 6.1-1ubuntu1.18.04
 libudev1/now 237-3ubuntu10.15
