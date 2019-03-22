@@ -100,7 +100,7 @@ if [[ "${VERSION,,}" = latest ]] || [[ "${VERSION,,}" = plexpass ]] || [[ "$PLEX
   fi
 REMOTE_VERSION=$(curl -s "https://plex.tv/downloads/details/5?distro=debian&build=linux-${PLEX_URL_ARCH}&channel=8&X-Plex-Token=$PLEX_TOKEN"| grep -oP 'version="\K[^"]+' | tail -n 1 )
 elif [[ "${VERSION,,}" = public ]]; then
-REMOTE_VERSION=curl -sX GET 'https://plex.tv/api/downloads/5.json' | jq -r '.computer.Linux.version'
+REMOTE_VERSION=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' | jq -r '.computer.Linux.version')
 else
 REMOTE_VERSION="${VERSION}"
 fi
