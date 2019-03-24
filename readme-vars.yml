@@ -12,7 +12,7 @@ project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_
 available_architectures:
   - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
 # container parameters
 common_param_env_vars_enabled: true #PGID, PUID, etc
@@ -82,6 +82,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "22.03.19:", desc: "Fix update logic for `VERSION=public`." }
   - { date: "14.03.19:", desc: "Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64." }
   - { date: "15.02.19:", desc: "Clean up plex pid after unclean stop." }
