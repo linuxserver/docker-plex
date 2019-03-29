@@ -82,6 +82,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "29.03.19:", desc: "Add chowner function for config folder" }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "22.03.19:", desc: "Fix update logic for `VERSION=public`." }
   - { date: "14.03.19:", desc: "Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64." }

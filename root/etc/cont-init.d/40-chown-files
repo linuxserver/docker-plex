@@ -6,20 +6,31 @@ mkdir -p "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
 chown -R abc:abc /config
 fi
 
-# check Library permissions
-PUID=${PUID:-911}
-if [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
-	echo "Change in ownership detected, please be patient while we chown existing files"
-	echo "This could take some time"
-	chown abc:abc -R \
-	/config/Library
-fi
-
 # remove plex pid after unclean stop
 [[ -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid" ]] && \
   rm -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid"
 
-# permissions (non-recursive) on config root and folders
-chown abc:abc \
-	/config \
-	/config/*
+# function to randomly sample 50 files for their owner and only chown if not abc
+chowner () {
+files=(${1}/*)
+for i in {1..50}; do
+        user=$(stat -c '%U' $(printf "%s\n" "${files[RANDOM % ${#files[@]}]}"))
+        if [ "${user}" != "abc" ]; then
+                chown -R abc:abc ${1}
+                break
+        fi
+done
+}
+
+# permissions
+echo "Setting permissions"
+abc_dirs=( \
+/config \
+)
+for i in "${abc_dirs[@]}"; do
+        if [ "$(ls -A ${i})" ]; then
+                chowner ${i}
+        else
+                chown -R abc:abc ${i}
+        fi
+done
