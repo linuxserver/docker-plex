@@ -12,7 +12,7 @@ fi
 
 # function to randomly sample 50 files for their owner and only chown if not abc
 chowner () {
-files=(${1}/*)
+files=(${1}/**)
 for i in {1..50}; do
         user=$(stat -c '%U' $(printf "%s\n" "${files[RANDOM % ${#files[@]}]}"))
         if [ "${user}" != "abc" ]; then
@@ -24,6 +24,7 @@ done
 
 # permissions
 echo "Setting permissions"
+shopt -s globstar
 abc_dirs=( \
 /config \
 )
