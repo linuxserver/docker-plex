@@ -17,7 +17,7 @@ dpkg1.19.0.5ubuntu2.1
 e2fsprogs1.44.1-1ubuntu1.1
 fdisk2.31.1-0.4ubuntu3.3
 findutils4.6.0+git+20170828-2
-gcc-8-base8.2.0-1ubuntu2~18.04
+gcc-8-base8.3.0-6ubuntu1~18.04
 gpgv2.2.4-1ubuntu1.2
 grep3.1-2
 gzip1.6-5ubuntu1
@@ -44,7 +44,7 @@ libdebconfclient00.213ubuntu1
 libext2fs21.44.1-1ubuntu1.1
 libfdisk12.31.1-0.4ubuntu3.3
 libffi63.2.1-8
-libgcc11:8.2.0-1ubuntu2~18.04
+libgcc11:8.3.0-6ubuntu1~18.04
 libgcrypt201.8.1-4ubuntu1.1
 libgmp102:6.1.2+dfsg-2
 libgnutls303.5.18-1ubuntu1
@@ -64,8 +64,8 @@ libkmod224-1ubuntu3.2
 libkrb5-26-heimdal7.5.0+dfsg-1
 libkrb5-31.16-2ubuntu0.1
 libkrb5support01.16-2ubuntu0.1
-libldap-2.4-22.4.45+dfsg-1ubuntu1.1
-libldap-common2.4.45+dfsg-1ubuntu1.1
+libldap-2.4-22.4.45+dfsg-1ubuntu1.2
+libldap-common2.4.45+dfsg-1ubuntu1.2
 liblz4-10.0~r131-2ubuntu3
 liblzma55.2.2-1.3
 libmount12.31.1-0.4ubuntu3.3
@@ -96,8 +96,8 @@ libsmartcols12.31.1-0.4ubuntu3.3
 libsqlite3-03.22.0-1
 libss21.44.1-1ubuntu1.1
 libssl1.11.1.0g-2ubuntu4.3
-libstdc++68.2.0-1ubuntu2~18.04
-libsystemd0237-3ubuntu10.20
+libstdc++68.3.0-6ubuntu1~18.04
+libsystemd0237-3ubuntu10.21
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
 libudev1237-3ubuntu10.21
@@ -106,14 +106,14 @@ libuuid12.31.1-0.4ubuntu3.3
 libwind0-heimdal7.5.0+dfsg-1
 libzstd11.3.3+dfsg-2ubuntu1
 locales2.27-3ubuntu1
-login1:4.5-1ubuntu1
+login1:4.5-1ubuntu2
 lsb-base9.20170808ubuntu1
 mawk1.3.3-17ubuntu3
 mount2.31.1-0.4ubuntu3.3
 ncurses-base6.1-1ubuntu1.18.04
 ncurses-bin6.1-1ubuntu1.18.04
 openssl1.1.0g-2ubuntu4.3
-passwd1:4.5-1ubuntu1
+passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.3
 plexmediaserver1.15.4.993-bb4a2cb6c
 procps2:3.3.12-3ubuntu1.1
