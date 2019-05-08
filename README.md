@@ -204,7 +204,7 @@ Below are the instructions for updating containers:
   ```
   docker run --rm \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  containrrr/watchtower
+  containrrr/watchtower \
   --run-once plex
   ```
 * You can also remove the old dangling images: `docker image prune`
