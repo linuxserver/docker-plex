@@ -230,6 +230,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.05.19:** - Bugfix do not allow Root group for Intel QuickSync ownership rules.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **22.03.19:** - Fix update logic for `VERSION=public`.
 * **14.03.19:** - Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64.
