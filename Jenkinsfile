@@ -22,13 +22,13 @@ pipeline {
     DIST_IMAGE = 'ubuntu'
     MULTIARCH='true'
     CI='true'
-    CI_WEB='false'
+    CI_WEB='true'
     CI_PORT='32400'
     CI_SSL='false'
     CI_DELAY='120'
     CI_DOCKERENV='TZ=US/Pacific'
     CI_AUTH='user:password'
-    CI_WEBPATH=''
+    CI_WEBPATH='/web/index.html'
   }
   stages {
     // Setup all the basic environment variables needed for the build
@@ -467,6 +467,7 @@ pipeline {
                   docker tag lsiodev/buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER} ${IMAGE}:arm64v8-${META_TAG}
                 fi
                 docker run --rm \
+                --shm-size=1gb \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 -e IMAGE=\"${IMAGE}\" \
                 -e DELAY_START=\"${CI_DELAY}\" \
