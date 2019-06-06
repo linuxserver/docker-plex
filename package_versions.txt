@@ -39,7 +39,7 @@ libcap-ng00.7.7-3.1
 libc-bin2.27-3ubuntu1
 libcom-err21.44.1-1ubuntu1.1
 libcurl47.58.0-2ubuntu3.7
-libdb5.35.3.28-13.1ubuntu1
+libdb5.35.3.28-13.1ubuntu1.1
 libdebconfclient00.213ubuntu1
 libext2fs21.44.1-1ubuntu1.1
 libfdisk12.31.1-0.4ubuntu3.3
@@ -47,7 +47,7 @@ libffi63.2.1-8
 libgcc11:8.3.0-6ubuntu1~18.04
 libgcrypt201.8.1-4ubuntu1.1
 libgmp102:6.1.2+dfsg-2
-libgnutls303.5.18-1ubuntu1
+libgnutls303.5.18-1ubuntu1.1
 libgpg-error01.27-6
 libgssapi3-heimdal7.5.0+dfsg-1
 libgssapi-krb5-21.16-2ubuntu0.1
@@ -87,7 +87,7 @@ librtmp12.4+20151223.gitfa8646d.1-1
 libsasl2-22.1.27~101-g0780600+dfsg-3ubuntu2
 libsasl2-modules2.1.27~101-g0780600+dfsg-3ubuntu2
 libsasl2-modules-db2.1.27~101-g0780600+dfsg-3ubuntu2
-libseccomp22.3.1-2.1ubuntu4.1
+libseccomp22.4.1-0ubuntu0.18.04.2
 libselinux12.7-2build2
 libsemanage12.7-2build2
 libsemanage-common2.7-2build2
