@@ -1,6 +1,6 @@
 adduser3.116ubuntu1
-apt1.6.10
-apt-utils1.6.10
+apt1.6.11
+apt-utils1.6.11
 base-files10.1ubuntu2.4
 base-passwd3.5.44
 bash4.4.18-2ubuntu1.1
@@ -26,8 +26,8 @@ init-system-helpers1.51
 jq1.5+dfsg-2
 krb5-locales1.16-2ubuntu0.1
 libacl12.2.52-3build1
-libapt-inst2.01.6.10
-libapt-pkg5.01.6.10
+libapt-inst2.01.6.11
+libapt-pkg5.01.6.11
 libasn1-8-heimdal7.5.0+dfsg-1
 libattr11:2.4.47-2build1
 libaudit11:2.8.2-1ubuntu1
@@ -95,7 +95,7 @@ libsepol12.7-1
 libsmartcols12.31.1-0.4ubuntu3.3
 libsqlite3-03.22.0-1
 libss21.44.1-1ubuntu1.1
-libssl1.11.1.0g-2ubuntu4.3
+libssl1.11.1.1-1ubuntu2.1~18.04.1
 libstdc++68.3.0-6ubuntu1~18.04
 libsystemd0237-3ubuntu10.21
 libtasn1-64.13-2
@@ -112,7 +112,7 @@ mawk1.3.3-17ubuntu3
 mount2.31.1-0.4ubuntu3.3
 ncurses-base6.1-1ubuntu1.18.04
 ncurses-bin6.1-1ubuntu1.18.04
-openssl1.1.0g-2ubuntu4.3
+openssl1.1.1-1ubuntu2.1~18.04.1
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.3
 plexmediaserver1.15.8.1198-eadbcbb45
