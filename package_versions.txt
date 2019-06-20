@@ -17,7 +17,7 @@ dpkg1.19.0.5ubuntu2.1
 e2fsprogs1.44.1-1ubuntu1.1
 fdisk2.31.1-0.4ubuntu3.3
 findutils4.6.0+git+20170828-2
-gcc-8-base8.3.0-6ubuntu1~18.04
+gcc-8-base8.3.0-6ubuntu1~18.04.1
 gpgv2.2.4-1ubuntu1.2
 grep3.1-2
 gzip1.6-5ubuntu1
@@ -44,7 +44,7 @@ libdebconfclient00.213ubuntu1
 libext2fs21.44.1-1ubuntu1.1
 libfdisk12.31.1-0.4ubuntu3.3
 libffi63.2.1-8
-libgcc11:8.3.0-6ubuntu1~18.04
+libgcc11:8.3.0-6ubuntu1~18.04.1
 libgcrypt201.8.1-4ubuntu1.1
 libgmp102:6.1.2+dfsg-2
 libgnutls303.5.18-1ubuntu1.1
@@ -95,9 +95,9 @@ libsepol12.7-1
 libsmartcols12.31.1-0.4ubuntu3.3
 libsqlite3-03.22.0-1
 libss21.44.1-1ubuntu1.1
-libssl1.11.1.1-1ubuntu2.1~18.04.1
-libstdc++68.3.0-6ubuntu1~18.04
-libsystemd0237-3ubuntu10.21
+libssl1.11.1.1-1ubuntu2.1~18.04.2
+libstdc++68.3.0-6ubuntu1~18.04.1
+libsystemd0237-3ubuntu10.22
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
 libudev1237-3ubuntu10.22
@@ -112,7 +112,7 @@ mawk1.3.3-17ubuntu3
 mount2.31.1-0.4ubuntu3.3
 ncurses-base6.1-1ubuntu1.18.04
 ncurses-bin6.1-1ubuntu1.18.04
-openssl1.1.1-1ubuntu2.1~18.04.1
+openssl1.1.1-1ubuntu2.1~18.04.2
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.3
 plexmediaserver1.16.0.1226-7eb2c8f6f
