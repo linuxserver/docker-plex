@@ -1,8 +1,13 @@
 #!/usr/bin/with-contenv bash
 
-# Check for the existence of the Intel video device
+# check for the existence of a video device
 if [ -e /dev/dri ]; then
 	VIDEO_GID=$(stat -c '%g' /dev/dri/* | grep -v '^0$' | head -n 1)
+	# just add abc to root if stuff in dri is root owned
+	if [ -z "${VIDEO_GID}" ]; then
+		usermod -a -G root abc
+		exit 0
+	fi
 else
 	exit 0
 fi
