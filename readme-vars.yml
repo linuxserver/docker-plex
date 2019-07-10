@@ -82,6 +82,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "10.07.19:", desc: "Fix permissions for tuner (/dev/dvb) devices." }
   - { date: "20.05.19:", desc: "Bugfix do not allow Root group for Intel QuickSync ownership rules." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "22.03.19:", desc: "Fix update logic for `VERSION=public`." }
