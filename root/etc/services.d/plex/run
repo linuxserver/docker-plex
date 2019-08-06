@@ -1,5 +1,10 @@
 #!/usr/bin/with-contenv bash
 
+
+UMASK_SET=${UMASK_SET:-022}
+
+umask "$UMASK_SET"
+
 echo "Starting Plex Media Server."
 export PLEX_MEDIA_SERVER_INFO_MODEL=$(uname -m)
 export PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION=$(uname -r)
