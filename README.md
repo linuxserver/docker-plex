@@ -54,6 +54,7 @@ docker create \
   -e PUID=1000 \
   -e PGID=1000 \
   -e VERSION=docker \
+  -e UMASK_SET=022 `#optional` \
   -v </path/to/library>:/config \
   -v <path/to/tvseries>:/data/tvshows \
   -v </path/to/movies>:/data/movies \
@@ -79,6 +80,7 @@ services:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
+      - UMASK_SET=022 #optional
     volumes:
       - </path/to/library>:/config
       - <path/to/tvseries>:/data/tvshows
@@ -97,6 +99,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e VERSION=docker` | Set whether to update plex or not - see Application Setup section. |
+| `-e UMASK_SET=022` | control permissions of files and directories created by Plex |
 | `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
 | `-v /data/tvshows` | Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc. |
 | `-v /data/movies` | Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc. |
@@ -233,6 +236,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **06.08.19:** - Add variable for setting UMASK.
 * **10.07.19:** - Fix permissions for tuner (/dev/dvb) devices.
 * **20.05.19:** - Bugfix do not allow Root group for Intel QuickSync ownership rules.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.

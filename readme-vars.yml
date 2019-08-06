@@ -30,6 +30,10 @@ param_net_desc: "Use Host Networking"
 param_usage_include_env: true
 param_env_vars:
   - { env_var: "VERSION", env_value: "docker", desc: "Set whether to update plex or not - see Application Setup section."}
+# optional env variables
+opt_param_usage_include_env: true
+opt_param_env_vars:
+  - { env_var: "UMASK_SET", env_value: "022", desc: "control permissions of files and directories created by Plex"}
 
 optional_parameters: |
   *Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command:
@@ -82,6 +86,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "06.08.19:", desc: "Add variable for setting UMASK." }
   - { date: "10.07.19:", desc: "Fix permissions for tuner (/dev/dvb) devices." }
   - { date: "20.05.19:", desc: "Bugfix do not allow Root group for Intel QuickSync ownership rules." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
