@@ -100,7 +100,7 @@ libstdc++68.3.0-6ubuntu1~18.04.1
 libsystemd0237-3ubuntu10.24
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
-libudev1237-3ubuntu10.24
+libudev1237-3ubuntu10.25
 libunistring20.9.9-0ubuntu2
 libuuid12.31.1-0.4ubuntu3.3
 libwind0-heimdal7.5.0+dfsg-1
@@ -124,7 +124,7 @@ sysvinit-utils2.88dsf-59.10ubuntu1
 tar1.29b-2ubuntu0.1
 tzdata2019b-0ubuntu0.18.04
 ubuntu-keyring2018.09.18.1~18.04.0
-udev237-3ubuntu10.24
+udev237-3ubuntu10.25
 unrar1:5.5.8-1
 util-linux2.31.1-0.4ubuntu3.3
 wget1.19.4-1ubuntu2.2
