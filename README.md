@@ -83,8 +83,8 @@ services:
       - UMASK_SET=022 #optional
     volumes:
       - </path/to/library>:/config
-      - <path/to/tvseries>:/data/tvshows
-      - </path/to/movies>:/data/movies
+      - <path/to/tvseries>:/tv
+      - </path/to/movies>:/movies
       - </path for transcoding>:/transcode
     restart: unless-stopped
 ```
@@ -101,8 +101,8 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e VERSION=docker` | Set whether to update plex or not - see Application Setup section. |
 | `-e UMASK_SET=022` | control permissions of files and directories created by Plex |
 | `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
-| `-v /data/tvshows` | Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc. |
-| `-v /data/movies` | Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc. |
+| `-v /tv` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
+| `-v /movies` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 | `-v /transcode` | Path for transcoding folder, *optional*. |
 
 ## Optional Parameters
