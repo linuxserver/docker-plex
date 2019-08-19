@@ -20,8 +20,8 @@ param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "</path/to/library>", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*" }
-  - { vol_path: "/data/tvshows", vol_host_path: "<path/to/tvseries>", desc: "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc." }
-  - { vol_path: "/data/movies", vol_host_path: "</path/to/movies>", desc: "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc." }
+  - { vol_path: "/tv", vol_host_path: "<path/to/tvseries>", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc." }
+  - { vol_path: "/movies", vol_host_path: "</path/to/movies>", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc." }
   - { vol_path: "/transcode", vol_host_path: "</path for transcoding>", desc: "Path for transcoding folder, *optional*." }
 param_usage_include_ports: false
 param_usage_include_net: true
