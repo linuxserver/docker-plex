@@ -56,8 +56,8 @@ docker create \
   -e VERSION=docker \
   -e UMASK_SET=022 `#optional` \
   -v </path/to/library>:/config \
-  -v <path/to/tvseries>:/data/tvshows \
-  -v </path/to/movies>:/data/movies \
+  -v <path/to/tvseries>:/tv \
+  -v </path/to/movies>:/movies \
   -v </path for transcoding>:/transcode \
   --restart unless-stopped \
   linuxserver/plex
