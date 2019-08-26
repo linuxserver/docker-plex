@@ -3,13 +3,15 @@
 # check for the existence of a video and/or tuner device
 if [ -e /dev/dri ] || [ -e /dev/dvb ]; then
 	if [ -e /dev/dri ]; then
-		VIDEO_GID=$(stat -c '%g' /dev/dri/* | grep -v '^0$' | head -n 1)
+		VIDEO_GID=$(stat -c '%g' "$(find /dev/dri -type c -print -quit)")
 	else
-		VIDEO_GID=$(stat -c '%g' /dev/dvb/* | grep -v '^0$' | head -n 1)
+		VIDEO_GID=$(stat -c '%g' "$(find /dev/dvb -type c -print -quit)")
 	fi
 	# just add abc to root if stuff in dri/dvb is root owned
-	if [ -z "${VIDEO_GID}" ]; then
+	if [ "${VIDEO_GID}" == "0" ]; then
 		usermod -a -G root abc
+		exit 0
+	elif [ -z "${VIDEO_GID}" ]; then
 		exit 0
 	fi
 else
