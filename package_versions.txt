@@ -8,7 +8,7 @@ bsdutils1:2.31.1-0.4ubuntu3.4
 bzip21.0.6-8.1ubuntu0.2
 ca-certificates20180409
 coreutils8.28-1ubuntu1
-curl7.58.0-2ubuntu3.7
+curl7.58.0-2ubuntu3.8
 dash0.5.8-2.10
 debconf1.5.66ubuntu1
 debianutils4.8.4
@@ -38,7 +38,7 @@ libc62.27-3ubuntu1
 libcap-ng00.7.7-3.1
 libc-bin2.27-3ubuntu1
 libcom-err21.44.1-1ubuntu1.1
-libcurl47.58.0-2ubuntu3.7
+libcurl47.58.0-2ubuntu3.8
 libdb5.35.3.28-13.1ubuntu1.1
 libdebconfclient00.213ubuntu1
 libext2fs21.44.1-1ubuntu1.1
@@ -100,7 +100,7 @@ libstdc++68.3.0-6ubuntu1~18.04.1
 libsystemd0237-3ubuntu10.28
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
-libudev1237-3ubuntu10.28
+libudev1237-3ubuntu10.29
 libunistring20.9.9-0ubuntu2
 libuuid12.31.1-0.4ubuntu3.4
 libwind0-heimdal7.5.0+dfsg-1
@@ -124,7 +124,7 @@ sysvinit-utils2.88dsf-59.10ubuntu1
 tar1.29b-2ubuntu0.1
 tzdata2019b-0ubuntu0.18.04
 ubuntu-keyring2018.09.18.1~18.04.0
-udev237-3ubuntu10.28
+udev237-3ubuntu10.29
 unrar1:5.5.8-1
 util-linux2.31.1-0.4ubuntu3.4
 wget1.19.4-1ubuntu2.2
