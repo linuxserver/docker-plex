@@ -1,16 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-# check for the existence of a video and/or tuner device
-if [ -e /dev/dri ] || [ -e /dev/dvb ]; then
-	if [ -e /dev/dri ]; then
-	FILES="${FILES} /dev/dri/*"
-	fi
-	if [ -e /dev/dvb ]; then
-	FILES="${FILES} /dev/dvb/*"
-	fi
-else
-	exit 0
-fi
+FILES=$(find /dev/dri /dev/dvb -type c -print 2>/dev/null)
 
 for i in $FILES
 do
@@ -31,6 +21,6 @@ do
 	fi
 done
 
-if [ ! -z "${FILES}" ] && [ ! -f "/groupadd" ]; then
+if [ -n "${FILES}" ] && [ ! -f "/groupadd" ]; then
 	usermod -a -G root abc
 fi
