@@ -95,7 +95,7 @@ libsepol12.7-1
 libsmartcols12.31.1-0.4ubuntu3.4
 libsqlite3-03.22.0-1ubuntu0.1
 libss21.44.1-1ubuntu1.2
-libssl1.11.1.1-1ubuntu2.1~18.04.4
+libssl1.11.1.1-1ubuntu2.1~18.04.5
 libstdc++68.3.0-6ubuntu1~18.04.1
 libsystemd0237-3ubuntu10.31
 libtasn1-64.13-2
@@ -112,10 +112,10 @@ mawk1.3.3-17ubuntu3
 mount2.31.1-0.4ubuntu3.4
 ncurses-base6.1-1ubuntu1.18.04
 ncurses-bin6.1-1ubuntu1.18.04
-openssl1.1.1-1ubuntu2.1~18.04.4
+openssl1.1.1-1ubuntu2.1~18.04.5
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.3
-plexmediaserver1.18.2.2029-36236cc4c
+plexmediaserver1.18.2.2041-3d469cb32
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
