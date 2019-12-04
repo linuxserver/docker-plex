@@ -22,7 +22,6 @@ param_volumes:
   - { vol_path: "/config", vol_host_path: "</path/to/library>", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*" }
   - { vol_path: "/tv", vol_host_path: "<path/to/tvseries>", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc." }
   - { vol_path: "/movies", vol_host_path: "</path/to/movies>", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc." }
-  - { vol_path: "/transcode", vol_host_path: "</path for transcoding>", desc: "Path for transcoding folder, *optional*." }
 param_usage_include_ports: false
 param_usage_include_net: true
 param_net: "host"
@@ -52,8 +51,8 @@ optional_parameters: |
 
   | Parameter | Function |
   | :---: | --- |
-  | `-v /transcode` | Path for transcoding folder|
   | `--device=/dev/dri:/dev/dri` | Add this option to your run command if you plan on using Quicksync hardware acceleration - see Application Setup section.|
+  | `--device=/dev/dvb:/dev/dvb` | Add this option to your run command if you plan on using dvb devices.|
 
 # application setup block
 app_setup_block_enabled: true
@@ -87,7 +86,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "04.12.19:", desc: "Add variable for setting PLEX_CLAIM." }
+  - { date: "04.12.19:", desc: "Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`." }
   - { date: "06.08.19:", desc: "Add variable for setting UMASK." }
   - { date: "10.07.19:", desc: "Fix permissions for tuner (/dev/dvb) devices." }
   - { date: "20.05.19:", desc: "Bugfix do not allow Root group for Intel QuickSync ownership rules." }
