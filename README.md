@@ -69,6 +69,7 @@ docker create \
   -e PGID=1000 \
   -e VERSION=docker \
   -e UMASK_SET=022 `#optional` \
+  -e PLEX_CLAIM= `#optional` \
   -v </path/to/library>:/config \
   -v <path/to/tvseries>:/tv \
   -v </path/to/movies>:/movies \
@@ -95,6 +96,7 @@ services:
       - PGID=1000
       - VERSION=docker
       - UMASK_SET=022 #optional
+      - PLEX_CLAIM= #optional
     volumes:
       - </path/to/library>:/config
       - <path/to/tvseries>:/tv
@@ -114,6 +116,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e VERSION=docker` | Set whether to update plex or not - see Application Setup section. |
 | `-e UMASK_SET=022` | control permissions of files and directories created by Plex |
+| `-e PLEX_CLAIM=` | Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes. |
 | `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
 | `-v /tv` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 | `-v /movies` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
@@ -133,7 +136,7 @@ Will set the environment variable `PASSWORD` based on the contents of the `/run/
 
 ## Optional Parameters
 
-*Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command:
+*Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command (you need to set PLEX_CLAIM to claim a server set up with bridge networking):
 
 ```
   -p 32400:32400 \
@@ -262,6 +265,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **04.12.19:** - Add variable for setting PLEX_CLAIM.
 * **06.08.19:** - Add variable for setting UMASK.
 * **10.07.19:** - Fix permissions for tuner (/dev/dvb) devices.
 * **20.05.19:** - Bugfix do not allow Root group for Intel QuickSync ownership rules.

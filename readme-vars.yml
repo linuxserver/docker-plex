@@ -34,9 +34,10 @@ param_env_vars:
 opt_param_usage_include_env: true
 opt_param_env_vars:
   - { env_var: "UMASK_SET", env_value: "022", desc: "control permissions of files and directories created by Plex"}
+  - { env_var: "PLEX_CLAIM", env_value: "", desc: "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes."}
 
 optional_parameters: |
-  *Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command:
+  *Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command (you need to set PLEX_CLAIM to claim a server set up with bridge networking):
 
   ```
     -p 32400:32400 \
@@ -86,6 +87,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "04.12.19:", desc: "Add variable for setting PLEX_CLAIM." }
   - { date: "06.08.19:", desc: "Add variable for setting UMASK." }
   - { date: "10.07.19:", desc: "Fix permissions for tuner (/dev/dvb) devices." }
   - { date: "20.05.19:", desc: "Bugfix do not allow Root group for Intel QuickSync ownership rules." }
