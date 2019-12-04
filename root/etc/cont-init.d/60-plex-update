@@ -2,7 +2,7 @@
 
 # If docker manages versioning exit
 if [ "${VERSION}" ] && [ "${VERSION}" == 'docker' ]; then
-	echo "Docker is used for verisoning skip update check"
+	echo "Docker is used for versioning skip update check"
 	exit 0
 fi
 
