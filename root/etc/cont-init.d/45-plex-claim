@@ -3,26 +3,62 @@
 if grep -qs "PlexOnlineToken" "/config/Library/Application Support/Plex Media Server/Preferences.xml" || [ -z "$PLEX_CLAIM" ]; then
 	exit 0
 fi
-
-if [ ! -f "/config/Library/Application Support/Plex Media Server/Preferences.xml" ]; then
-	UMASK_SET=${UMASK_SET:-022}
+PREFNAME="/config/Library/Application Support/Plex Media Server/Preferences.xml"
+if [ ! -f "${PREFNAME}" ]; then
+	UMASK_SET="${UMASK_SET:-022}"
 	umask "$UMASK_SET"
 	echo "Temporarily starting Plex Media Server."
 	export PLEX_MEDIA_SERVER_INFO_MODEL=$(uname -m)
 	export PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION=$(uname -r)
 	s6-setuidgid abc /bin/bash -c \
-		'LD_LIBRARY_PATH=/usr/lib/plexmediaserver:/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server' &
+		'LD_LIBRARY_PATH=/usr/lib/plexmediaserver:/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server' & PID=$!
 	echo "Waiting for Plex to generate its config"
-	until grep -qs "ProcessedMachineIdentifier" "/config/Library/Application Support/Plex Media Server/Preferences.xml"; do
+	DBNAME="/config/Library/Application Support/Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db-wal"
+	until [ -f "${DBNAME}" ]; do
 		sleep 1
 	done
+	while true; do
+		echo "Waiting for database creation to complete..."
+		if [ -z "${COMPARE_MD5+x}" ]; then
+			COMPARE_MD5=$(md5sum "${DBNAME}"| cut -c1-8)
+			sleep 3
+		else
+			sleep 3
+			CURRENT_MD5=$(md5sum "${DBNAME}"| cut -c1-8)
+			if [ "${CURRENT_MD5}" == "${COMPARE_MD5}" ]; then
+				break
+			else
+				COMPARE_MD5=$(md5sum "${DBNAME}"| cut -c1-8)
+			fi
+		fi
+	done
+	until grep -qs "ProcessedMachineIdentifier" "${PREFNAME}"; do
+		sleep 1
+	done
+	while true; do
+		echo "Waiting for pref file creation to complete..."
+		if [ -z "${PREF_COMPARE_MD5+x}" ]; then
+			PREF_COMPARE_MD5=$(md5sum "${PREFNAME}"| cut -c1-8)
+			sleep 3
+		else
+			sleep 3
+			PREF_CURRENT_MD5=$(md5sum "${PREFNAME}"| cut -c1-8)
+			if [ "${PREF_CURRENT_MD5}" == "${PREF_COMPARE_MD5}" ]; then
+				break
+			else
+				PREF_COMPARE_MD5=$(md5sum "${PREFNAME}"| cut -c1-8)
+			fi
+		fi
+	done
 	echo "Stopping Plex to claim server"
-	kill $(cat "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid")
-	wait
+	while ps -p $PID > /dev/null; do
+		kill $PID
+		sleep 1
+	done
 	echo "Plex stopped"
 fi
 
-ProcessedMachineIdentifier=$(sed -n "s/^.*ProcessedMachineIdentifier=\"\([^\"]*\)\".*$/\1/p" "/config/Library/Application Support/Plex Media Server/Preferences.xml")
+ProcessedMachineIdentifier=$(sed -n "s/^.*ProcessedMachineIdentifier=\"\([^\"]*\)\".*$/\1/p" "${PREFNAME}")
 PlexOnlineToken="$(curl -X POST \
 	-H 'X-Plex-Client-Identifier: '"${ProcessedMachineIdentifier}" \
 	-H 'X-Plex-Product: Plex Media Server'\
@@ -37,7 +73,7 @@ PlexOnlineToken="$(curl -X POST \
 
 if [ -n "$PlexOnlineToken" ]; then
 	echo "Server claimed successfully, navigate to http://serverip:32400/web to complete plex setup."
-	sed -i "s/\/>/ PlexOnlineToken=\"${PlexOnlineToken}\"\/>/g" "/config/Library/Application Support/Plex Media Server/Preferences.xml"
+	sed -i "s/\/>/ PlexOnlineToken=\"${PlexOnlineToken}\"\/>/g" "${PREFNAME}"
 else
 	echo "Unable to claim Plex server. Either manually claim by connecting to http://serverip:32400/web from the same network subnet, or recreate container with a new claim token."
 fi
