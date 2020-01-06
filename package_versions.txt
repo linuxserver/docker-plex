@@ -115,7 +115,7 @@ ncurses-bin6.1-1ubuntu1.18.04
 openssl1.1.1-1ubuntu2.1~18.04.5
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.3
-plexmediaserver1.18.3.2156-349e9837e
+plexmediaserver1.18.4.2171-ac2afe5f8
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
