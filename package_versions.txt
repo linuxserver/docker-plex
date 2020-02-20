@@ -97,10 +97,10 @@ libsqlite3-03.22.0-1ubuntu0.2
 libss21.44.1-1ubuntu1.3
 libssl1.11.1.1-1ubuntu2.1~18.04.5
 libstdc++68.3.0-6ubuntu1~18.04.1
-libsystemd0237-3ubuntu10.38
+libsystemd0237-3ubuntu10.39
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
-libudev1237-3ubuntu10.38
+libudev1237-3ubuntu10.39
 libunistring20.9.9-0ubuntu2
 libuuid12.31.1-0.4ubuntu3.5
 libwind0-heimdal7.5.0+dfsg-1
@@ -124,7 +124,7 @@ sysvinit-utils2.88dsf-59.10ubuntu1
 tar1.29b-2ubuntu0.1
 tzdata2019c-0ubuntu0.18.04
 ubuntu-keyring2018.09.18.1~18.04.0
-udev237-3ubuntu10.38
+udev237-3ubuntu10.39
 unrar1:5.5.8-1
 util-linux2.31.1-0.4ubuntu3.5
 wget1.19.4-1ubuntu2.2
