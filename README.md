@@ -70,9 +70,9 @@ docker create \
   -e VERSION=docker \
   -e UMASK_SET=022 `#optional` \
   -e PLEX_CLAIM= `#optional` \
-  -v </path/to/library>:/config \
-  -v <path/to/tvseries>:/tv \
-  -v </path/to/movies>:/movies \
+  -v /path/to/library:/config \
+  -v /path/to/tvseries:/tv \
+  -v /path/to/movies:/movies \
   --restart unless-stopped \
   linuxserver/plex
 ```
@@ -97,9 +97,9 @@ services:
       - UMASK_SET=022 #optional
       - PLEX_CLAIM= #optional
     volumes:
-      - </path/to/library>:/config
-      - <path/to/tvseries>:/tv
-      - </path/to/movies>:/movies
+      - /path/to/library:/config
+      - /path/to/tvseries:/tv
+      - /path/to/movies:/movies
     restart: unless-stopped
 ```
 
@@ -184,11 +184,17 @@ Valid settings for VERSION are:-
 + **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.
 + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
 
+## Hardware Acceleration
+
+### Intel
+
 Hardware acceleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
 
 ```--device=/dev/dri:/dev/dri```
 
 We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
+
+### Nvidia
 
 Hardware acceleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
 
@@ -262,6 +268,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **23.03.20:** - Remove udev hack (no longer needed), suppress uuid error in log during first start.
 * **04.12.19:** - Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`.
 * **06.08.19:** - Add variable for setting UMASK.
 * **10.07.19:** - Fix permissions for tuner (/dev/dvb) devices.
