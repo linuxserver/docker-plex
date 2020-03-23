@@ -25,14 +25,10 @@ RUN \
  echo "**** install runtime packages ****" && \
  apt-get update && \
  apt-get install -y \
+	jq \
 	udev \
 	unrar \
-	wget \
-	jq && \
- echo "**** Udevadm hack ****" && \
- mv /sbin/udevadm /sbin/udevadm.bak && \
- echo "exit 0" > /sbin/udevadm && \
- chmod +x /sbin/udevadm && \
+	wget && \
  echo "**** install plex ****" && \
  if [ -z ${PLEX_RELEASE+x} ]; then \
  	PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \
@@ -42,7 +38,6 @@ RUN \
 	/tmp/plexmediaserver.deb -L \
 	"${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
- mv /sbin/udevadm.bak /sbin/udevadm && \
  echo "**** ensure abc user's home folder is /app ****" && \
  usermod -d /app abc && \
  echo "**** cleanup ****" && \
