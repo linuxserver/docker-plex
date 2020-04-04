@@ -60,6 +60,8 @@ app_setup_block: |
   Webui can be found at `<your-ip>:32400/web`
 
   ** Note about updates, if there is no value set for the VERSION variable, then no updates will take place.**
+  
+  You must restart the container to apply the update, AFTER you have pulled the latest docker image.
 
   ** For new users, no updates will take place on the first run of the container as there is no preferences file to read your token from, to update restart the Docker container after logging in through the webui**
 
