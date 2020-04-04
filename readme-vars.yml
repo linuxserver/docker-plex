@@ -61,7 +61,7 @@ app_setup_block: |
 
   ** Note about updates, if there is no value set for the VERSION variable, then no updates will take place.**
   
-  You must pull, rm, create the container, then restart the container to get the latest update.
+  You must pull, rm, create the container (or pull then up-d for compose) , then restart the container to get the latest update.
 
   ** For new users, no updates will take place on the first run of the container as there is no preferences file to read your token from, to update restart the Docker container after logging in through the webui**
 
