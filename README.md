@@ -70,7 +70,7 @@ docker create \
   -e VERSION=docker \
   -e UMASK_SET=022 `#optional` \
   -e PLEX_CLAIM= `#optional` \
-  -v /path/to/library:/config \
+  -v /path/to/library:/config/Library \
   -v /path/to/tvseries:/tv \
   -v /path/to/movies:/movies \
   --restart unless-stopped \
@@ -97,7 +97,7 @@ services:
       - UMASK_SET=022 #optional
       - PLEX_CLAIM= #optional
     volumes:
-      - /path/to/library:/config
+      - /path/to/library:/config/Library
       - /path/to/tvseries:/tv
       - /path/to/movies:/movies
     restart: unless-stopped
@@ -115,7 +115,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e VERSION=docker` | Set whether to update plex or not - see Application Setup section. |
 | `-e UMASK_SET=022` | control permissions of files and directories created by Plex |
 | `-e PLEX_CLAIM=` | Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes. |
-| `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
+| `-v /config/Library` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
 | `-v /tv` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 | `-v /movies` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 
@@ -268,6 +268,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **06.04.20:** - Update library mount instructions to avoid duplicate subdir.
 * **23.03.20:** - Remove udev hack (no longer needed), suppress uuid error in log during first start.
 * **04.12.19:** - Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`.
 * **06.08.19:** - Add variable for setting UMASK.
