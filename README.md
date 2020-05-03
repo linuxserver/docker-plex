@@ -137,11 +137,16 @@ Will set the environment variable `PASSWORD` based on the contents of the `/run/
 
 ```
   -p 32400:32400 \
-  -p 32400:32400/udp \
-  -p 32469:32469 \
-  -p 32469:32469/udp \
+  -p 1900:1900/udp \
+  -p 3005:3005 \
   -p 5353:5353/udp \
-  -p 1900:1900/udp
+  -p 8324:8324 \
+  -p 32410:32410/udp \
+  -p 32412:32412/udp \
+  -p 32413:32413/udp \
+  -p 32414:32414/udp \
+  -p 32469:32469
+
 ```
 
 The application accepts a series of environment variables to further customize itself on boot:
@@ -273,6 +278,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **03.05.20:** - Update exposed ports and example docs for bridge mode.
 * **23.03.20:** - Remove udev hack (no longer needed), suppress uuid error in log during first start.
 * **04.12.19:** - Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`.
 * **06.08.19:** - Add variable for setting UMASK.
