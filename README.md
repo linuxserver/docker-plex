@@ -133,7 +133,10 @@ Will set the environment variable `PASSWORD` based on the contents of the `/run/
 
 ## Optional Parameters
 
-*Special note* - If you'd like to run Plex without requiring `--net=host` (`NOT recommended`) then you will need the following ports in your `docker create` command (you need to set PLEX_CLAIM to claim a server set up with bridge networking):
+If you want to run the container in bridge network mode (instead of the recommended host network mode) you will need to specify ports.
+The [official documentation for ports](https://support.plex.tv/articles/201543147-what-network-ports-do-i-need-to-allow-through-my-firewall/) lists 32400 as the only required port.
+The rest of the ports are optionally used for specific purposes listed in the documentation.
+If you have not already claimed your server (first time setup) you need to set `PLEX_CLAIM` to claim a server set up with bridge networking.
 
 ```
   -p 32400:32400 \
