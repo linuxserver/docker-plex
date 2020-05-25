@@ -100,7 +100,7 @@ libstdc++68.4.0-1ubuntu1~18.04
 libsystemd0237-3ubuntu10.40
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
-libudev1237-3ubuntu10.40
+libudev1237-3ubuntu10.41
 libunistring20.9.9-0ubuntu2
 libuuid12.31.1-0.4ubuntu3.6
 libwind0-heimdal7.5.0+dfsg-1
@@ -115,7 +115,7 @@ ncurses-bin6.1-1ubuntu1.18.04
 openssl1.1.1-1ubuntu2.1~18.04.5
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.3
-plexmediaserver1.19.3.2843-e3c1f7bcd
+plexmediaserver1.19.3.2852-219a9974e
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
@@ -124,7 +124,7 @@ sysvinit-utils2.88dsf-59.10ubuntu1
 tar1.29b-2ubuntu0.1
 tzdata2020a-0ubuntu0.18.04
 ubuntu-keyring2018.09.18.1~18.04.0
-udev237-3ubuntu10.40
+udev237-3ubuntu10.41
 unrar1:5.5.8-1
 util-linux2.31.1-0.4ubuntu3.6
 wget1.19.4-1ubuntu2.2
