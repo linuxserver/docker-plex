@@ -25,7 +25,9 @@ RUN \
  echo "**** install runtime packages ****" && \
  apt-get update && \
  apt-get install -y \
+	beignet-opencl-icd \
 	jq \
+	ocl-icd-libopencl1 \
 	udev \
 	unrar \
 	wget && \
