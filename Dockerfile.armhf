@@ -23,7 +23,6 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	jq \
-	ocl-icd-libopencl1 \
 	udev \
 	unrar \
 	wget && \
