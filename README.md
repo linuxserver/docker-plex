@@ -56,6 +56,14 @@ The architectures supported by this image are:
 | arm64 | arm64v8-latest |
 | armhf | arm32v7-latest |
 
+## Version Tags
+
+This image provides various versions that are available via tags. `latest` tag usually provides the latest stable version. Others are considered under development and caution must be exercised when using them.
+
+| Tag | Description |
+| :----: | --- |
+| latest | Stable releases with Focal baseimage |
+| bionic | Stable releases with Bionic baseimage |
 
 ## Usage
 
@@ -289,6 +297,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **23.11.20:** - Add Bionic branch make Focal default.
 * **03.05.20:** - Update exposed ports and example docs for bridge mode.
 * **23.03.20:** - Remove udev hack (no longer needed), suppress uuid error in log during first start.
 * **04.12.19:** - Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`.
