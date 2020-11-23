@@ -1,4 +1,4 @@
-name: External Trigger Bionic
+name: External Trigger Main
 
 on:
   workflow_dispatch:
@@ -12,14 +12,14 @@ jobs:
       - name: External Trigger
         if: github.ref == 'refs/heads/bionic'
         run: |
-          if [ -n "${{ secrets.PAUSE_EXTERNAL_TRIGGER_PLEX_MASTER }}" ]; then
-            echo "**** Github secret PAUSE_EXTERNAL_TRIGGER_PLEX_MASTER is set; skipping trigger. ****"
+          if [ -n "${{ secrets.PAUSE_EXTERNAL_TRIGGER_PLEX_BIONIC }}" ]; then
+            echo "**** Github secret PAUSE_EXTERNAL_TRIGGER_PLEX_BIONIC is set; skipping trigger. ****"
             exit 0
           fi
-          echo "**** External trigger running off of bionic branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_PLEX_MASTER\". ****"
+          echo "**** External trigger running off of bionic branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_PLEX_BIONIC\". ****"
           echo "**** Retrieving external version ****"
           EXT_RELEASE=$(curl -s "https://plex.tv/api/downloads/5.json" | jq -r ". | .computer.Linux.version")
-          if [ -z "${EXT_RELEASE}" ]; then
+          if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for plex branch bionic"
             curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 16711680,
@@ -30,7 +30,7 @@ jobs:
           echo "**** External version: ${EXT_RELEASE} ****"
           echo "**** Retrieving last pushed version ****"
           image="linuxserver/plex"
-          tag="latest"
+          tag="bionic"
           token=$(curl -sX GET \
             "https://ghcr.io/token?scope=repository%3Alinuxserver%2Fplex%3Apull" \
             | jq -r '.token')
@@ -52,7 +52,7 @@ jobs:
           IMAGE_VERSION=$(echo ${IMAGE_RELEASE} | awk -F'-ls' '{print $1}')
           if [ -z "${IMAGE_VERSION}" ]; then
             echo "**** Can't retrieve last pushed version, exiting ****"
-            FAILURE_REASON="Can't retrieve last pushed version for plex tag latest"
+            FAILURE_REASON="Can't retrieve last pushed version for plex tag bionic"
             curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 16711680,
               "description": "**Trigger Failed** \n**Reason:** '"${FAILURE_REASON}"' \n"}],
               "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
@@ -62,24 +62,28 @@ jobs:
           if [ "${EXT_RELEASE}" == "${IMAGE_VERSION}" ]; then
             echo "**** Version ${EXT_RELEASE} already pushed, exiting ****"
             exit 0
+          elif [ $(curl -s https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-plex/job/bionic/lastBuild/api/json | jq -r '.building') == "true" ]; then
+            echo "**** New version ${EXT_RELEASE} found; but there already seems to be an active build on Jenkins; exiting ****"
+            exit 0
           else
             echo "**** New version ${EXT_RELEASE} found; old version was ${IMAGE_VERSION}. Triggering new build ****"
             response=$(curl -iX POST \
               https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-plex/job/bionic/buildWithParameters?PACKAGE_CHECK=false \
               --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
-            echo "**** Jenkins job queue url: ${response} ****"
+            echo "**** Jenkins job queue url: ${response%$'\r'} ****"
             echo "**** Sleeping 10 seconds until job starts ****"
             sleep 10
             buildurl=$(curl -s "${response%$'\r'}api/json" | jq -r '.executable.url')
             buildurl="${buildurl%$'\r'}"
-            echo "**** Jenkins job build url: ${buildurl}; attempting to change the job description ****"
+            echo "**** Jenkins job build url: ${buildurl} ****"
+            echo "**** Attempting to change the Jenkins job description ****"
             curl -iX POST \
               "${buildurl}submitDescription" \
               --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} \
               --data-urlencode "description=GHA external trigger https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
               --data-urlencode "Submit=Submit"
             echo "**** Notifying Discord ****"
-            TRIGGER_REASON="A version change was detected for plex tag latest. Old version:${IMAGE_VERSION} New version:${EXT_RELEASE}"
+            TRIGGER_REASON="A version change was detected for plex tag bionic. Old version:${IMAGE_VERSION} New version:${EXT_RELEASE}"
             curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 9802903,
               "description": "**Build Triggered** \n**Reason:** '"${TRIGGER_REASON}"' \n**Build URL:** '"${buildurl}display/redirect"' \n"}],
               "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}

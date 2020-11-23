@@ -1,4 +1,4 @@
-name: Package Trigger Bionic
+name: Package Trigger Main
 
 on:
   workflow_dispatch:
@@ -12,20 +12,25 @@ jobs:
       - name: Package Trigger
         if: github.ref == 'refs/heads/bionic'
         run: |
-          if [ -n "${{ secrets.PAUSE_PACKAGE_TRIGGER_PLEX_MASTER }}" ]; then
-            echo "**** Github secret PAUSE_PACKAGE_TRIGGER_PLEX_MASTER is set; skipping trigger. ****"
+          if [ -n "${{ secrets.PAUSE_PACKAGE_TRIGGER_PLEX_BIONIC }}" ]; then
+            echo "**** Github secret PAUSE_PACKAGE_TRIGGER_PLEX_BIONIC is set; skipping trigger. ****"
             exit 0
           fi
-          echo "**** Package trigger running off of bionic branch. To disable, set a Github secret named \"PAUSE_PACKAGE_TRIGGER_PLEX_MASTER\". ****"
+          if [ $(curl -s https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-plex/job/bionic/lastBuild/api/json | jq -r '.building') == "true" ]; then
+            echo "**** There already seems to be an active build on Jenkins; skipping package trigger ****"
+            exit 0
+          fi
+          echo "**** Package trigger running off of bionic branch. To disable, set a Github secret named \"PAUSE_PACKAGE_TRIGGER_PLEX_BIONIC\". ****"
           response=$(curl -iX POST \
             https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-plex/job/bionic/buildWithParameters?PACKAGE_CHECK=true \
             --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
-          echo "**** Jenkins job queue url: ${response} ****"
+          echo "**** Jenkins job queue url: ${response%$'\r'} ****"
           echo "**** Sleeping 10 seconds until job starts ****"
           sleep 10
           buildurl=$(curl -s "${response%$'\r'}api/json" | jq -r '.executable.url')
           buildurl="${buildurl%$'\r'}"
-          echo "**** Jenkins job build url: ${buildurl}; attempting to change the job description ****"
+          echo "**** Jenkins job build url: ${buildurl} ****"
+          echo "**** Attempting to change the Jenkins job description ****"
           curl -iX POST \
             "${buildurl}submitDescription" \
             --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} \
