@@ -106,6 +106,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "10.12.20:", desc: "Add latest Intel Compute packages from github repo for opencl support on latest gen igpu." }
   - { date: "23.11.20:", desc: "Add Bionic branch make Focal default." }
   - { date: "03.05.20:", desc: "Update exposed ports and example docs for bridge mode." }
   - { date: "23.03.20:", desc: "Remove udev hack (no longer needed), suppress uuid error in log during first start." }

@@ -31,6 +31,17 @@ RUN \
 	udev \
 	unrar \
 	wget && \
+ COMP_RT_RELEASE=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name') && \
+ COMP_RT_URLS=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g') && \
+ mkdir -p /opencl-intel && \
+ for i in ${COMP_RT_URLS}; do \
+	i=$(echo ${i} | tr -d '\r'); \
+	echo "**** downloading ${i} ****"; \
+	curl -o "/opencl-intel/$(basename ${i})" \
+		-L "${i}"; \
+ done && \
+ dpkg -i /opencl-intel/*.deb && \
+ rm -rf /opencl-intel && \
  echo "**** install plex ****" && \
  if [ -z ${PLEX_RELEASE+x} ]; then \
  	PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \

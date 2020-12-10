@@ -297,6 +297,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **10.12.20:** - Add latest Intel Compute packages from github repo for opencl support on latest gen igpu.
 * **23.11.20:** - Add Bionic branch make Focal default.
 * **03.05.20:** - Update exposed ports and example docs for bridge mode.
 * **23.03.20:** - Remove udev hack (no longer needed), suppress uuid error in log during first start.
