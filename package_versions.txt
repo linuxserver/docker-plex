@@ -1,6 +1,6 @@
 adduser3.118ubuntu2
-apt2.0.2ubuntu0.1
-apt-utils2.0.2ubuntu0.1
+apt2.0.2ubuntu0.2
+apt-utils2.0.2ubuntu0.2
 base-files11ubuntu5.2
 base-passwd3.5.47
 bash5.0-6ubuntu1.1
@@ -9,7 +9,7 @@ bsdutils1:2.34-0.1ubuntu9.1
 bzip21.0.8-2
 ca-certificates20201027ubuntu0.20.04.1
 coreutils8.30-3ubuntu2
-curl7.68.0-1ubuntu2.2
+curl7.68.0-1ubuntu2.4
 dash0.5.10.2-6
 debconf1.5.73
 debianutils4.9.1
@@ -37,7 +37,7 @@ init-system-helpers1.57
 jq1.6-1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
-libapt-pkg6.02.0.2ubuntu0.1
+libapt-pkg6.02.0.2ubuntu0.2
 libasn1-8-heimdal7.7.0+dfsg-1ubuntu1
 libassuan02.5.3-7ubuntu2
 libattr11:2.4.48-5
@@ -52,7 +52,7 @@ libcap-ng00.7.9-2.1build1
 libc-bin2.31-0ubuntu9.1
 libcom-err21.45.5-2ubuntu1
 libcrypt11:4.4.10-10ubuntu4
-libcurl47.68.0-1ubuntu2.2
+libcurl47.68.0-1ubuntu2.4
 libdb5.35.3.28+dfsg1-0.6ubuntu2
 libdebconfclient00.251ubuntu1
 libdrm22.4.101-2
@@ -118,7 +118,7 @@ libsmartcols12.34-0.1ubuntu9.1
 libsqlite3-03.31.1-4ubuntu0.2
 libss21.45.5-2ubuntu1
 libssh-40.9.3-2ubuntu2.1
-libssl1.11.1.1f-1ubuntu2
+libssl1.11.1.1f-1ubuntu2.1
 libstdc++610.2.0-5ubuntu1~20.04
 libsystemd0245.4-4ubuntu3.3
 libtasn1-64.16.0-2
@@ -144,11 +144,11 @@ mount2.34-0.1ubuntu9.1
 ncurses-base6.2-0ubuntu2
 ncurses-bin6.2-0ubuntu2
 ocl-icd-libopencl12.2.11-1ubuntu1
-openssl1.1.1f-1ubuntu2
+openssl1.1.1f-1ubuntu2.1
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.21.0.3711-b509cc236
+plexmediaserver1.21.1.3766-7e23ef53c
 procps2:3.3.16-1ubuntu2
 publicsuffix20200303.0012-1
 readline-common8.0-4
