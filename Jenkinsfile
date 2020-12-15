@@ -57,7 +57,7 @@ pipeline {
           env.CODE_URL = 'https://github.com/' + env.LS_USER + '/' + env.LS_REPO + '/commit/' + env.GIT_COMMIT
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.DOCKERHUB_IMAGE + '/tags/'
           env.PULL_REQUEST = env.CHANGE_ID
-          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE ./.github/CONTRIBUTING.md ./.github/FUNDING.yml ./.github/ISSUE_TEMPLATE.md ./.github/PULL_REQUEST_TEMPLATE.md ./.github/workflows/greetings.yml ./.github/workflows/stale.yml'
+          env.TEMPLATED_FILES = 'Jenkinsfile README.md LICENSE ./.github/CONTRIBUTING.md ./.github/FUNDING.yml ./.github/ISSUE_TEMPLATE/config.yml ./.github/ISSUE_TEMPLATE/issue.bug.md ./.github/ISSUE_TEMPLATE/issue.feature.md ./.github/PULL_REQUEST_TEMPLATE.md ./.github/workflows/greetings.yml ./.github/workflows/stale.yml ./.github/workflows/package_trigger.yml ./.github/workflows/package_trigger_scheduler.yml ./.github/workflows/external_trigger.yml ./.github/workflows/external_trigger_scheduler.yml'
         }
         script{
           env.LS_RELEASE_NUMBER = sh(
@@ -133,12 +133,13 @@ pipeline {
           env.GITHUBIMAGE = 'ghcr.io/' + env.LS_USER + '/' + env.CONTAINER_NAME
           env.GITLABIMAGE = 'registry.gitlab.com/linuxserver.io/' + env.LS_REPO + '/' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER + '|arm32v7-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
+            env.CI_TAGS = 'amd64-bionic-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER + '|arm32v7-bionic-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER + '|arm64v8-bionic-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
+            env.CI_TAGS = 'bionic-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
           }
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
+          env.META_TAG = 'bionic-' + env.EXT_RELEASE_CLEAN + '-ls' + env.LS_TAG_NUMBER
+          env.EXT_RELEASE_TAG = 'bionic-version-' + env.EXT_RELEASE_CLEAN
         }
       }
     }
@@ -154,12 +155,13 @@ pipeline {
           env.GITHUBIMAGE = 'ghcr.io/' + env.LS_USER + '/lsiodev-' + env.CONTAINER_NAME
           env.GITLABIMAGE = 'registry.gitlab.com/linuxserver.io/' + env.LS_REPO + '/lsiodev-' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm32v7-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+            env.CI_TAGS = 'amd64-bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm32v7-bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA + '|arm64v8-bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+            env.CI_TAGS = 'bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
           }
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+          env.META_TAG = 'bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-dev-' + env.COMMIT_SHA
+          env.EXT_RELEASE_TAG = 'bionic-version-' + env.EXT_RELEASE_CLEAN
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.DEV_DOCKERHUB_IMAGE + '/tags/'
         }
       }
@@ -175,12 +177,13 @@ pipeline {
           env.GITHUBIMAGE = 'ghcr.io/' + env.LS_USER + '/lspipepr-' + env.CONTAINER_NAME
           env.GITLABIMAGE = 'registry.gitlab.com/linuxserver.io/' + env.LS_REPO + '/lspipepr-' + env.CONTAINER_NAME
           if (env.MULTIARCH == 'true') {
-            env.CI_TAGS = 'amd64-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm32v7-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm64v8-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+            env.CI_TAGS = 'amd64-bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm32v7-bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST + '|arm64v8-bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           } else {
-            env.CI_TAGS = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+            env.CI_TAGS = 'bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
           }
-          env.META_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
-          env.EXT_RELEASE_TAG = 'version-' + env.EXT_RELEASE_CLEAN
+          env.VERSION_TAG = env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+          env.META_TAG = 'bionic-' + env.EXT_RELEASE_CLEAN + '-pkg-' + env.PACKAGE_TAG + '-pr-' + env.PULL_REQUEST
+          env.EXT_RELEASE_TAG = 'bionic-version-' + env.EXT_RELEASE_CLEAN
           env.CODE_URL = 'https://github.com/' + env.LS_USER + '/' + env.LS_REPO + '/pull/' + env.PULL_REQUEST
           env.DOCKERHUB_LINK = 'https://hub.docker.com/r/' + env.PR_DOCKERHUB_IMAGE + '/tags/'
         }
@@ -240,9 +243,12 @@ pipeline {
                 git checkout -f bionic
                 cd ${TEMPDIR}/docker-${CONTAINER_NAME}
                 mkdir -p ${TEMPDIR}/repo/${LS_REPO}/.github/workflows
-                cp --parents ${TEMPLATED_FILES} ${TEMPDIR}/repo/${LS_REPO}/
+                mkdir -p ${TEMPDIR}/repo/${LS_REPO}/.github/ISSUE_TEMPLATE
+                rm ${TEMPDIR}/repo/${LS_REPO}/.github/ISSUE_TEMPLATE.md
+                cp --parents ${TEMPLATED_FILES} ${TEMPDIR}/repo/${LS_REPO}/ || :
                 cd ${TEMPDIR}/repo/${LS_REPO}/
                 git add ${TEMPLATED_FILES}
+                git rm .github/ISSUE_TEMPLATE.md
                 git commit -m 'Bot Updating Templated Files'
                 git push https://LinuxServer-CI:${GITHUB_TOKEN}@github.com/${LS_USER}/${LS_REPO}.git --all
                 echo "true" > /tmp/${COMMIT_SHA}-${BUILD_NUMBER}
@@ -312,8 +318,9 @@ pipeline {
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
+        echo "Running on node: ${NODE_NAME}"
         sh "docker build --no-cache --pull -t ${IMAGE}:${META_TAG} \
-        --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${META_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
+        --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
       }
     }
     // Build MultiArch Docker containers for push to LS Repo
@@ -325,8 +332,9 @@ pipeline {
       parallel {
         stage('Build X86') {
           steps {
+            echo "Running on node: ${NODE_NAME}"
             sh "docker build --no-cache --pull -t ${IMAGE}:amd64-${META_TAG} \
-            --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${META_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
+            --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
           }
         }
         stage('Build ARMHF') {
@@ -334,12 +342,13 @@ pipeline {
             label 'ARMHF'
           }
           steps {
+            echo "Running on node: ${NODE_NAME}"
             echo 'Logging into Github'
             sh '''#! /bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u LinuxServer-CI --password-stdin
                '''
             sh "docker build --no-cache --pull -f Dockerfile.armhf -t ${IMAGE}:arm32v7-${META_TAG} \
-                         --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${META_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
+                         --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
             sh "docker tag ${IMAGE}:arm32v7-${META_TAG} ghcr.io/linuxserver/lsiodev-buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}"
             retry(5) {
               sh "docker push ghcr.io/linuxserver/lsiodev-buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER}"
@@ -354,12 +363,13 @@ pipeline {
             label 'ARM64'
           }
           steps {
+            echo "Running on node: ${NODE_NAME}"
             echo 'Logging into Github'
             sh '''#! /bin/bash
                   echo $GITHUB_TOKEN | docker login ghcr.io -u LinuxServer-CI --password-stdin
                '''
             sh "docker build --no-cache --pull -f Dockerfile.aarch64 -t ${IMAGE}:arm64v8-${META_TAG} \
-                         --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${META_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
+                         --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
             sh "docker tag ${IMAGE}:arm64v8-${META_TAG} ghcr.io/linuxserver/lsiodev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
             retry(5) {
               sh "docker push ghcr.io/linuxserver/lsiodev-buildcache:arm64v8-${COMMIT_SHA}-${BUILD_NUMBER}"
@@ -602,6 +612,7 @@ pipeline {
                     docker manifest create ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:amd64-${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG}
                     docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm32v7-${META_TAG} --os linux --arch arm
                     docker manifest annotate ${MANIFESTIMAGE}:${META_TAG} ${MANIFESTIMAGE}:arm64v8-${META_TAG} --os linux --arch arm64 --variant v8
+                    docker manifest push --purge ${MANIFESTIMAGE}:${EXT_RELEASE_TAG} || :
                     docker manifest create ${MANIFESTIMAGE}:${EXT_RELEASE_TAG} ${MANIFESTIMAGE}:amd64-${EXT_RELEASE_TAG} ${MANIFESTIMAGE}:arm32v7-${EXT_RELEASE_TAG} ${MANIFESTIMAGE}:arm64v8-${EXT_RELEASE_TAG}
                     docker manifest annotate ${MANIFESTIMAGE}:${EXT_RELEASE_TAG} ${MANIFESTIMAGE}:arm32v7-${EXT_RELEASE_TAG} --os linux --arch arm
                     docker manifest annotate ${MANIFESTIMAGE}:${EXT_RELEASE_TAG} ${MANIFESTIMAGE}:arm64v8-${EXT_RELEASE_TAG} --os linux --arch arm64 --variant v8
@@ -616,10 +627,13 @@ pipeline {
                   docker rmi \
                   ${DELETEIMAGE}:amd64-${META_TAG} \
                   ${DELETEIMAGE}:amd64-bionic \
+                  ${DELETEIMAGE}:amd64-${EXT_RELEASE_TAG} \
                   ${DELETEIMAGE}:arm32v7-${META_TAG} \
                   ${DELETEIMAGE}:arm32v7-bionic \
+                  ${DELETEIMAGE}:arm32v7-${EXT_RELEASE_TAG} \
                   ${DELETEIMAGE}:arm64v8-${META_TAG} \
-                  ${DELETEIMAGE}:arm64v8-bionic || :
+                  ${DELETEIMAGE}:arm64v8-bionic \
+                  ${DELETEIMAGE}:arm64v8-${EXT_RELEASE_TAG} || :
                 done
                 docker rmi \
                 ghcr.io/linuxserver/lsiodev-buildcache:arm32v7-${COMMIT_SHA}-${BUILD_NUMBER} \
@@ -686,7 +700,7 @@ pipeline {
                   -e DOCKER_REPOSITORY=${IMAGE} \
                   -e GIT_BRANCH=master \
                   -v ${TEMPDIR}/docker-${CONTAINER_NAME}:/mnt \
-                  ghcr.io/linuxserver/lsiodev-readme-sync bash -c 'node sync' 
+                  ghcr.io/linuxserver/lsiodev-readme-sync bash -c 'node sync'
                 rm -Rf ${TEMPDIR} '''
         }
       }
