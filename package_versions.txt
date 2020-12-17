@@ -147,7 +147,7 @@ libxfixes31:5.0.3-1
 libxshmfence11.3-1
 libxxf86vm11:1.1.4-1
 libzstd11.3.3+dfsg-2ubuntu1.1
-locales2.27-3ubuntu1.3
+locales2.27-3ubuntu1.4
 login1:4.5-1ubuntu2
 lsb-base9.20170808ubuntu1
 mawk1.3.3-17ubuntu3
@@ -159,7 +159,7 @@ ocl-icd-libopencl12.2.11-1ubuntu1
 openssl1.1.1-1ubuntu2.1~18.04.7
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.5
-plexmediaserver1.21.1.3795-ee64ab56f
+plexmediaserver1.21.1.3830-6c22540d5
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
