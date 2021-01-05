@@ -154,7 +154,7 @@ openssl1.1.1f-1ubuntu2.1
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.21.1.3842-b0c7a97d9
+plexmediaserver1.21.1.3876-3c3adfcb4
 procps2:3.3.16-1ubuntu2
 publicsuffix20200303.0012-1
 readline-common8.0-4
