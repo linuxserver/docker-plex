@@ -61,9 +61,9 @@ libcrypt11:4.4.10-10ubuntu4
 libcurl47.68.0-1ubuntu2.4
 libdb5.35.3.28+dfsg1-0.6ubuntu2
 libdebconfclient00.251ubuntu1
-libdrm22.4.101-2
-libdrm-common2.4.101-2
-libdrm-intel12.4.101-2
+libdrm22.4.102-1ubuntu1~20.04.1
+libdrm-common2.4.102-1ubuntu1~20.04.1
+libdrm-intel12.4.102-1ubuntu1~20.04.1
 libext2fs21.45.5-2ubuntu1
 libfdisk12.34-0.1ubuntu9.1
 libffi73.3-4
