@@ -35,11 +35,11 @@ gzip1.10-0ubuntu4
 hostname3.23
 init-system-helpers1.57
 intel-gmmlib20.3.2
-intel-igc-core1.0.5884
-intel-igc-opencl1.0.5884
-intel-level-zero-gpu1.0.18783
-intel-ocloc20.52.18783
-intel-opencl20.52.18783
+intel-igc-core1.0.5964
+intel-igc-opencl1.0.5964
+intel-level-zero-gpu1.0.18793
+intel-ocloc21.01.18793
+intel-opencl21.01.18793
 jq1.6-1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
@@ -99,7 +99,7 @@ libnettle73.5.1+really3.5.1-2
 libnghttp2-141.40.0-1build1
 libnpth01.6-1
 libonig56.9.4-1
-libp11-kit00.23.20-1build1
+libp11-kit00.23.20-1ubuntu0.1
 libpam0g1.3.1-5ubuntu4.1
 libpam-modules1.3.1-5ubuntu4.1
 libpam-modules-bin1.3.1-5ubuntu4.1
