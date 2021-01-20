@@ -38,7 +38,6 @@ param_env_vars:
 # optional env variables
 opt_param_usage_include_env: true
 opt_param_env_vars:
-  - { env_var: "UMASK_SET", env_value: "022", desc: "control permissions of files and directories created by Plex"}
   - { env_var: "PLEX_CLAIM", env_value: "", desc: "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes."}
 
 optional_parameters: |
@@ -106,6 +105,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "20.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
   - { date: "10.12.20:", desc: "Add latest Intel Compute packages from github repo for opencl support on latest gen igpu." }
   - { date: "23.11.20:", desc: "Add Bionic branch make Focal default." }
   - { date: "03.05.20:", desc: "Update exposed ports and example docs for bridge mode." }
