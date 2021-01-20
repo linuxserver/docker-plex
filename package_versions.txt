@@ -40,7 +40,7 @@ intel-igc-opencl1.0.5964
 intel-level-zero-gpu1.0.18820
 intel-ocloc21.02.18820
 intel-opencl21.02.18820
-jq1.6-1
+jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
 libapt-pkg6.02.0.2ubuntu0.2
@@ -80,7 +80,7 @@ libheimntlm0-heimdal7.7.0+dfsg-1ubuntu1
 libhogweed53.5.1+really3.5.1-2
 libhx509-5-heimdal7.7.0+dfsg-1ubuntu1
 libidn2-02.2.0-2
-libjq11.6-1
+libjq11.6-1ubuntu0.20.04.1
 libk5crypto31.17-6ubuntu4.1
 libkeyutils11.6-6ubuntu1
 libkmod227-1ubuntu2
@@ -126,7 +126,7 @@ libss21.45.5-2ubuntu1
 libssh-40.9.3-2ubuntu2.1
 libssl1.11.1.1f-1ubuntu2.1
 libstdc++610.2.0-5ubuntu1~20.04
-libsystemd0245.4-4ubuntu3.3
+libsystemd0245.4-4ubuntu3.4
 libtasn1-64.16.0-2
 libtinfo66.2-0ubuntu2
 libudev1245.4-4ubuntu3.4
@@ -161,7 +161,7 @@ readline-common8.0-4
 sed4.7-1
 sensible-utils0.0.12+nmu1
 sysvinit-utils2.96-2.1ubuntu1
-tar1.30+dfsg-7
+tar1.30+dfsg-7ubuntu0.20.04.1
 tzdata2020f-0ubuntu0.20.04.1
 ubuntu-keyring2020.02.11.2
 udev245.4-4ubuntu3.4
