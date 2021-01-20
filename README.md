@@ -85,7 +85,6 @@ services:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
-      - UMASK_SET=022 #optional
       - PLEX_CLAIM= #optional
     volumes:
       - /path/to/library:/config
@@ -103,7 +102,6 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e VERSION=docker \
-  -e UMASK_SET=022 `#optional` \
   -e PLEX_CLAIM= `#optional` \
   -v /path/to/library:/config \
   -v /path/to/tvseries:/tv \
@@ -123,7 +121,6 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
 | `-e VERSION=docker` | Set whether to update plex or not - see Application Setup section. |
-| `-e UMASK_SET=022` | control permissions of files and directories created by Plex |
 | `-e PLEX_CLAIM=` | Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes. |
 | `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
 | `-v /tv` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
@@ -297,6 +294,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **20.01.21:** - Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
 * **10.12.20:** - Add latest Intel Compute packages from github repo for opencl support on latest gen igpu.
 * **23.11.20:** - Add Bionic branch make Focal default.
 * **03.05.20:** - Update exposed ports and example docs for bridge mode.
