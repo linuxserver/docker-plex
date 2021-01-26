@@ -1,6 +1,6 @@
 adduser3.118ubuntu2
-apt2.0.2ubuntu0.2
-apt-utils2.0.2ubuntu0.2
+apt2.0.4
+apt-utils2.0.4
 base-files11ubuntu5.2
 base-passwd3.5.47
 bash5.0-6ubuntu1.1
@@ -43,7 +43,7 @@ intel-opencl21.03.18857
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
-libapt-pkg6.02.0.2ubuntu0.2
+libapt-pkg6.02.0.4
 libasn1-8-heimdal7.7.0+dfsg-1ubuntu1
 libassuan02.5.3-7ubuntu2
 libattr11:2.4.48-5
@@ -154,7 +154,7 @@ openssl1.1.1f-1ubuntu2.1
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.21.1.3876-3c3adfcb4
+plexmediaserver1.21.2.3939-3945797bd
 procps2:3.3.16-1ubuntu2
 publicsuffix20200303.0012-1
 readline-common8.0-4
