@@ -31,8 +31,8 @@ libapt-inst2.01.6.12ubuntu0.2
 libapt-pkg5.01.6.12ubuntu0.2
 libasn1-8-heimdal7.5.0+dfsg-1
 libattr11:2.4.47-2build1
-libaudit11:2.8.2-1ubuntu1
-libaudit-common1:2.8.2-1ubuntu1
+libaudit11:2.8.2-1ubuntu1.1
+libaudit-common1:2.8.2-1ubuntu1.1
 libblkid12.31.1-0.4ubuntu3.7
 libbsd00.8.7-1ubuntu0.1
 libbz2-1.01.0.6-8.1ubuntu0.2
@@ -159,7 +159,7 @@ ocl-icd-libopencl12.2.11-1ubuntu1
 openssl1.1.1-1ubuntu2.1~18.04.7
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.5
-plexmediaserver1.21.1.3876-3c3adfcb4
+plexmediaserver1.21.2.3939-3945797bd
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
