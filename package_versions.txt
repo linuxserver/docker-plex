@@ -159,14 +159,14 @@ ocl-icd-libopencl12.2.11-1ubuntu1
 openssl1.1.1-1ubuntu2.1~18.04.7
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.5
-plexmediaserver1.21.2.3943-a91458577
+plexmediaserver1.21.3.4014-58bd20c02
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
 sensible-utils0.0.12
 sysvinit-utils2.88dsf-59.10ubuntu1
 tar1.29b-2ubuntu0.2
-tzdata2020f-0ubuntu0.18.04
+tzdata2021a-0ubuntu0.18.04
 ubuntu-keyring2018.09.18.1~18.04.0
 udev237-3ubuntu10.44
 unrar1:5.5.8-1
