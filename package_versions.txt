@@ -7,7 +7,7 @@ bash5.0-6ubuntu1.1
 beignet-opencl-icd1.3.2-7build1
 bsdutils1:2.34-0.1ubuntu9.1
 bzip21.0.8-2
-ca-certificates20201027ubuntu0.20.04.1
+ca-certificates20210119~20.04.1
 coreutils8.30-3ubuntu2
 curl7.68.0-1ubuntu2.4
 dash0.5.10.2-6
@@ -88,8 +88,8 @@ libkrb5-26-heimdal7.7.0+dfsg-1ubuntu1
 libkrb5-31.17-6ubuntu4.1
 libkrb5support01.17-6ubuntu4.1
 libksba81.3.5-2
-libldap-2.4-22.4.49+dfsg-2ubuntu1.5
-libldap-common2.4.49+dfsg-2ubuntu1.5
+libldap-2.4-22.4.49+dfsg-2ubuntu1.6
+libldap-common2.4.49+dfsg-2ubuntu1.6
 liblz4-11.9.2-2
 liblzma55.2.4-1ubuntu1
 libmount12.34-0.1ubuntu9.1
@@ -154,7 +154,7 @@ openssl1.1.1f-1ubuntu2.1
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.21.3.4014-58bd20c02
+plexmediaserver1.21.3.4021-5a0a3e4b2
 procps2:3.3.16-1ubuntu2
 publicsuffix20200303.0012-1
 readline-common8.0-4
