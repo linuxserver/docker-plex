@@ -88,8 +88,8 @@ libkrb5-26-heimdal7.7.0+dfsg-1ubuntu1
 libkrb5-31.17-6ubuntu4.1
 libkrb5support01.17-6ubuntu4.1
 libksba81.3.5-2
-libldap-2.4-22.4.49+dfsg-2ubuntu1.6
-libldap-common2.4.49+dfsg-2ubuntu1.6
+libldap-2.4-22.4.49+dfsg-2ubuntu1.7
+libldap-common2.4.49+dfsg-2ubuntu1.7
 liblz4-11.9.2-2
 liblzma55.2.4-1ubuntu1
 libmount12.34-0.1ubuntu9.1
@@ -124,7 +124,7 @@ libsmartcols12.34-0.1ubuntu9.1
 libsqlite3-03.31.1-4ubuntu0.2
 libss21.45.5-2ubuntu1
 libssh-40.9.3-2ubuntu2.1
-libssl1.11.1.1f-1ubuntu2.1
+libssl1.11.1.1f-1ubuntu2.2
 libstdc++610.2.0-5ubuntu1~20.04
 libsystemd0245.4-4ubuntu3.4
 libtasn1-64.16.0-2
@@ -150,11 +150,11 @@ mount2.34-0.1ubuntu9.1
 ncurses-base6.2-0ubuntu2
 ncurses-bin6.2-0ubuntu2
 ocl-icd-libopencl12.2.11-1ubuntu1
-openssl1.1.1f-1ubuntu2.1
+openssl1.1.1f-1ubuntu2.2
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.21.3.4046-3c1c83ba4
+plexmediaserver1.21.4.4079-1b7748a7b
 procps2:3.3.16-1ubuntu2
 publicsuffix20200303.0012-1
 readline-common8.0-4
