@@ -35,11 +35,11 @@ gzip1.10-0ubuntu4
 hostname3.23
 init-system-helpers1.57
 intel-gmmlib20.3.2
-intel-igc-core1.0.6410
-intel-igc-opencl1.0.6410
-intel-level-zero-gpu1.0.19208
-intel-ocloc21.10.19208
-intel-opencl21.10.19208
+intel-igc-core1.0.6646
+intel-igc-opencl1.0.6646
+intel-level-zero-gpu1.0.19310
+intel-ocloc21.11.19310
+intel-opencl21.11.19310
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
@@ -129,7 +129,7 @@ libstdc++610.2.0-5ubuntu1~20.04
 libsystemd0245.4-4ubuntu3.4
 libtasn1-64.16.0-2
 libtinfo66.2-0ubuntu2
-libudev1245.4-4ubuntu3.4
+libudev1245.4-4ubuntu3.5
 libunistring20.9.10-2
 libuuid12.34-0.1ubuntu9.1
 libwind0-heimdal7.7.0+dfsg-1ubuntu1
@@ -164,7 +164,7 @@ sysvinit-utils2.96-2.1ubuntu1
 tar1.30+dfsg-7ubuntu0.20.04.1
 tzdata2021a-0ubuntu0.20.04
 ubuntu-keyring2020.02.11.2
-udev245.4-4ubuntu3.4
+udev245.4-4ubuntu3.5
 unrar1:5.6.6-2build1
 util-linux2.34-0.1ubuntu9.1
 wget1.20.3-1ubuntu1
