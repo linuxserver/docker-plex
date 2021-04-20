@@ -18,7 +18,7 @@ jobs:
           fi
           echo "**** External trigger running off of bionic branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_PLEX_BIONIC\". ****"
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(curl -s "https://plex.tv/api/downloads/5.json" | jq -r ". | .computer.Linux.version")
+          EXT_RELEASE=$(curl -s "https://plex.tv/api/downloads/5.json" | jq -r '. | .computer.Linux.version')
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for plex branch bionic"
