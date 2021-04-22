@@ -77,7 +77,7 @@ libgssapi-krb5-21.17-6ubuntu4.1
 libhcrypto4-heimdal7.7.0+dfsg-1ubuntu1
 libheimbase1-heimdal7.7.0+dfsg-1ubuntu1
 libheimntlm0-heimdal7.7.0+dfsg-1ubuntu1
-libhogweed53.5.1+really3.5.1-2
+libhogweed53.5.1+really3.5.1-2ubuntu0.1
 libhx509-5-heimdal7.7.0+dfsg-1ubuntu1
 libidn2-02.2.0-2
 libjq11.6-1ubuntu0.20.04.1
@@ -95,7 +95,7 @@ liblzma55.2.4-1ubuntu1
 libmount12.34-0.1ubuntu9.1
 libncurses66.2-0ubuntu2
 libncursesw66.2-0ubuntu2
-libnettle73.5.1+really3.5.1-2
+libnettle73.5.1+really3.5.1-2ubuntu0.1
 libnghttp2-141.40.0-1build1
 libnpth01.6-1
 libonig56.9.4-1
@@ -107,7 +107,7 @@ libpam-runtime1.3.1-5ubuntu4.1
 libpciaccess00.16-0ubuntu1
 libpcre2-8-010.34-7
 libpcre32:8.39-12build1
-libprocps82:3.3.16-1ubuntu2
+libprocps82:3.3.16-1ubuntu2.1
 libpsl50.21.0-1ubuntu1
 libreadline88.0-4
 libroken18-heimdal7.7.0+dfsg-1ubuntu1
@@ -115,7 +115,7 @@ librtmp12.4+20151223.gitfa8646d.1-2build1
 libsasl2-22.1.27+dfsg-2
 libsasl2-modules2.1.27+dfsg-2
 libsasl2-modules-db2.1.27+dfsg-2
-libseccomp22.4.3-1ubuntu3.20.04.3
+libseccomp22.5.1-1ubuntu1~20.04.1
 libselinux13.0-1build2
 libsemanage13.0-1build2
 libsemanage-common3.0-1build2
@@ -154,8 +154,8 @@ openssl1.1.1f-1ubuntu2.3
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.22.2.4282-a97b03fad
-procps2:3.3.16-1ubuntu2
+plexmediaserver1.22.3.4392-d7c624def
+procps2:3.3.16-1ubuntu2.1
 publicsuffix20200303.0012-1
 readline-common8.0-4
 sed4.7-1
