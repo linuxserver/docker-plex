@@ -123,7 +123,7 @@ libstdc++68.4.0-1ubuntu1~18.04
 libsystemd0237-3ubuntu10.46
 libtasn1-64.13-2
 libtinfo56.1-1ubuntu1.18.04
-libudev1237-3ubuntu10.46
+libudev1237-3ubuntu10.47
 libunistring20.9.9-0ubuntu2
 libuuid12.31.1-0.4ubuntu3.7
 libwayland-client01.16.0-1ubuntu1.1~18.04.3
@@ -168,7 +168,7 @@ sysvinit-utils2.88dsf-59.10ubuntu1
 tar1.29b-2ubuntu0.2
 tzdata2021a-0ubuntu0.18.04
 ubuntu-keyring2018.09.18.1~18.04.2
-udev237-3ubuntu10.46
+udev237-3ubuntu10.47
 unrar1:5.5.8-1
 util-linux2.31.1-0.4ubuntu3.7
 wget1.19.4-1ubuntu2.2
