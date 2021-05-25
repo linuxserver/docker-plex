@@ -129,9 +129,9 @@ libuuid12.31.1-0.4ubuntu3.7
 libwayland-client01.16.0-1ubuntu1.1~18.04.3
 libwayland-server01.16.0-1ubuntu1.1~18.04.3
 libwind0-heimdal7.5.0+dfsg-1
-libx11-62:1.6.4-3ubuntu0.3
-libx11-data2:1.6.4-3ubuntu0.3
-libx11-xcb12:1.6.4-3ubuntu0.3
+libx11-62:1.6.4-3ubuntu0.4
+libx11-data2:1.6.4-3ubuntu0.4
+libx11-xcb12:1.6.4-3ubuntu0.4
 libxau61:1.0.8-1ubuntu1
 libxcb11.13-2~ubuntu18.04
 libxcb-dri2-01.13-2~ubuntu18.04
@@ -159,7 +159,7 @@ ocl-icd-libopencl12.2.11-1ubuntu1
 openssl1.1.1-1ubuntu2.1~18.04.9
 passwd1:4.5-1ubuntu2
 perl-base5.26.1-6ubuntu0.5
-plexmediaserver1.22.3.4523-d0ce30438
+plexmediaserver1.23.1.4571-6119e8eed
 procps2:3.3.12-3ubuntu1.2
 publicsuffix20180223.1310-1
 sed4.4-2
