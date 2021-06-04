@@ -1,0 +1,19 @@
+#!/usr/bin/with-contenv bash
+
+echo '
+******************************************************
+******************************************************
+*                                                    *
+*                                                    *
+*             This image is deprecated.              *
+*      We will not offer support for this image      *
+*             and it will not be updated.            *
+*                                                    *
+*                                                    *
+******************************************************
+******************************************************
+
+The bionic tag of this image is deprecated. Please use the latest tag, which is currently focal based.
+
+******************************************************
+******************************************************'
