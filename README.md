@@ -27,6 +27,10 @@ Find us at:
 * [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.
 * [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
 
+# DEPRECATION NOTICE
+
+This image is deprecated. We will not offer support for this image and it will not be updated.
+The bionic tag of this image is deprecated. Please use the latest tag, which is currently focal based.
 # [linuxserver/plex](https://github.com/linuxserver/docker-plex)
 
 [![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-plex.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-plex)
@@ -64,7 +68,7 @@ This image provides various versions that are available via tags. `latest` tag u
 | Tag | Description |
 | :----: | --- |
 | latest | Stable releases with Focal baseimage |
-| bionic | Stable releases with Bionic baseimage |
+| bionic | DEPRECATED - Stable releases with Bionic baseimage |
 
 ## Application Setup
 
