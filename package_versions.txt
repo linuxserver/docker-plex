@@ -37,9 +37,9 @@ init-system-helpers1.57
 intel-gmmlib21.1.3
 intel-igc-core1.0.7423
 intel-igc-opencl1.0.7423
-intel-level-zero-gpu1.1.19914
-intel-ocloc21.21.19914
-intel-opencl21.21.19914
+intel-level-zero-gpu1.1.19967
+intel-ocloc21.22.19967
+intel-opencl21.22.19967
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
