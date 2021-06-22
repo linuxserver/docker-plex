@@ -35,11 +35,11 @@ gzip1.10-0ubuntu4
 hostname3.23
 init-system-helpers1.57
 intel-gmmlib21.1.3
-intel-igc-core1.0.7423
-intel-igc-opencl1.0.7423
-intel-level-zero-gpu1.1.20043
-intel-ocloc21.23.20043
-intel-opencl21.23.20043
+intel-igc-core1.0.7683
+intel-igc-opencl1.0.7683
+intel-level-zero-gpu1.1.20098
+intel-ocloc21.24.20098
+intel-opencl21.24.20098
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
