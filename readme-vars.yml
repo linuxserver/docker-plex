@@ -18,7 +18,7 @@ available_architectures:
 development_versions: true
 development_versions_items:
   - { tag: "latest", desc: "Stable releases with Focal baseimage" }
-  - { tag: "bionic", desc: "Stable releases with Bionic baseimage" }
+  - { tag: "bionic", desc: "DEPRECATED - Stable releases with Bionic baseimage" }
 
 # container parameters
 common_param_env_vars_enabled: true #PGID, PUID, etc
