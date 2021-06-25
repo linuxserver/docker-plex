@@ -64,6 +64,7 @@ This image provides various versions that are available via tags. `latest` tag u
 | Tag | Description |
 | :----: | --- |
 | latest | Stable releases with Focal baseimage |
+| bionic | DEPRECATED - Stable releases with Bionic baseimage |
 
 ## Application Setup
 
