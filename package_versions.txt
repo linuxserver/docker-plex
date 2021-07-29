@@ -9,7 +9,7 @@ bsdutils1:2.34-0.1ubuntu9.1
 bzip21.0.8-2
 ca-certificates20210119~20.04.1
 coreutils8.30-3ubuntu2
-curl7.68.0-1ubuntu2.5
+curl7.68.0-1ubuntu2.6
 dash0.5.10.2-6
 debconf1.5.73
 debianutils4.9.1
@@ -58,7 +58,7 @@ libcap-ng00.7.9-2.1build1
 libc-bin2.31-0ubuntu9.2
 libcom-err21.45.5-2ubuntu1
 libcrypt11:4.4.10-10ubuntu4
-libcurl47.68.0-1ubuntu2.5
+libcurl47.68.0-1ubuntu2.6
 libdb5.35.3.28+dfsg1-0.6ubuntu2
 libdebconfclient00.251ubuntu1
 libdrm22.4.102-1ubuntu1~20.04.1
@@ -126,7 +126,7 @@ libss21.45.5-2ubuntu1
 libssh-40.9.3-2ubuntu2.1
 libssl1.11.1.1f-1ubuntu2.4
 libstdc++610.3.0-1ubuntu1~20.04
-libsystemd0245.4-4ubuntu3.7
+libsystemd0245.4-4ubuntu3.10
 libtasn1-64.16.0-2
 libtinfo66.2-0ubuntu2
 libudev1245.4-4ubuntu3.11
@@ -154,7 +154,7 @@ openssl1.1.1f-1ubuntu2.4
 passwd1:4.8.1-1ubuntu5.20.04
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.23.5.4862-0f739d462
+plexmediaserver1.23.6.4881-e2e58f321
 procps2:3.3.16-1ubuntu2.2
 publicsuffix20200303.0012-1
 readline-common8.0-4
