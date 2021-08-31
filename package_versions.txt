@@ -1,7 +1,7 @@
 adduser3.118ubuntu2
 apt2.0.6
 apt-utils2.0.6
-base-files11ubuntu5.3
+base-files11ubuntu5.4
 base-passwd3.5.47
 bash5.0-6ubuntu1.1
 beignet-opencl-icd1.3.2-7build1
@@ -37,9 +37,9 @@ init-system-helpers1.57
 intel-gmmlib21.2.1
 intel-igc-core1.0.8365
 intel-igc-opencl1.0.8365
-intel-level-zero-gpu1.1.20678
-intel-ocloc21.33.20678
-intel-opencl21.33.20678
+intel-level-zero-gpu1.1.20767
+intel-ocloc21.34.20767
+intel-opencl21.34.20767
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
