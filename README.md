@@ -89,7 +89,9 @@ Valid settings for VERSION are:-
 
 Hardware acceleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
 
-```--device=/dev/dri:/dev/dri```
+```
+--device=/dev/dri:/dev/dri
+```
 
 We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
 
