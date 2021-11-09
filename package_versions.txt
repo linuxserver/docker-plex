@@ -37,8 +37,8 @@ init-system-helpers1.57
 intel-gmmlib21.2.1
 intel-igc-core1.0.8744
 intel-igc-opencl1.0.8744
-intel-level-zero-gpu1.2.021438
-intel-opencl-icd21.43.021438
+intel-level-zero-gpu1.2.21506
+intel-opencl-icd21.44.21506
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
@@ -161,7 +161,7 @@ sed4.7-1
 sensible-utils0.0.12+nmu1
 sysvinit-utils2.96-2.1ubuntu1
 tar1.30+dfsg-7ubuntu0.20.04.1
-tzdata2021a-2ubuntu0.20.04
+tzdata2021e-0ubuntu0.20.04
 ubuntu-keyring2020.02.11.4
 udev245.4-4ubuntu3.13
 unrar1:5.6.6-2build1
