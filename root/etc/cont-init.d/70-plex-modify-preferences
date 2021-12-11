@@ -1,0 +1,48 @@
+#!/usr/bin/with-contenv bash
+
+XML_PATH="/config/Library/Application Support/Plex Media Server/Preferences.xml"
+
+# Fallback to ALLOWED_NETWORKS value
+NOAUTH_NETWORKS="${NOAUTH_NETWORKS:-$ALLOWED_NETWORKS}"
+
+xml::update_or_replace_attr() {
+  # Usage: xml::update_or_replace_attr <attribute> <value> <xmlpath>
+  #        xml::update_or_replace_attr <element> <attribute> <value> <xmlpath>
+
+  declare -a argv=("$@")
+  local element attribute_name attribute_value xml_path
+
+  element="/Preferences"
+  if [[ ${#argv[@]} -eq 4 ]]; then
+        element="${argv[0]}"
+        set -- "${argv[@]:1}"
+  fi
+
+  attribute_name="${1:?}"
+  attribute_value="${2:?}"
+  xml_path="${3:?}"
+
+  xmlstarlet edit --inplace --insert "$element" --type attr --name "$attribute_name" --value "$attribute_value" "$xml_path"
+  printf "%s\n" "File '${xml_path}' modified. Attribute '${attribute_name}' in element '${element}' updated to '${attribute_value}'."
+}
+
+# Comma delimited string of ip cidr blocks that should be considered local
+if [[ -n "$ALLOWED_NETWORKS" ]]; then
+   xml::update_or_replace_attr allowedNetworks "$ALLOWED_NETWORKS" "$XML_PATH"
+fi
+
+# Comma delimited string of ip cidr blocks that shouldn't require auth
+if [[ -n "$NOAUTH_NETWORKS" ]]; then
+   xml::update_or_replace_attr LanNetworksBandwidth "$NOAUTH_NETWORKS" "$XML_PATH"
+fi
+
+# Comma delimited string of https/http urls used to access server
+if [[ -n "$ADVERTISE_URLS" ]]; then
+   xml::update_or_replace_attr allowedNetworks "$ADVERTISE_URLS" "$XML_PATH"
+fi
+
+# Human readable name used to identify server on clients
+if [[ -n "$SERVER_NAME" ]]; then
+   xml::update_or_replace_attr FriendlyName "$SERVERNAME" "$XML_PATH"
+fi
+

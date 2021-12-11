@@ -25,6 +25,7 @@ RUN \
 	jq \
 	udev \
 	unrar \
+  xmlstarlet \
 	wget && \
  echo "**** install plex ****" && \
  if [ -z ${PLEX_RELEASE+x} ]; then \
