@@ -5,7 +5,7 @@ XML_CONFIG="/config/Library/Application Support/Plex Media Server/Preferences.xm
 # Fallback to ALLOWED_NETWORKS value
 NOAUTH_NETWORKS="${NOAUTH_NETWORKS:-$ALLOWED_NETWORKS}"
 
-update_or_replace_attr() {
+update_or_insert_attr() {
   # Usage: update_or_replace_attr <attribute> <value> <xmlpath>
 
   local element attribute_name attribute_value xml_path
@@ -14,8 +14,15 @@ update_or_replace_attr() {
   attribute_value="${2:?}"
   xml_path="${3:?}"
 
+  local response
+  response="$(xmlstarlet select --text --template --match "$element" --value-of "@${attribute_name}" "${xml_path}")"
+
+  # Only write to file if the desired value differs from the current
+  if [[ "$response" == "$attribute_value" ]]; then
+     return
+  fi
+
   xmlstarlet edit --inplace --insert "$element" --type attr --name "$attribute_name" --value "$attribute_value" "$xml_path"
-  printf "%s\n" "File '${xml_path}' modified. Attribute '${attribute_name}' in element '${element}' updated to '${attribute_value}'."
 }
 
 ensure_xml_exists() {
@@ -25,8 +32,6 @@ ensure_xml_exists() {
      printf '%s\n' "File '$1' already exists. Skipping..."
      return
   fi
-
-  printf '%s\n' "Creating '$1'"
 
   local parent
   parent="$(dirname "${1:?}")"
@@ -45,22 +50,22 @@ main() {
 
   # Comma delimited string of ip cidr blocks that should be considered local
   if [[ -n "$ALLOWED_NETWORKS" ]]; then
-    update_or_replace_attr allowedNetworks "$ALLOWED_NETWORKS" "$XML_CONFIG"
+    update_or_insert_attr allowedNetworks "$ALLOWED_NETWORKS" "$XML_CONFIG"
   fi
 
   # Comma delimited string of ip cidr blocks that shouldn't require auth
   if [[ -n "$NOAUTH_NETWORKS" ]]; then
-    update_or_replace_attr LanNetworksBandwidth "$NOAUTH_NETWORKS" "$XML_CONFIG"
+    update_or_insert_attr LanNetworksBandwidth "$NOAUTH_NETWORKS" "$XML_CONFIG"
   fi
 
   # Comma delimited string of https/http urls used to access server
   if [[ -n "$ADVERTISE_URLS" ]]; then
-    update_or_replace_attr allowedNetworks "$ADVERTISE_URLS" "$XML_CONFIG"
+    update_or_insert_attr allowedNetworks "$ADVERTISE_URLS" "$XML_CONFIG"
   fi
 
   # Human readable name used to identify server on clients
   if [[ -n "$SERVER_NAME" ]]; then
-    update_or_replace_attr FriendlyName "$SERVER_NAME" "$XML_CONFIG"
+    update_or_insert_attr FriendlyName "$SERVER_NAME" "$XML_CONFIG"
   fi
 }
 
