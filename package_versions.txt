@@ -37,8 +37,8 @@ init-system-helpers1.57
 intel-gmmlib21.3.3
 intel-igc-core1.0.9441
 intel-igc-opencl1.0.9441
-intel-level-zero-gpu1.2.21782
-intel-opencl-icd21.48.21782
+intel-level-zero-gpu1.2.21786
+intel-opencl-icd21.49.21786
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
@@ -153,7 +153,7 @@ openssl1.1.1f-1ubuntu2.9
 passwd1:4.8.1-1ubuntu5.20.04.1
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.25.1.5286-34f965be8
+plexmediaserver1.25.2.5319-c43dc0277
 procps2:3.3.16-1ubuntu2.3
 publicsuffix20200303.0012-1
 readline-common8.0-4
