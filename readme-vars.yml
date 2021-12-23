@@ -107,6 +107,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "23.12.21:", desc: "Install Intel drivers _after_ Plex to fix broken tone mapping on comet lake." }
   - { date: "20.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
   - { date: "10.12.20:", desc: "Add latest Intel Compute packages from github repo for opencl support on latest gen igpu." }
   - { date: "23.11.20:", desc: "Add Bionic branch make Focal default." }
