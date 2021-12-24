@@ -22,12 +22,14 @@ PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
 PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (LinuxServer.io)"
 
 RUN \
+ echo "**** add Intel repo ****" && \
+ curl -sL https://repositories.intel.com/graphics/intel-graphics.key | apt-key add - && \
+ echo 'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu focal main' > /etc/apt/sources.list.d/intel.list && \
  echo "**** install runtime packages ****" && \
  apt-get update && \
  apt-get install -y \
-	beignet-opencl-icd \
 	jq \
-	ocl-icd-libopencl1 \
+	intel-opencl-icd \
 	udev \
 	unrar \
 	wget && \
@@ -40,18 +42,6 @@ RUN \
 	/tmp/plexmediaserver.deb -L \
 	"${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
  dpkg -i /tmp/plexmediaserver.deb && \
- echo "**** Install the latest Intel drivers ****" && \
- COMP_RT_RELEASE=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name') && \
- COMP_RT_URLS=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g') && \
- mkdir -p /opencl-intel && \
- for i in ${COMP_RT_URLS}; do \
-	i=$(echo ${i} | tr -d '\r'); \
-	echo "**** downloading ${i} ****"; \
-	curl -o "/opencl-intel/$(basename ${i})" \
-		-L "${i}"; \
- done && \
- dpkg -i /opencl-intel/*.deb && \
- rm -rf /opencl-intel && \
  echo "**** ensure abc user's home folder is /app ****" && \
  usermod -d /app abc && \
  echo "**** cleanup ****" && \
