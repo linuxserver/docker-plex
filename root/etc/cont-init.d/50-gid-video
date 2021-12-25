@@ -4,23 +4,17 @@ FILES=$(find /dev/dri /dev/dvb -type c -print 2>/dev/null)
 
 for i in $FILES
 do
-	VIDEO_GID=$(stat -c '%g' "$i")
-	if id -G abc | grep -qw "$VIDEO_GID"; then
-		touch /groupadd
-	else
-		if [ ! "${VIDEO_GID}" == '0' ]; then
-			VIDEO_NAME=$(getent group "${VIDEO_GID}" | awk -F: '{print $1}')
-			if [ -z "${VIDEO_NAME}" ]; then
-				VIDEO_NAME="video$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c8)"
-				groupadd "$VIDEO_NAME"
-				groupmod -g "$VIDEO_GID" "$VIDEO_NAME"
-			fi
-			usermod -a -G "$VIDEO_NAME" abc
-			touch /groupadd
-		fi
-	fi
+    VIDEO_GID=$(stat -c '%g' "$i")
+    if ! id -G abc | grep -qw "$VIDEO_GID"; then
+        VIDEO_NAME=$(getent group "${VIDEO_GID}" | awk -F: '{print $1}')
+        if [ -z "${VIDEO_NAME}" ]; then
+            VIDEO_NAME="video$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c8)"
+            groupadd "$VIDEO_NAME"
+            groupmod -g "$VIDEO_GID" "$VIDEO_NAME"
+        fi
+        usermod -a -G "$VIDEO_NAME" abc
+        if [ $(stat -c '%A' "${i}" | cut -b 5,6) != "rw" ]; then
+            echo -e "**** The device ${i} does not have group read/write permissions, which might prevent hardware transcode from functioning correctly. To fix it, you can run the following on your docker host: ****\nsudo chmod g+rw ${i}\n"
+        fi
+    fi
 done
-
-if [ -n "${FILES}" ] && [ ! -f "/groupadd" ]; then
-	usermod -a -G root abc
-fi

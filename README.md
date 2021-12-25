@@ -299,7 +299,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **23.12.21:** - Install Intel drivers _after_ Plex to fix broken tone mapping on comet lake.
+* **25.12.21:** - Install Intel drivers from the official repo.
 * **20.01.21:** - Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
 * **10.12.20:** - Add latest Intel Compute packages from github repo for opencl support on latest gen igpu.
 * **23.11.20:** - Add Bionic branch make Focal default.
