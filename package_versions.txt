@@ -4,7 +4,6 @@ apt-utils2.0.6
 base-files11ubuntu5.4
 base-passwd3.5.47
 bash5.0-6ubuntu1.1
-beignet-opencl-icd1.3.2-7build1
 bsdutils1:2.34-0.1ubuntu9.1
 bzip21.0.8-2
 ca-certificates20210119~20.04.2
@@ -34,11 +33,8 @@ grep3.4-1
 gzip1.10-0ubuntu4
 hostname3.23
 init-system-helpers1.57
-intel-gmmlib22.0.0
-intel-igc-core1.0.9441
-intel-igc-opencl1.0.9441
-intel-level-zero-gpu1.2.21939
-intel-opencl-icd21.50.21939
+intel-igc-cm1.0.97+i643~u20.04
+intel-opencl-icd21.49.21786+i643~u20.04
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
 libacl12.2.53-6
@@ -50,7 +46,6 @@ libaudit11:2.8.5-2ubuntu6
 libaudit-common1:2.8.5-2ubuntu6
 libblkid12.34-0.1ubuntu9.1
 libbrotli11.0.7-6ubuntu0.1
-libbsd00.10.0-1
 libbz2-1.01.0.8-2
 libc62.31-0ubuntu9.2
 libcap-ng00.7.9-2.1build1
@@ -60,9 +55,6 @@ libcrypt11:4.4.10-10ubuntu4
 libcurl47.68.0-1ubuntu2.7
 libdb5.35.3.28+dfsg1-0.6ubuntu2
 libdebconfclient00.251ubuntu1
-libdrm22.4.105-3~20.04.2
-libdrm-common2.4.105-3~20.04.2
-libdrm-intel12.4.105-3~20.04.2
 libext2fs21.45.5-2ubuntu1
 libfdisk12.34-0.1ubuntu9.1
 libffi73.3-4
@@ -79,6 +71,9 @@ libheimntlm0-heimdal7.7.0+dfsg-1ubuntu1
 libhogweed53.5.1+really3.5.1-2ubuntu0.2
 libhx509-5-heimdal7.7.0+dfsg-1ubuntu1
 libidn2-02.2.0-2
+libigc11.0.9441+i643~u20.04
+libigdfcl11.0.9441+i643~u20.04
+libigdgmm1121.3.3+i643~u20.04
 libjq11.6-1ubuntu0.20.04.1
 libk5crypto31.17-6ubuntu4.1
 libkeyutils11.6-6ubuntu1
@@ -103,7 +98,6 @@ libpam0g1.3.1-5ubuntu4.3
 libpam-modules1.3.1-5ubuntu4.3
 libpam-modules-bin1.3.1-5ubuntu4.3
 libpam-runtime1.3.1-5ubuntu4.3
-libpciaccess00.16-0ubuntu1
 libpcre2-8-010.34-7
 libpcre32:8.39-12build1
 libprocps82:3.3.16-1ubuntu2.3
@@ -114,7 +108,7 @@ librtmp12.4+20151223.gitfa8646d.1-2build1
 libsasl2-22.1.27+dfsg-2
 libsasl2-modules2.1.27+dfsg-2
 libsasl2-modules-db2.1.27+dfsg-2
-libseccomp22.5.1-1ubuntu1~20.04.1
+libseccomp22.5.1-1ubuntu1~20.04.2
 libselinux13.0-1build2
 libsemanage13.0-1build2
 libsemanage-common3.0-1build2
@@ -132,13 +126,7 @@ libudev1245.4-4ubuntu3.13
 libunistring20.9.10-2
 libuuid12.34-0.1ubuntu9.1
 libwind0-heimdal7.7.0+dfsg-1ubuntu1
-libx11-62:1.6.9-2ubuntu1.2
-libx11-data2:1.6.9-2ubuntu1.2
-libxau61:1.0.9-0ubuntu1
-libxcb11.14-2
-libxdmcp61:1.1.3-0ubuntu1
-libxext62:1.3.4-0ubuntu1
-libxfixes31:5.0.3-2
+libz3-44.8.7-4build1
 libzstd11.4.4+dfsg-3ubuntu0.1
 locales2.31-0ubuntu9.2
 login1:4.8.1-1ubuntu5.20.04.1
