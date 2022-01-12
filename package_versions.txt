@@ -119,7 +119,7 @@ libss21.45.5-2ubuntu1
 libssh-40.9.3-2ubuntu2.2
 libssl1.11.1.1f-1ubuntu2.10
 libstdc++610.3.0-1ubuntu1~20.04
-libsystemd0245.4-4ubuntu3.13
+libsystemd0245.4-4ubuntu3.14
 libtasn1-64.16.0-2
 libtinfo66.2-0ubuntu2
 libudev1245.4-4ubuntu3.14
@@ -141,7 +141,7 @@ openssl1.1.1f-1ubuntu2.10
 passwd1:4.8.1-1ubuntu5.20.04.1
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.25.2.5319-c43dc0277
+plexmediaserver1.25.3.5385-f05b712b6
 procps2:3.3.16-1ubuntu2.3
 publicsuffix20200303.0012-1
 readline-common8.0-4
