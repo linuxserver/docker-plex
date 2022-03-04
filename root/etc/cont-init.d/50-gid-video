@@ -28,7 +28,7 @@ do
         fi
         # check if device has group rw
         if [ $(stat -c '%A' "${i}" | cut -b 5,6) != "rw" ]; then
-            echo -e "**** The device ${i} does not have group read/write permissions, attempting to fix inside the container.If it doesn't work, you can run the following on your docker host: ****\nsudo chmod g+rw ${i}\n"
+            echo -e "**** The device ${i} does not have group read/write permissions, attempting to fix inside the container. ****"
             chmod g+rw "${i}"
         fi
     fi
