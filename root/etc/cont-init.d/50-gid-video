@@ -18,7 +18,7 @@ do
             # check if video group needs to be created
             VIDEO_NAME=$(getent group "${VIDEO_GID}" | awk -F: '{print $1}')
             if [ -z "${VIDEO_NAME}" ]; then
-                VIDEO_NAME="video$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c8)"
+                VIDEO_NAME="video$(head /dev/urandom | tr -dc 'a-z0-9' | head -c4)"
                 groupadd "${VIDEO_NAME}"
                 groupmod -g "${VIDEO_GID}" "${VIDEO_NAME}"
                 echo "**** creating video group ${VIDEO_NAME} with id ${VIDEO_GID} ****"
