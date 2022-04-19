@@ -122,7 +122,7 @@ libstdc++610.3.0-1ubuntu1~20.04
 libsystemd0245.4-4ubuntu3.15
 libtasn1-64.16.0-2
 libtinfo66.2-0ubuntu2
-libudev1245.4-4ubuntu3.15
+libudev1245.4-4ubuntu3.16
 libunistring20.9.10-2
 libuuid12.34-0.1ubuntu9.3
 libwind0-heimdal7.7.0+dfsg-1ubuntu1
@@ -151,7 +151,7 @@ sysvinit-utils2.96-2.1ubuntu1
 tar1.30+dfsg-7ubuntu0.20.04.2
 tzdata2022a-0ubuntu0.20.04
 ubuntu-keyring2020.02.11.4
-udev245.4-4ubuntu3.15
+udev245.4-4ubuntu3.16
 unrar1:5.6.6-2build1
 util-linux2.34-0.1ubuntu9.3
 wget1.20.3-1ubuntu2
