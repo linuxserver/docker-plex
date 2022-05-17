@@ -29,7 +29,7 @@ RUN \
  apt-get update && \
  apt-get install -y \
 	jq \
-	intel-opencl-icd \
+	intel-opencl-icd=21.49.21786+i643~u20.04 \
 	udev \
 	unrar \
 	wget && \

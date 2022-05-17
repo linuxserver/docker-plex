@@ -107,6 +107,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "16.05.22:", desc: "Pin opencl version." }
   - { date: "04.03.22:", desc: "Increase verbosity of video device permissions fix, attempt to fix missing group rw." }
   - { date: "25.12.21:", desc: "Install Intel drivers from the official repo." }
   - { date: "20.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
