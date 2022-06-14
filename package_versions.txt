@@ -76,7 +76,7 @@ libigdfcl11.0.10409+i699.3~u20.04
 libigdgmm1121.3.3+i643~u20.04
 libjq11.6-1ubuntu0.20.04.1
 libk5crypto31.17-6ubuntu4.1
-libkeyutils11.6-6ubuntu1
+libkeyutils11.6-6ubuntu1.1
 libkmod227-1ubuntu2.1
 libkrb5-26-heimdal7.7.0+dfsg-1ubuntu1
 libkrb5-31.17-6ubuntu4.1
