@@ -33,7 +33,7 @@ grep3.4-1
 gzip1.10-0ubuntu4
 hostname3.23
 init-system-helpers1.57
-intel-igc-cm1.0.128+i699.3~u20.04
+intel-igc-cm1.0.160+i755~u20.04
 intel-opencl-icd21.49.21786+i643~u20.04
 jq1.6-1ubuntu0.20.04.1
 krb5-locales1.17-6ubuntu4.1
@@ -71,8 +71,8 @@ libheimntlm0-heimdal7.7.0+dfsg-1ubuntu1
 libhogweed53.5.1+really3.5.1-2ubuntu0.2
 libhx509-5-heimdal7.7.0+dfsg-1ubuntu1
 libidn2-02.2.0-2
-libigc11.0.10409+i699.3~u20.04
-libigdfcl11.0.10409+i699.3~u20.04
+libigc11.0.11378+i755~u20.04
+libigdfcl11.0.11378+i755~u20.04
 libigdgmm1121.3.3+i643~u20.04
 libjq11.6-1ubuntu0.20.04.1
 libk5crypto31.17-6ubuntu4.1
@@ -141,7 +141,7 @@ openssl1.1.1f-1ubuntu2.15
 passwd1:4.8.1-1ubuntu5.20.04.1
 perl-base5.30.0-9ubuntu0.2
 pinentry-curses1.1.0-3build1
-plexmediaserver1.27.1.5916-6b0e31a64
+plexmediaserver1.27.2.5929-a806c5905
 procps2:3.3.16-1ubuntu2.3
 publicsuffix20200303.0012-1
 readline-common8.0-4
