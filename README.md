@@ -299,6 +299,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **18.07.22:** - Pin all opencl related driver packages.
 * **16.05.22:** - Pin opencl version.
 * **04.03.22:** - Increase verbosity of video device permissions fix, attempt to fix missing group rw.
 * **25.12.21:** - Install Intel drivers from the official repo.
