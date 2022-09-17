@@ -28,6 +28,7 @@ RUN \
   echo "**** install runtime packages ****" && \
   apt-get update && \
   apt-get install -y \
+    beignet-opencl-icd=1.3.2-7build1 \
     jq \
     intel-igc-cm=1.0.128+i699.3~u20.04 \
     intel-opencl-icd=21.49.21786+i643~u20.04 \
