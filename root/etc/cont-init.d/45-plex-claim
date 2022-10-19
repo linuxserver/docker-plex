@@ -1,10 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if grep -qs "PlexOnlineToken" "/config/Library/Application Support/Plex Media Server/Preferences.xml"; then
-    echo "**** Server already claimed ****"
-    exit 0
-elif [ -z "$PLEX_CLAIM" ]; then
-    echo "**** Server is unclaimed, but no claim token has been set ****"
+if grep -qs "PlexOnlineToken" "/config/Library/Application Support/Plex Media Server/Preferences.xml" || [ -z "$PLEX_CLAIM" ]; then
     exit 0
 fi
 PREFNAME="/config/Library/Application Support/Plex Media Server/Preferences.xml"

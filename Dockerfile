@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
+FROM ghcr.io/linuxserver/baseimage-ubuntu:focal
 
 # set version label
 ARG BUILD_DATE
@@ -22,10 +22,18 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (LinuxServer.io)"
 
 RUN \
+  echo "**** add Intel repo ****" && \
+  curl -sL https://repositories.intel.com/graphics/intel-graphics.key | apt-key add - && \
+  echo 'deb [arch=amd64] https://repositories.intel.com/graphics/ubuntu focal main' > /etc/apt/sources.list.d/intel.list && \
   echo "**** install runtime packages ****" && \
   apt-get update && \
   apt-get install -y \
     jq \
+    intel-igc-cm=1.0.128+i699.3~u20.04 \
+    intel-opencl-icd=21.49.21786+i643~u20.04 \
+    libigc1=1.0.10409+i699.3~u20.04 \
+    libigdfcl1=1.0.10409+i699.3~u20.04 \
+    libigdgmm11=21.3.3+i643~u20.04 \
     udev \
     unrar \
     wget && \
