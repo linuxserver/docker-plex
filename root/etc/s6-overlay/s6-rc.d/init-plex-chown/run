@@ -16,8 +16,9 @@ if [ ! "$(stat -c %u /config/Library)" = "$PUID" ]; then
 fi
 
 # remove plex pid after unclean stop
-[[ -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid" ]] && \
-rm -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid"
+if [[ -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid" ]]; then
+    rm -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid"
+fi
 
 # permissions (non-recursive) on config root and folders
 chown abc:abc \
