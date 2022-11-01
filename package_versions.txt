@@ -7,7 +7,7 @@ bash5.1-6ubuntu1
 bsdutils1:2.37.2-4ubuntu3
 ca-certificates20211016
 coreutils8.32-4.1ubuntu1
-curl7.81.0-1ubuntu1.4
+curl7.81.0-1ubuntu1.6
 dash0.5.11+git20210903+057cd650a4ed-3build1
 debconf1.5.79ubuntu1
 debianutils5.5-1ubuntu2
@@ -48,7 +48,7 @@ libcap-ng00.7.9-2.2build3
 libc-bin2.35-0ubuntu3.1
 libcom-err21.46.5-2ubuntu1.1
 libcrypt11:4.4.27-1
-libcurl47.81.0-1ubuntu1.4
+libcurl47.81.0-1ubuntu1.6
 libdb5.35.3.28+dfsg1-0.8ubuntu3
 libdebconfclient00.261ubuntu1
 libext2fs21.46.5-2ubuntu1.1
@@ -67,7 +67,7 @@ libkeyutils11.6.1-2ubuntu3
 libkmod229-1ubuntu1
 libkrb5-31.19.2-2
 libkrb5support01.19.2-2
-libksba81.6.0-2build1
+libksba81.6.0-2ubuntu0.1
 libldap-2.5-02.5.13+dfsg-0ubuntu0.22.04.1
 libldap-common2.5.13+dfsg-0ubuntu0.22.04.1
 liblz4-11.9.3-2build2
@@ -128,7 +128,7 @@ netcat1.218-4ubuntu1
 netcat-openbsd1.218-4ubuntu1
 openssl3.0.2-0ubuntu1.6
 passwd1:4.8.1-2ubuntu2
-perl-base5.34.0-3ubuntu1
+perl-base5.34.0-3ubuntu1.1
 pinentry-curses1.1.1-1build2
 plexmediaserver1.29.1.6316-f4cdfea9c
 procps2:3.3.17-6ubuntu2
@@ -139,11 +139,11 @@ sensible-utils0.0.17
 systemd-hwe-hwdb249.11.1
 sysvinit-utils3.01-1ubuntu1
 tar1.34+dfsg-1build3
-tzdata2022c-0ubuntu0.22.04.0
+tzdata2022e-0ubuntu0.22.04.0
 ubuntu-keyring2021.03.26
 udev249.11-0ubuntu3.6
 unrar1:6.1.5-1
 usrmerge25ubuntu2
 util-linux2.37.2-4ubuntu3
 wget1.21.2-2ubuntu1
-zlib1g1:1.2.11.dfsg-2ubuntu9.1
+zlib1g1:1.2.11.dfsg-2ubuntu9.2
