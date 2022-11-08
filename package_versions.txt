@@ -101,10 +101,10 @@ libsemanage23.3-1build2
 libsemanage-common3.3-1build2
 libsepol23.3-1build1
 libsmartcols12.37.2-4ubuntu3
-libsqlite3-03.37.2-2
+libsqlite3-03.37.2-2ubuntu0.1
 libss21.46.5-2ubuntu1.1
 libssh-40.9.6-2build1
-libssl33.0.2-0ubuntu1.6
+libssl33.0.2-0ubuntu1.7
 libstdc++612.1.0-2ubuntu1~22.04
 libsystemd0249.11-0ubuntu3.6
 libtasn1-64.18.0-4build1
@@ -130,7 +130,7 @@ openssl3.0.2-0ubuntu1.7
 passwd1:4.8.1-2ubuntu2
 perl-base5.34.0-3ubuntu1.1
 pinentry-curses1.1.1-1build2
-plexmediaserver1.29.1.6316-f4cdfea9c
+plexmediaserver1.29.2.6364-6d72b0cf6
 procps2:3.3.17-6ubuntu2
 publicsuffix20211207.1025-1
 readline-common8.1.2-1
@@ -139,7 +139,7 @@ sensible-utils0.0.17
 systemd-hwe-hwdb249.11.1
 sysvinit-utils3.01-1ubuntu1
 tar1.34+dfsg-1build3
-tzdata2022e-0ubuntu0.22.04.0
+tzdata2022f-0ubuntu0.22.04.0
 ubuntu-keyring2021.03.26
 udev249.11-0ubuntu3.6
 unrar1:6.1.5-1
