@@ -139,7 +139,7 @@ sensible-utils0.0.17
 systemd-hwe-hwdb249.11.1
 sysvinit-utils3.01-1ubuntu1
 tar1.34+dfsg-1build3
-tzdata2022f-0ubuntu0.22.04.0
+tzdata2022f-0ubuntu0.22.04.1
 ubuntu-keyring2021.03.26
 udev249.11-0ubuntu3.6
 unrar1:6.1.5-1
