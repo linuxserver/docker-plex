@@ -5,7 +5,7 @@ base-files12ubuntu4.2
 base-passwd3.5.52build1
 bash5.1-6ubuntu1
 bsdutils1:2.37.2-4ubuntu3
-ca-certificates20211016
+ca-certificates20211016ubuntu0.22.04.1
 coreutils8.32-4.1ubuntu1
 curl7.81.0-1ubuntu1.6
 dash0.5.11+git20210903+057cd650a4ed-3build1
@@ -117,7 +117,7 @@ libuuid12.37.2-4ubuntu3
 libxxhash00.8.1-1
 libzstd11.4.8+dfsg-3build1
 locales2.35-0ubuntu3.1
-login1:4.8.1-2ubuntu2
+login1:4.8.1-2ubuntu2.1
 logsave1.46.5-2ubuntu1.1
 lsb-base11.1.0ubuntu4
 mawk1.3.4.20200120-3
@@ -127,7 +127,7 @@ ncurses-bin6.3-2
 netcat1.218-4ubuntu1
 netcat-openbsd1.218-4ubuntu1
 openssl3.0.2-0ubuntu1.7
-passwd1:4.8.1-2ubuntu2
+passwd1:4.8.1-2ubuntu2.1
 perl-base5.34.0-3ubuntu1.1
 pinentry-curses1.1.1-1build2
 plexmediaserver1.29.2.6364-6d72b0cf6
