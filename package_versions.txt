@@ -136,7 +136,7 @@ publicsuffix20211207.1025-1
 readline-common8.1.2-1
 sed4.8-1ubuntu2
 sensible-utils0.0.17
-systemd-hwe-hwdb249.11.1
+systemd-hwe-hwdb249.11.2
 sysvinit-utils3.01-1ubuntu1
 tar1.34+dfsg-1build3
 tzdata2022g-0ubuntu0.22.04.1
