@@ -130,7 +130,7 @@ openssl3.0.2-0ubuntu1.7
 passwd1:4.8.1-2ubuntu2.1
 perl-base5.34.0-3ubuntu1.1
 pinentry-curses1.1.1-1build2
-plexmediaserver1.30.1.6562-915986d62
+plexmediaserver1.30.2.6563-3d4dc0cce
 procps2:3.3.17-6ubuntu2
 publicsuffix20211207.1025-1
 readline-common8.1.2-1
