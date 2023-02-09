@@ -58,15 +58,6 @@ The architectures supported by this image are:
 | arm64 | ✅ | arm64v8-\<version tag\> |
 | armhf| ✅ | arm32v7-\<version tag\> |
 
-## Version Tags
-
-This image provides various versions that are available via tags. Please read the descriptions carefully and exercise caution when using unstable or development tags.
-
-| Tag | Available | Description |
-| :----: | :----: |--- |
-| latest | ✅ | Stable releases with Focal baseimage |
-| bionic | ✅ | DEPRECATED - Stable releases with Bionic baseimage |
-
 ## Application Setup
 
 Webui can be found at `<your-ip>:32400/web`

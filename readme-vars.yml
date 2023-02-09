@@ -15,10 +15,7 @@ available_architectures:
   - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
 # development version
-development_versions: true
-development_versions_items:
-  - { tag: "latest", desc: "Stable releases with Focal baseimage" }
-  - { tag: "bionic", desc: "DEPRECATED - Stable releases with Bionic baseimage" }
+development_versions: false
 
 # container parameters
 common_param_env_vars_enabled: true #PGID, PUID, etc
@@ -131,8 +128,7 @@ changelogs:
   - { date: "09.12.17:", desc: "Fix continuation lines." }
   - { date: "12.07.17:", desc: "Add inspect commands to README, move to jenkins build and push." }
   - { date: "28.05.17:", desc: "Add unrar package as per requests, for subzero plugin." }
-  - { date: "11.01.17:", desc: "Use Plex environment variables from pms docker,
-  change abc home folder to /app to alleviate usermod chowning library" }
+  - { date: "11.01.17:", desc: "Use Plex environment variables from pms docker, change abc home folder to /app to alleviate usermod chowning library" }
   - { date: "03.01.17:", desc: "Use case insensitive version variable matching rather than export and make lowercase." }
   - { date: "17.10.16:", desc: "Allow use of uppercase version variable" }
   - { date: "01.10.16:", desc: "Add TZ info to README." }
