@@ -126,7 +126,7 @@ ncurses-base6.3-2
 ncurses-bin6.3-2
 netcat1.218-4ubuntu1
 netcat-openbsd1.218-4ubuntu1
-openssl3.0.2-0ubuntu1.7
+openssl3.0.2-0ubuntu1.8
 passwd1:4.8.1-2ubuntu2.1
 perl-base5.34.0-3ubuntu1.1
 pinentry-curses1.1.1-1build2
