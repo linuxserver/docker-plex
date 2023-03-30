@@ -26,6 +26,7 @@ RUN \
   apt-get update && \
   apt-get install -y \
     jq \
+    intel-opencl-icd \
     udev \
     unrar \
     wget && \
