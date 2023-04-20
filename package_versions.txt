@@ -107,7 +107,7 @@ libss2               1.46.5-2ubuntu1.1                        deb
 libssh-4             0.9.6-2build1                            deb   
 libssl3              3.0.2-0ubuntu1.8                         deb   
 libstdc++6           12.1.0-2ubuntu1~22.04                    deb   
-libsystemd0          249.11-0ubuntu3.7                        deb   
+libsystemd0          249.11-0ubuntu3.9                        deb   
 libtasn1-6           4.18.0-4build1                           deb   
 libtinfo6            6.3-2                                    deb   
 libtirpc-common      1.3.2-2ubuntu0.1                         deb   
@@ -131,7 +131,7 @@ openssl              3.0.2-0ubuntu1.8                         deb
 passwd               1:4.8.1-2ubuntu2.1                       deb   
 perl-base            5.34.0-3ubuntu1.1                        deb   
 pinentry-curses      1.1.1-1build2                            deb   
-plexmediaserver      1.32.0.6950-8521b7d99                    deb   
+plexmediaserver      1.32.0.6973-a787c5a8e                    deb   
 procps               2:3.3.17-6ubuntu2                        deb   
 publicsuffix         20211207.1025-1                          deb   
 readline-common      8.1.2-1                                  deb   
