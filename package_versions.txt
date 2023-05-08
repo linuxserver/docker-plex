@@ -105,7 +105,7 @@ libsmartcols1        2.37.2-4ubuntu3                          deb
 libsqlite3-0         3.37.2-2ubuntu0.1                        deb   
 libss2               1.46.5-2ubuntu1.1                        deb   
 libssh-4             0.9.6-2build1                            deb   
-libssl3              3.0.2-0ubuntu1.8                         deb   
+libssl3              3.0.2-0ubuntu1.9                         deb   
 libstdc++6           12.1.0-2ubuntu1~22.04                    deb   
 libsystemd0          249.11-0ubuntu3.9                        deb   
 libtasn1-6           4.18.0-4build1                           deb   
@@ -140,7 +140,7 @@ sensible-utils       0.0.17                                   deb
 systemd-hwe-hwdb     249.11.3                                 deb   
 sysvinit-utils       3.01-1ubuntu1                            deb   
 tar                  1.34+dfsg-1ubuntu0.1.22.04.1             deb   
-tzdata               2023c-0ubuntu0.22.04.0                   deb   
+tzdata               2023c-0ubuntu0.22.04.1                   deb   
 ubuntu-keyring       2021.03.26                               deb   
 udev                 249.11-0ubuntu3.9                        deb   
 unrar                1:6.1.5-1                                deb   
