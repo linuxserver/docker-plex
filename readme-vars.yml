@@ -5,38 +5,32 @@ project_name: plex
 project_url: "https://plex.tv"
 project_logo: "http://the-gadgeteer.com/wp-content/uploads/2015/10/plex-logo-e1446990678679.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster."
-
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-  - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # development version
 development_versions: false
-
 # container parameters
 common_param_env_vars_enabled: true #PGID, PUID, etc
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/library", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*" }
-  - { vol_path: "/tv", vol_host_path: "/path/to/tvseries", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc." }
-  - { vol_path: "/movies", vol_host_path: "/path/to/movies", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc." }
+  - {vol_path: "/config", vol_host_path: "/path/to/library", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*"}
+  - {vol_path: "/tv", vol_host_path: "/path/to/tvseries", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc."}
+  - {vol_path: "/movies", vol_host_path: "/path/to/movies", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc."}
 param_usage_include_ports: false
 param_usage_include_net: true
 param_net: "host"
 param_net_desc: "Use Host Networking"
 param_usage_include_env: true
 param_env_vars:
-  - { env_var: "VERSION", env_value: "docker", desc: "Set whether to update plex or not - see Application Setup section."}
+  - {env_var: "VERSION", env_value: "docker", desc: "Set whether to update plex or not - see Application Setup section."}
 # optional env variables
 opt_param_usage_include_env: true
 opt_param_env_vars:
-  - { env_var: "PLEX_CLAIM", env_value: "", desc: "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes."}
-
+  - {env_var: "PLEX_CLAIM", env_value: "", desc: "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes."}
 optional_parameters: |
   If you want to run the container in bridge network mode (instead of the recommended host network mode) you will need to specify ports.
   The [official documentation for ports](https://support.plex.tv/articles/201543147-what-network-ports-do-i-need-to-allow-through-my-firewall/) lists 32400 as the only required port.
@@ -63,7 +57,6 @@ optional_parameters: |
   | :---: | --- |
   | `--device=/dev/dri:/dev/dri` | Add this option to your run command if you plan on using Quicksync hardware acceleration - see Application Setup section.|
   | `--device=/dev/dvb:/dev/dvb` | Add this option to your run command if you plan on using dvb devices.|
-
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -83,9 +76,9 @@ app_setup_block: |
   + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
 
   ## Hardware Acceleration
-  
+
   ### Intel
-  
+
   Hardware acceleration users for Intel Quicksync will need to mount their /dev/dri video device inside of the container by passing the following command when running or creating the container:
 
   ```
@@ -95,52 +88,52 @@ app_setup_block: |
   We will automatically ensure the abc user inside of the container has the proper permissions to access this device.
 
   ### Nvidia
-  
+
   Hardware acceleration users for Nvidia will need to install the container runtime provided by Nvidia on their host, instructions can be found here:
 
   https://github.com/NVIDIA/nvidia-docker
-  
-  We automatically add the necessary environment variable that will utilise all the features available on a GPU on the host. Once nvidia-docker is installed on your host you will need to re/create the docker container with the nvidia container runtime `--runtime=nvidia` and add an environment variable `-e NVIDIA_VISIBLE_DEVICES=all` (can also be set to a specific gpu's UUID, this can be discovered by running `nvidia-smi --query-gpu=gpu_name,gpu_uuid --format=csv` ). NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 
+  We automatically add the necessary environment variable that will utilise all the features available on a GPU on the host. Once nvidia-docker is installed on your host you will need to re/create the docker container with the nvidia container runtime `--runtime=nvidia` and add an environment variable `-e NVIDIA_VISIBLE_DEVICES=all` (can also be set to a specific gpu's UUID, this can be discovered by running `nvidia-smi --query-gpu=gpu_name,gpu_uuid --format=csv` ). NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 # changelog
 changelogs:
-  - { date: "16.10.22:", desc: "Rebase to jammy. Update to s6v3. Remove opencl packages (bundled with plex)." }
-  - { date: "18.07.22:", desc: "Pin all opencl related driver packages." }
-  - { date: "16.05.22:", desc: "Pin opencl version." }
-  - { date: "04.03.22:", desc: "Increase verbosity of video device permissions fix, attempt to fix missing group rw." }
-  - { date: "25.12.21:", desc: "Install Intel drivers from the official repo." }
-  - { date: "20.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information." }
-  - { date: "10.12.20:", desc: "Add latest Intel Compute packages from github repo for opencl support on latest gen igpu." }
-  - { date: "23.11.20:", desc: "Add Bionic branch make Focal default." }
-  - { date: "03.05.20:", desc: "Update exposed ports and example docs for bridge mode." }
-  - { date: "23.03.20:", desc: "Remove udev hack (no longer needed), suppress uuid error in log during first start." }
-  - { date: "04.12.19:", desc: "Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`." }
-  - { date: "06.08.19:", desc: "Add variable for setting UMASK." }
-  - { date: "10.07.19:", desc: "Fix permissions for tuner (/dev/dvb) devices." }
-  - { date: "20.05.19:", desc: "Bugfix do not allow Root group for Intel QuickSync ownership rules." }
-  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
-  - { date: "22.03.19:", desc: "Fix update logic for `VERSION=public`." }
-  - { date: "14.03.19:", desc: "Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64." }
-  - { date: "15.02.19:", desc: "Clean up plex pid after unclean stop." }
-  - { date: "11.02.19:", desc: "Fix nvidia variables, add device variables." }
-  - { date: "16.01.19:", desc: "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service." }
-  - { date: "07.09.18:", desc: "Rebase to ubuntu bionic, add udev package." }
-  - { date: "09.12.17:", desc: "Fix continuation lines." }
-  - { date: "12.07.17:", desc: "Add inspect commands to README, move to jenkins build and push." }
-  - { date: "28.05.17:", desc: "Add unrar package as per requests, for subzero plugin." }
-  - { date: "11.01.17:", desc: "Use Plex environment variables from pms docker, change abc home folder to /app to alleviate usermod chowning library" }
-  - { date: "03.01.17:", desc: "Use case insensitive version variable matching rather than export and make lowercase." }
-  - { date: "17.10.16:", desc: "Allow use of uppercase version variable" }
-  - { date: "01.10.16:", desc: "Add TZ info to README." }
-  - { date: "09.09.16:", desc: "Add layer badges to README." }
-  - { date: "27.08.16:", desc: "Add badges to README." }
-  - { date: "22.08.16:", desc: "Rebased to xenial and s6 overlay" }
-  - { date: "07.04.16:", desc: "removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS" }
-  - { date: "24.09.15:", desc: "added optional support for volume transcoding (/transcode), and various typo fixes." }
-  - { date: "17.09.15:", desc: "Changed to run chmod only once" }
-  - { date: "19.09.15:", desc: "Plex updated their download servers from http to https" }
-  - { date: "28.08.15:", desc: "Removed plexpass from routine, and now uses VERSION as a combination fix." }
-  - { date: "18.07.15:", desc: "Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42." }
-  - { date: "09.07.15:", desc: "Now with ability to pick static version number." }
-  - { date: "08.07.15:", desc: "Now with autoupdates. (Hosted by fanart.tv)" }
-  - { date: "03.07.15:", desc: "Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this." }
+  - {date: "03.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
+  - {date: "16.10.22:", desc: "Rebase to jammy. Update to s6v3. Remove opencl packages (bundled with plex)."}
+  - {date: "18.07.22:", desc: "Pin all opencl related driver packages."}
+  - {date: "16.05.22:", desc: "Pin opencl version."}
+  - {date: "04.03.22:", desc: "Increase verbosity of video device permissions fix, attempt to fix missing group rw."}
+  - {date: "25.12.21:", desc: "Install Intel drivers from the official repo."}
+  - {date: "20.01.21:", desc: "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."}
+  - {date: "10.12.20:", desc: "Add latest Intel Compute packages from github repo for opencl support on latest gen igpu."}
+  - {date: "23.11.20:", desc: "Add Bionic branch make Focal default."}
+  - {date: "03.05.20:", desc: "Update exposed ports and example docs for bridge mode."}
+  - {date: "23.03.20:", desc: "Remove udev hack (no longer needed), suppress uuid error in log during first start."}
+  - {date: "04.12.19:", desc: "Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`."}
+  - {date: "06.08.19:", desc: "Add variable for setting UMASK."}
+  - {date: "10.07.19:", desc: "Fix permissions for tuner (/dev/dvb) devices."}
+  - {date: "20.05.19:", desc: "Bugfix do not allow Root group for Intel QuickSync ownership rules."}
+  - {date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag."}
+  - {date: "22.03.19:", desc: "Fix update logic for `VERSION=public`."}
+  - {date: "14.03.19:", desc: "Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64."}
+  - {date: "15.02.19:", desc: "Clean up plex pid after unclean stop."}
+  - {date: "11.02.19:", desc: "Fix nvidia variables, add device variables."}
+  - {date: "16.01.19:", desc: "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service."}
+  - {date: "07.09.18:", desc: "Rebase to ubuntu bionic, add udev package."}
+  - {date: "09.12.17:", desc: "Fix continuation lines."}
+  - {date: "12.07.17:", desc: "Add inspect commands to README, move to jenkins build and push."}
+  - {date: "28.05.17:", desc: "Add unrar package as per requests, for subzero plugin."}
+  - {date: "11.01.17:", desc: "Use Plex environment variables from pms docker, change abc home folder to /app to alleviate usermod chowning library"}
+  - {date: "03.01.17:", desc: "Use case insensitive version variable matching rather than export and make lowercase."}
+  - {date: "17.10.16:", desc: "Allow use of uppercase version variable"}
+  - {date: "01.10.16:", desc: "Add TZ info to README."}
+  - {date: "09.09.16:", desc: "Add layer badges to README."}
+  - {date: "27.08.16:", desc: "Add badges to README."}
+  - {date: "22.08.16:", desc: "Rebased to xenial and s6 overlay"}
+  - {date: "07.04.16:", desc: "removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS"}
+  - {date: "24.09.15:", desc: "added optional support for volume transcoding (/transcode), and various typo fixes."}
+  - {date: "17.09.15:", desc: "Changed to run chmod only once"}
+  - {date: "19.09.15:", desc: "Plex updated their download servers from http to https"}
+  - {date: "28.08.15:", desc: "Removed plexpass from routine, and now uses VERSION as a combination fix."}
+  - {date: "18.07.15:", desc: "Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42."}
+  - {date: "09.07.15:", desc: "Now with ability to pick static version number."}
+  - {date: "08.07.15:", desc: "Now with autoupdates. (Hosted by fanart.tv)"}
+  - {date: "03.07.15:", desc: "Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this."}
