@@ -1,3 +1,7 @@
+# syntax=docker/dockerfile:1
+
+FROM ghcr.io/linuxserver/unrar:latest as unrar
+
 FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
 
 # set version label
@@ -27,7 +31,6 @@ RUN \
   apt-get install -y \
     jq \
     udev \
-    unrar \
     wget && \
   echo "**** install plex ****" && \
   if [ -z ${PLEX_RELEASE+x} ]; then \
@@ -51,6 +54,9 @@ RUN \
 # add local files
 COPY root/ /
 
+# add unrar
+COPY --from=unrar /usr/bin/unrar-ubuntu /usr/bin/unrar
+
 # ports and volumes
-EXPOSE 32400/tcp 1900/udp 3005/tcp 5353/udp 8324/tcp 32410/udp 32412/udp 32413/udp 32414/udp 32469/tcp
+EXPOSE 32400/tcp 1900/udp 5353/udp 8324/tcp 32410/udp 32412/udp 32413/udp 32414/udp 32469/tcp
 VOLUME /config
