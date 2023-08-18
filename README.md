@@ -184,7 +184,6 @@ If you have not already claimed your server (first time setup) you need to set `
 ```
   -p 32400:32400 \
   -p 1900:1900/udp \
-  -p 3005:3005 \
   -p 5353:5353/udp \
   -p 8324:8324 \
   -p 32410:32410/udp \
