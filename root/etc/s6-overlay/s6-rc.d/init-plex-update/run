@@ -111,7 +111,7 @@ if [[ "$REMOTE_VERSION" == "$INSTALLED_VERSION" ]]; then
 fi
 
 if [[ -z "${REMOTE_VERSION}" ]]; then
-    echo "*** Unable to fetch version from Plex remote endpoint, please check your network configuration ***"
+    echo "*** Unable to fetch version from Plex remote endpoint or empty VERSION supplied, please check your configuration ***"
     exit 0
 fi
 
