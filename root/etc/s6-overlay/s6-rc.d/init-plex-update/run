@@ -100,13 +100,18 @@ if [[ "${VERSION,,}" = latest ]] || [[ "${VERSION,,}" = plexpass ]] || [[ "$PLEX
     fi
     REMOTE_VERSION=$(curl -s "https://plex.tv/downloads/details/5?distro=debian&build=linux-${PLEX_URL_ARCH}&channel=8&X-Plex-Token=$PLEX_TOKEN"| grep -oP 'version="\K[^"]+' | tail -n 1 )
 elif [[ "${VERSION,,}" = public ]]; then
-    REMOTE_VERSION=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' | jq -r '.computer.Linux.version')
+    REMOTE_VERSION=$(curl -s 'https://plex.tv/api/downloads/5.json' | jq -r '.computer.Linux.version')
 else
     REMOTE_VERSION="${VERSION}"
 fi
 
 if [[ "$REMOTE_VERSION" == "$INSTALLED_VERSION" ]]; then
     echo "No update required"
+    exit 0
+fi
+
+if [[ -z "${REMOTE_VERSION}" ]]; then
+    echo "*** Unable to fetch version from Plex remote endpoint or empty VERSION supplied, please check your configuration ***"
     exit 0
 fi
 
