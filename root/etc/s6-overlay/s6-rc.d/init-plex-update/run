@@ -58,7 +58,7 @@ NOTOKEN_SET='/tmp/no-token.nfo'
 cat > "${NOTOKEN_SET}" <<-EOFTOKEN
 #####################################################
 #   Login via the webui at http://<ip>:32400/web    #
-#   and restart the docker, because there was no    #
+#   and restart the container, because there was no #
 EOFTOKEN
 
 # if preferences files doesn't exist, exit out
