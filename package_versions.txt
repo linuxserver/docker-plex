@@ -118,7 +118,7 @@ libunistring2        1.0-1                                    deb
 libuuid1             2.37.2-4ubuntu3                          deb     
 libxxhash0           0.8.1-1                                  deb     
 libzstd1             1.4.8+dfsg-3build1                       deb     
-locales              2.35-0ubuntu3.1                          deb     
+locales              2.35-0ubuntu3.3                          deb     
 login                1:4.8.1-2ubuntu2.1                       deb     
 logsave              1.46.5-2ubuntu1.1                        deb     
 lsb-base             11.1.0ubuntu4                            deb     
@@ -132,7 +132,7 @@ openssl              3.0.2-0ubuntu1.10                        deb
 passwd               1:4.8.1-2ubuntu2.1                       deb     
 perl-base            5.34.0-3ubuntu1.2                        deb     
 pinentry-curses      1.1.1-1build2                            deb     
-plexmediaserver      1.32.5.7349-8f4248874                    deb     
+plexmediaserver      1.32.6.7468-07e0d4a7e                    deb     
 procps               2:3.3.17-6ubuntu2                        deb     
 publicsuffix         20211207.1025-1                          deb     
 readline-common      8.1.2-1                                  deb     
