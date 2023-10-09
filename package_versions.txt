@@ -118,7 +118,7 @@ libunistring2        1.0-1                                    deb
 libuuid1             2.37.2-4ubuntu3                          deb     
 libxxhash0           0.8.1-1                                  deb     
 libzstd1             1.4.8+dfsg-3build1                       deb     
-locales              2.35-0ubuntu3.3                          deb     
+locales              2.35-0ubuntu3.4                          deb     
 login                1:4.8.1-2ubuntu2.1                       deb     
 logsave              1.46.5-2ubuntu1.1                        deb     
 lsb-base             11.1.0ubuntu4                            deb     
