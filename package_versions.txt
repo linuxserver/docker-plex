@@ -9,6 +9,7 @@ bash                 5.1.16                                   binary
 bsdutils             1:2.37.2-4ubuntu3                        deb     
 ca-certificates      20230311ubuntu0.22.04.1                  deb     
 coreutils            8.32-4.1ubuntu1                          deb     
+cron                 3.0pl1-137ubuntu3                        deb     
 curl                 7.81.0-1ubuntu1.14                       deb     
 dash                 0.5.11+git20210903+057cd650a4ed-3build1  deb     
 debconf              1.5.79ubuntu1                            deb     
