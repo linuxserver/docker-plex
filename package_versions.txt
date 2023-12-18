@@ -10,7 +10,7 @@ bsdutils             1:2.37.2-4ubuntu3                        deb
 ca-certificates      20230311ubuntu0.22.04.1                  deb     
 coreutils            8.32-4.1ubuntu1                          deb     
 cron                 3.0pl1-137ubuntu3                        deb     
-curl                 7.81.0-1ubuntu1.14                       deb     
+curl                 7.81.0-1ubuntu1.15                       deb     
 dash                 0.5.11+git20210903+057cd650a4ed-3build1  deb     
 debconf              1.5.79ubuntu1                            deb     
 debianutils          5.5-1ubuntu2                             deb     
@@ -51,7 +51,7 @@ libcap-ng0           0.7.9-2.2build3                          deb
 libcap2              1:2.44-1ubuntu0.22.04.1                  deb     
 libcom-err2          1.46.5-2ubuntu1.1                        deb     
 libcrypt1            1:4.4.27-1                               deb     
-libcurl4             7.81.0-1ubuntu1.14                       deb     
+libcurl4             7.81.0-1ubuntu1.15                       deb     
 libdb5.3             5.3.28+dfsg1-0.8ubuntu3                  deb     
 libdebconfclient0    0.261ubuntu1                             deb     
 libext2fs2           1.46.5-2ubuntu1.1                        deb     
@@ -119,7 +119,7 @@ libunistring2        1.0-1                                    deb
 libuuid1             2.37.2-4ubuntu3                          deb     
 libxxhash0           0.8.1-1                                  deb     
 libzstd1             1.4.8+dfsg-3build1                       deb     
-locales              2.35-0ubuntu3.4                          deb     
+locales              2.35-0ubuntu3.5                          deb     
 login                1:4.8.1-2ubuntu2.1                       deb     
 logsave              1.46.5-2ubuntu1.1                        deb     
 lsb-base             11.1.0ubuntu4                            deb     
@@ -139,7 +139,7 @@ publicsuffix         20211207.1025-1                          deb
 readline-common      8.1.2-1                                  deb     
 sed                  4.8-1ubuntu2                             deb     
 sensible-utils       0.0.17                                   deb     
-systemd-hwe-hwdb     249.11.3                                 deb     
+systemd-hwe-hwdb     249.11.4                                 deb     
 sysvinit-utils       3.01-1ubuntu1                            deb     
 tar                  1.34+dfsg-1ubuntu0.1.22.04.1             deb     
 tzdata               2023c-0ubuntu0.22.04.2                   deb     
