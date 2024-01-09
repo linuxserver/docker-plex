@@ -1,8 +1,11 @@
 #!/usr/bin/with-contenv bash
+# shellcheck shell=bash
 
 echo "Starting Plex Media Server. . . (you can ignore the libusb_init error)"
-export PLEX_MEDIA_SERVER_INFO_MODEL=$(uname -m)
-export PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION=$(uname -r)
+PLEX_MEDIA_SERVER_INFO_MODEL=$(uname -m)
+export PLEX_MEDIA_SERVER_INFO_MODEL
+PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION=$(uname -r)
+export PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION
 exec \
     s6-notifyoncheck -d -n 300 -w 1000 -c "nc -z localhost 32400" \
-        s6-setuidgid abc "/usr/lib/plexmediaserver/Plex Media Server"
+    s6-setuidgid abc "/usr/lib/plexmediaserver/Plex Media Server"
