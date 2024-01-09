@@ -20,6 +20,18 @@ if [[ -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.
     rm -f "/config/Library/Application Support/Plex Media Server/plexmediaserver.pid"
 fi
 
+# set permissions on Plex Transcoder Temp Directory
+PREFNAME="/config/Library/Application Support/Plex Media Server/Preferences.xml"
+if [[ -f "${PREFNAME}" ]]; then
+    TranscoderTempDirectory='\bTranscoderTempDirectory="([^"]+)"'
+    while IFS= read -r line; do
+        if [[ ${line} =~ ${TranscoderTempDirectory} ]] && [[ -d "${BASH_REMATCH[1]}" ]]; then
+            echo "Setting permissions on ${BASH_REMATCH[1]}"
+            lsiown -R abc:abc "${BASH_REMATCH[1]}"
+        fi
+    done <"${PREFNAME}"
+fi
+
 # permissions (non-recursive) on config root and folders
 lsiown abc:abc \
     /config \
