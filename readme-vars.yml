@@ -95,6 +95,7 @@ app_setup_block: |
   We automatically add the necessary environment variable that will utilise all the features available on a GPU on the host. Once nvidia-docker is installed on your host you will need to re/create the docker container with the nvidia container runtime `--runtime=nvidia` and add an environment variable `-e NVIDIA_VISIBLE_DEVICES=all` (can also be set to a specific gpu's UUID, this can be discovered by running `nvidia-smi --query-gpu=gpu_name,gpu_uuid --format=csv` ). NVIDIA automatically mounts the GPU and drivers from your host into the plex docker.
 # changelog
 changelogs:
+  - {date: "09.01.24:", desc: "Set ownership on TranscoderTempDirectory when it's been saved in Preferences."}
   - {date: "16.08.23:", desc: "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."}
   - {date: "03.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
   - {date: "16.10.22:", desc: "Rebase to jammy. Update to s6v3. Remove opencl packages (bundled with plex)."}
