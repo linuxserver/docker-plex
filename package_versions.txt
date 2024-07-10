@@ -133,7 +133,7 @@ openssl              3.0.2-0ubuntu1.16                        deb
 passwd               1:4.8.1-2ubuntu2.2                       deb     
 perl-base            5.34.0-3ubuntu1.3                        deb     
 pinentry-curses      1.1.1-1build2                            deb     
-plexmediaserver      1.40.3.8555-fef15d30c                    deb     
+plexmediaserver      1.40.4.8679-424562606                    deb     
 procps               2:3.3.17-6ubuntu2.1                      deb     
 publicsuffix         20211207.1025-1                          deb     
 readline-common      8.1.2-1                                  deb     
@@ -142,7 +142,7 @@ sensible-utils       0.0.17                                   deb
 systemd-hwe-hwdb     249.11.5                                 deb     
 sysvinit-utils       3.01-1ubuntu1                            deb     
 tar                  1.34+dfsg-1ubuntu0.1.22.04.2             deb     
-tzdata               2024a-0ubuntu0.22.04                     deb     
+tzdata               2024a-0ubuntu0.22.04.1                   deb     
 ubuntu-keyring       2021.03.26                               deb     
 udev                 249.11-0ubuntu3.12                       deb     
 usrmerge             25ubuntu2                                deb     
