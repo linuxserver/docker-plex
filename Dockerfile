@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/unrar:latest as unrar
+FROM ghcr.io/linuxserver/unrar:latest AS unrar
 
-FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
+FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
 
 # set version label
 ARG BUILD_DATE
@@ -29,13 +29,12 @@ RUN \
   echo "**** install runtime packages ****" && \
   apt-get update && \
   apt-get install -y \
-    jq \
     udev \
     wget && \
   echo "**** install plex ****" && \
   if [ -z ${PLEX_RELEASE+x} ]; then \
     PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \
-      | jq -r '.computer.Linux.version'); \
+    | jq -r '.computer.Linux.version'); \
   fi && \
   curl -o \
     /tmp/plexmediaserver.deb -L \
@@ -43,6 +42,7 @@ RUN \
   dpkg -i /tmp/plexmediaserver.deb && \
   echo "**** ensure abc user's home folder is /app ****" && \
   usermod -d /app abc && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   apt-get clean && \
   rm -rf \

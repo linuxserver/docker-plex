@@ -119,7 +119,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM= #optional
     volumes:
-      - /path/to/library:/config
+      - /path/to/plex/library:/config
       - /path/to/tvseries:/tv
       - /path/to/movies:/movies
     restart: unless-stopped
@@ -136,7 +136,7 @@ docker run -d \
   -e TZ=Etc/UTC \
   -e VERSION=docker \
   -e PLEX_CLAIM= `#optional` \
-  -v /path/to/library:/config \
+  -v /path/to/plex/library:/config \
   -v /path/to/tvseries:/tv \
   -v /path/to/movies:/movies \
   --restart unless-stopped \
@@ -347,6 +347,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **18.07.24:** - Rebase to Ubuntu Noble.
 * **12.02.24:** - Use universal hardware acceleration blurb
 * **09.01.24:** - Set ownership on TranscoderTempDirectory when it's been saved in Preferences.
 * **16.08.23:** - Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar).
