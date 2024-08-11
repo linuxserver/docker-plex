@@ -10,17 +10,14 @@ project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
   - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-# development version
-development_versions: false
 # container parameters
 common_param_env_vars_enabled: true #PGID, PUID, etc
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - {vol_path: "/config", vol_host_path: "/path/to/library", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*"}
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/library", desc: "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*"}
   - {vol_path: "/tv", vol_host_path: "/path/to/tvseries", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc."}
   - {vol_path: "/movies", vol_host_path: "/path/to/movies", desc: "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc."}
-param_usage_include_ports: false
 param_usage_include_net: true
 param_net: "host"
 param_net_desc: "Use Host Networking"
@@ -77,6 +74,7 @@ app_setup_block: |
 readme_hwaccel: true
 # changelog
 changelogs:
+  - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble."}
   - {date: "12.02.24:", desc: "Use universal hardware acceleration blurb"}
   - {date: "09.01.24:", desc: "Set ownership on TranscoderTempDirectory when it's been saved in Preferences."}
   - {date: "16.08.23:", desc: "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."}
