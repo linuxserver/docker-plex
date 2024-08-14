@@ -36,7 +36,7 @@ hostname                     3.23+nmu2ubuntu2                   deb
 init-system-helpers          1.66ubuntu1                        deb     
 jq                           1.7.1-3build1                      deb     
 keyboxd                      2.4.4-2ubuntu17                    deb     
-krb5-locales                 1.20.1-6ubuntu2                    deb     
+krb5-locales                 1.20.1-6ubuntu2.1                  deb     
 libacl1                      2.3.2-1build1                      deb     
 libapt-pkg6.0t64             2.7.14build2                       deb     
 libassuan0                   2.5.6-1build1                      deb     
@@ -63,15 +63,15 @@ libgcrypt20                  1.10.3-2build1                     deb
 libgmp10                     2:6.3.0+dfsg-2ubuntu6              deb     
 libgnutls30t64               3.8.3-1.1ubuntu3.1                 deb     
 libgpg-error0                1.47-3build2                       deb     
-libgssapi-krb5-2             1.20.1-6ubuntu2                    deb     
+libgssapi-krb5-2             1.20.1-6ubuntu2.1                  deb     
 libhogweed6t64               3.9.1-2.2build1                    deb     
 libidn2-0                    2.3.7-2build1                      deb     
 libjq1                       1.7.1-3build1                      deb     
-libk5crypto3                 1.20.1-6ubuntu2                    deb     
+libk5crypto3                 1.20.1-6ubuntu2.1                  deb     
 libkeyutils1                 1.6.3-3build1                      deb     
 libkmod2                     31+20240202-2ubuntu7               deb     
-libkrb5-3                    1.20.1-6ubuntu2                    deb     
-libkrb5support0              1.20.1-6ubuntu2                    deb     
+libkrb5-3                    1.20.1-6ubuntu2.1                  deb     
+libkrb5support0              1.20.1-6ubuntu2.1                  deb     
 libksba8                     1.6.6-1build1                      deb     
 libldap-common               2.6.7+dfsg-1~exp1ubuntu8           deb     
 libldap2                     2.6.7+dfsg-1~exp1ubuntu8           deb     
@@ -128,7 +128,7 @@ openssl                      3.0.13-0ubuntu3.2                  deb
 passwd                       1:4.13+dfsg1-4ubuntu3              deb     
 perl-base                    5.38.2-3.2build2                   deb     
 pinentry-curses              1.2.1-3ubuntu5                     deb     
-plexmediaserver              1.40.4.8679-424562606              deb     
+plexmediaserver              1.40.5.8854-f36c552fd              deb     
 procps                       2:4.0.4-4ubuntu3                   deb     
 publicsuffix                 20231001.0357-0.1                  deb     
 readline-common              8.2-4build1                        deb     
