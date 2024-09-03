@@ -12,7 +12,7 @@ PUID=${PUID:-911}
 if [[ ! "$(stat -c %u /config/Library)" == "${PUID}" ]]; then
     echo "Change in ownership detected, please be patient while we chown existing files"
     echo "This could take some time"
-    lsiown abc:abc -R \
+    lsiown -R abc:abc \
         /config/Library
 fi
 
