@@ -90,7 +90,7 @@ libpam-modules-bin           1.5.3-5ubuntu5.1                   deb
 libpam-runtime               1.5.3-5ubuntu5.1                   deb     
 libpam0g                     1.5.3-5ubuntu5.1                   deb     
 libpcre2-8-0                 10.42-4ubuntu2                     deb     
-libproc2-0                   2:4.0.4-4ubuntu3                   deb     
+libproc2-0                   2:4.0.4-4ubuntu3.1                 deb     
 libpsl5t64                   0.21.2-1.1build1                   deb     
 libreadline8t64              8.2-4build1                        deb     
 librtmp1                     2.4+20151223.gitfa8646d.1-2build7  deb     
@@ -128,8 +128,8 @@ openssl                      3.0.13-0ubuntu3.4                  deb
 passwd                       1:4.13+dfsg1-4ubuntu3              deb     
 perl-base                    5.38.2-3.2build2                   deb     
 pinentry-curses              1.2.1-3ubuntu5                     deb     
-plexmediaserver              1.41.0.8992-8463ad060              deb     
-procps                       2:4.0.4-4ubuntu3                   deb     
+plexmediaserver              1.41.0.8994-f2c27da23              deb     
+procps                       2:4.0.4-4ubuntu3.1                 deb     
 publicsuffix                 20231001.0357-0.1                  deb     
 readline-common              8.2-4build1                        deb     
 sed                          4.9-2build1                        deb     
