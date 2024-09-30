@@ -61,13 +61,16 @@ The architectures supported by this image are:
 
 Webui can be found at `<your-ip>:32400/web`
 
-**note**: If there is no value set for the VERSION variable, then no updates will take place.
+>[!NOTE]
+>If there is no value set for the VERSION variable, then no updates will take place.
 
-**note**: For new users, no updates will take place on the first run of the container as there is no preferences file to read your token from, to update restart the Docker container after logging in through the webui.
+>[!NOTE]
+>For new users, no updates will take place on the first run of the container as there is no preferences file to read your token from, to update restart the Docker container after logging in through the webui.
 
 Valid settings for VERSION are:-
 
-**info**: YOU CANNOT UPDATE TO A PLEXPASS ONLY (BETA) VERSION IF YOU ARE NOT LOGGED IN WITH A PLEXPASS ACCOUNT.
+>[!NOTE]
+>YOU CANNOT UPDATE TO A PLEXPASS ONLY (BETA) VERSION IF YOU ARE NOT LOGGED IN WITH A PLEXPASS ACCOUNT.
 
 + **`docker`**: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.
 + **`latest`**: will update plex to the latest version available that you are entitled to.
@@ -322,7 +325,8 @@ Below are the instructions for updating containers:
 
 ### Image Update Notifications - Diun (Docker Image Update Notifier)
 
-**tip**: We recommend [Diun](https://crazymax.dev/diun/) for update notifications. Other tools that automatically update containers unattended are not recommended or supported.
+>[!TIP]
+>We recommend [Diun](https://crazymax.dev/diun/) for update notifications. Other tools that automatically update containers unattended are not recommended or supported.
 
 ## Building locally
 
