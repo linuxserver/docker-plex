@@ -74,6 +74,7 @@ app_setup_block: |
 readme_hwaccel: true
 # changelog
 changelogs:
+  - {date: "10.10.24:", desc: "Use globbing instead of find"}
   - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble."}
   - {date: "12.02.24:", desc: "Use universal hardware acceleration blurb"}
   - {date: "09.01.24:", desc: "Set ownership on TranscoderTempDirectory when it's been saved in Preferences."}

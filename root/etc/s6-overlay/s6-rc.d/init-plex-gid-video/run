@@ -1,9 +1,8 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-FILES=$(find /dev/dri /dev/dvb -type c -print 2>/dev/null)
-
-for i in ${FILES}; do
+for i in /dev/dri/* /dev/dvb; do
+    [[ -c "${i}" ]] || continue
     VIDEO_GID=$(stat -c '%g' "${i}")
     VIDEO_UID=$(stat -c '%u' "${i}")
     # check if user matches device
