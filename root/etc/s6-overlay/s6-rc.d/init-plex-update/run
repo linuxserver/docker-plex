@@ -1,6 +1,11 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+if [[ -z ${LSIO_READ_ONLY_FS} ]] || [[ -z ${LSIO_NON_ROOT_USER} ]]; then
+    echo "Runtime update not supported with read-only or non-root operation, skipping."
+    exit 0
+fi
+
 # If docker manages versioning exit
 if [[ -n "${VERSION}" ]] && [[ "${VERSION}" == "docker" ]]; then
     echo "Docker is used for versioning skip update check"

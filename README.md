@@ -77,6 +77,15 @@ Valid settings for VERSION are:-
 + **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.
 + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
 
+## Read-Only Operation
+
+This image can be run with a read-only container filesystem. For details please [read the docs](https://docs.linuxserver.io/misc/read-only/).
+
+### Caveats
+
+* Runtime update of Plex (and thus Plexpass builds) is not supported.
+* Transcode directory must be mounted to a host path or tmpfs.
+
 ### Hardware Acceleration
 
 Many desktop applications need access to a GPU to function properly and even some Desktop Environments have compositor effects that will not function without a GPU. However this is not a hard requirement and all base images will function without a video device mounted into the container.
@@ -161,6 +170,7 @@ Containers are configured using parameters passed at runtime (such as those abov
 | `-v /config` | Plex library location. *This can grow very large, 50gb+ is likely for a large collection.* |
 | `-v /tv` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 | `-v /movies` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
+| `--read-only=true` | Run container with a read-only filesystem. Please [read the docs](https://docs.linuxserver.io/misc/read-only/). |
 
 ## Environment variables from files (Docker secrets)
 
