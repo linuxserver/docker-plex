@@ -1,6 +1,8 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
+mkdir -p /run/plex-temp
+
 # create folders
 if [[ ! -d "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}" ]]; then
     mkdir -p "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}"
@@ -35,5 +37,6 @@ fi
 
 # permissions (non-recursive) on config root and folders
 lsiown abc:abc \
+    /run/plex-temp \
     /config \
     /config/*

@@ -72,6 +72,12 @@ app_setup_block: |
   + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
 
 readme_hwaccel: true
+
+readonly_supported: true
+readonly_message: |
+  * Runtime update of Plex (and thus Plexpass builds) is not supported.
+  * Transcode directory must be mounted to a host path or tmpfs.
+
 # changelog
 changelogs:
   - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble."}
