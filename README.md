@@ -361,6 +361,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **04.11.24:** - Add Nvidia capability needed for h265
 * **18.07.24:** - Rebase to Ubuntu Noble.
 * **12.02.24:** - Use universal hardware acceleration blurb
 * **09.01.24:** - Set ownership on TranscoderTempDirectory when it's been saved in Preferences.
