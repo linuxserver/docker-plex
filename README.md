@@ -77,6 +77,7 @@ Valid settings for VERSION are:-
 + **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.
 + **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.
 
+ 
 ## Read-Only Operation
 
 This image can be run with a read-only container filesystem. For details please [read the docs](https://docs.linuxserver.io/misc/read-only/).
@@ -351,10 +352,10 @@ docker build \
   -t lscr.io/linuxserver/plex:latest .
 ```
 
-The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
+The ARM variants can be built on x86_64 hardware and vice versa using `lscr.io/linuxserver/qemu-static`
 
 ```bash
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
+docker run --rm --privileged lscr.io/linuxserver/qemu-static --reset
 ```
 
 Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64`.
