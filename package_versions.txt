@@ -128,7 +128,7 @@ openssl                      3.0.13-0ubuntu3.4                  deb
 passwd                       1:4.13+dfsg1-4ubuntu3.2            deb     
 perl-base                    5.38.2-3.2build2                   deb     
 pinentry-curses              1.2.1-3ubuntu5                     deb     
-plexmediaserver              1.41.1.9057-af5eaea7a              deb     
+plexmediaserver              1.41.2.9200-c6bbc1b53              deb     
 procps                       2:4.0.4-4ubuntu3.2                 deb     
 publicsuffix                 20231001.0357-0.1                  deb     
 readline-common              8.2-4build1                        deb     
