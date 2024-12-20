@@ -86,6 +86,15 @@ This image can be run with a read-only container filesystem. For details please 
 * Runtime update of Plex (and thus Plexpass builds) is not supported.
 * Transcode directory must be mounted to a host path or tmpfs.
 
+## Non-Root Operation
+
+This image can be run with a non-root user. For details please [read the docs](https://docs.linuxserver.io/misc/non-root/).
+
+### Caveats
+
+* Runtime update of Plex (and thus Plexpass builds) is not supported.
+* Transcode directory must be mounted to a host path or tmpfs.
+
 ### Hardware Acceleration
 
 Many desktop applications need access to a GPU to function properly and even some Desktop Environments have compositor effects that will not function without a GPU. However this is not a hard requirement and all base images will function without a video device mounted into the container.
@@ -174,6 +183,7 @@ Containers are configured using parameters passed at runtime (such as those abov
 | `-v /tv` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 | `-v /movies` | Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc. |
 | `--read-only=true` | Run container with a read-only filesystem. Please [read the docs](https://docs.linuxserver.io/misc/read-only/). |
+| `--user=1000:1000` | Run container with a non-root user. Please [read the docs](https://docs.linuxserver.io/misc/non-root/). |
 
 ## Environment variables from files (Docker secrets)
 

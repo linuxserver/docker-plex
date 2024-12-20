@@ -75,6 +75,10 @@ readonly_supported: true
 readonly_message: |
   * Runtime update of Plex (and thus Plexpass builds) is not supported.
   * Transcode directory must be mounted to a host path or tmpfs.
+nonroot_supported: true
+nonroot_message: |
+  * Runtime update of Plex (and thus Plexpass builds) is not supported.
+  * Transcode directory must be mounted to a host path or tmpfs.
 # init diagram
 init_diagram: |
   "plex:latest": {
