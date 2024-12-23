@@ -11,7 +11,7 @@ catatonit                    0.1.7-1                            deb
 coreutils                    9.4-3ubuntu6                       deb     
 cron                         3.0pl1-184ubuntu2                  deb     
 cron-daemon-common           3.0pl1-184ubuntu2                  deb     
-curl                         8.5.0-2ubuntu10.5                  deb     
+curl                         8.5.0-2ubuntu10.6                  deb     
 dash                         0.5.12-6ubuntu5                    deb     
 debconf                      1.5.86ubuntu1                      deb     
 debianutils                  5.17build1                         deb     
@@ -53,7 +53,7 @@ libcap-ng0                   0.8.4-2build2                      deb
 libcap2                      1:2.66-5ubuntu2                    deb     
 libcom-err2                  1.47.0-2.4~exp1ubuntu4.1           deb     
 libcrypt1                    1:4.4.36-4build1                   deb     
-libcurl4t64                  8.5.0-2ubuntu10.5                  deb     
+libcurl4t64                  8.5.0-2ubuntu10.6                  deb     
 libdb5.3t64                  5.3.28+dfsg2-7                     deb     
 libdebconfclient0            0.271ubuntu3                       deb     
 libext2fs2t64                1.47.0-2.4~exp1ubuntu4.1           deb     
