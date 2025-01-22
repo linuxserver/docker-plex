@@ -6,6 +6,7 @@ project_url: "https://plex.tv"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
+project_categories: "Media Servers,Music,Audiobooks"
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
