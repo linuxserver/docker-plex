@@ -126,7 +126,7 @@ ncurses-bin                  6.4+20240113-1ubuntu2              deb
 netcat-openbsd               1.226-1ubuntu2                     deb     
 openssl                      3.0.13-0ubuntu3.5                  deb     
 passwd                       1:4.13+dfsg1-4ubuntu3.2            deb     
-perl-base                    5.38.2-3.2build2.1                 deb     
+perl-base                    5.38.2-3.2ubuntu0.1                deb     
 pinentry-curses              1.2.1-3ubuntu5                     deb     
 plexmediaserver              1.41.6.9685-d301f511a              deb     
 procps                       2:4.0.4-4ubuntu3.2                 deb     
