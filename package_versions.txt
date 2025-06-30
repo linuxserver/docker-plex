@@ -85,10 +85,10 @@ libnghttp2-14                1.59.0-1ubuntu0.2                  deb
 libnpth0t64                  1.6-3.1build1                      deb     
 libonig5                     6.9.9-1build1                      deb     
 libp11-kit0                  0.25.3-4ubuntu2.1                  deb     
-libpam-modules               1.5.3-5ubuntu5.1                   deb     
-libpam-modules-bin           1.5.3-5ubuntu5.1                   deb     
-libpam-runtime               1.5.3-5ubuntu5.1                   deb     
-libpam0g                     1.5.3-5ubuntu5.1                   deb     
+libpam-modules               1.5.3-5ubuntu5.4                   deb     
+libpam-modules-bin           1.5.3-5ubuntu5.4                   deb     
+libpam-runtime               1.5.3-5ubuntu5.4                   deb     
+libpam0g                     1.5.3-5ubuntu5.4                   deb     
 libpcre2-8-0                 10.42-4ubuntu2.1                   deb     
 libproc2-0                   2:4.0.4-4ubuntu3.2                 deb     
 libpsl5t64                   0.21.2-1.1build1                   deb     
