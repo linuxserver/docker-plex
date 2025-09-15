@@ -8,7 +8,7 @@ bash                         5.2.21-2ubuntu4                    deb
 bsdutils                     1:2.39.3-9ubuntu6.3                deb     
 ca-certificates              20240203                           deb     
 catatonit                    0.1.7-1                            deb     
-coreutils                    9.4-3ubuntu6                       deb     
+coreutils                    9.4-3ubuntu6.1                     deb     
 cron                         3.0pl1-184ubuntu2                  deb     
 cron-daemon-common           3.0pl1-184ubuntu2                  deb     
 curl                         8.5.0-2ubuntu10.6                  deb     
