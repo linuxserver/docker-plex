@@ -21,7 +21,8 @@ ENV DEBIAN_FRONTEND="noninteractive" \
   PLEX_MEDIA_SERVER_USER="abc" \
   PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
   PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (LinuxServer.io)" \
-  TMPDIR=/run/plex-temp
+  TMPDIR=/run/plex-temp \
+  ATTACHED_DEVICES_PERMS="/dev/dri /dev/dvb -type c"
 
 RUN \
   echo "**** install runtime packages ****" && \
