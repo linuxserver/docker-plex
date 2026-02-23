@@ -20,7 +20,7 @@ dirmngr                      2.4.4-2ubuntu17.4                  deb
 dpkg                         1.22.6ubuntu6.5                    deb     
 e2fsprogs                    1.47.0-2.4~exp1ubuntu4.1           deb     
 findutils                    4.9.0-5build1                      deb     
-gcc-14-base                  14.2.0-4ubuntu2~24.04              deb     
+gcc-14-base                  14.2.0-4ubuntu2~24.04.1            deb     
 gnupg                        2.4.4-2ubuntu17.4                  deb     
 gnupg-l10n                   2.4.4-2ubuntu17.4                  deb     
 gnupg-utils                  2.4.4-2ubuntu17.4                  deb     
@@ -58,10 +58,10 @@ libdb5.3t64                  5.3.28+dfsg2-7                     deb
 libdebconfclient0            0.271ubuntu3                       deb     
 libext2fs2t64                1.47.0-2.4~exp1ubuntu4.1           deb     
 libffi8                      3.4.6-1build1                      deb     
-libgcc-s1                    14.2.0-4ubuntu2~24.04              deb     
+libgcc-s1                    14.2.0-4ubuntu2~24.04.1            deb     
 libgcrypt20                  1.10.3-2build1                     deb     
 libgmp10                     2:6.3.0+dfsg-2ubuntu6.1            deb     
-libgnutls30t64               3.8.3-1.1ubuntu3.4                 deb     
+libgnutls30t64               3.8.3-1.1ubuntu3.5                 deb     
 libgpg-error0                1.47-3build2.1                     deb     
 libgssapi-krb5-2             1.20.1-6ubuntu2.6                  deb     
 libhogweed6t64               3.9.1-2.2build1.1                  deb     
@@ -107,7 +107,7 @@ libsqlite3-0                 3.45.1-1ubuntu2.5                  deb
 libss2                       1.47.0-2.4~exp1ubuntu4.1           deb     
 libssh-4                     0.10.6-2ubuntu0.2                  deb     
 libssl3t64                   3.0.13-0ubuntu3.7                  deb     
-libstdc++6                   14.2.0-4ubuntu2~24.04              deb     
+libstdc++6                   14.2.0-4ubuntu2~24.04.1            deb     
 libsystemd0                  255.4-1ubuntu8.12                  deb     
 libtasn1-6                   4.19.0-3ubuntu0.24.04.2            deb     
 libtinfo6                    6.4+20240113-1ubuntu2              deb     
@@ -135,7 +135,7 @@ readline-common              8.2-4build1                        deb
 sed                          4.9-2build1                        deb     
 sensible-utils               0.0.22                             deb     
 systemd-dev                  255.4-1ubuntu8.12                  deb     
-systemd-hwe-hwdb             255.1.6                            deb     
+systemd-hwe-hwdb             255.1.7                            deb     
 systemd-standalone-sysusers  255.4-1ubuntu8.12                  deb     
 sysvinit-utils               3.08-6ubuntu3                      deb     
 tar                          1.35+dfsg-3build1                  deb     
