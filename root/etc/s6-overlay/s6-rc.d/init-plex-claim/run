@@ -19,8 +19,15 @@ if [[ ! -f "${PLEX_MEDIA_SERVER_PREFERENCES}" ]]; then
     export PLEX_MEDIA_SERVER_INFO_MODEL
     PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION=$(uname -r)
     export PLEX_MEDIA_SERVER_INFO_PLATFORM_VERSION
-    s6-setuidgid abc /bin/bash -c \
-        'LD_LIBRARY_PATH=/usr/lib/plexmediaserver:/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server' &
+
+    if [[ -z ${LSIO_NON_ROOT_USER} ]]; then
+        s6-setuidgid abc /bin/bash -c \
+            'LD_LIBRARY_PATH=/usr/lib/plexmediaserver:/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server' &
+    else
+        /bin/bash -c \
+            'LD_LIBRARY_PATH=/usr/lib/plexmediaserver:/usr/lib/plexmediaserver/lib /usr/lib/plexmediaserver/Plex\ Media\ Server' &
+    fi
+
     PID=$!
     echo "Waiting for Plex to generate its config"
     DBNAME="/config/Library/Application Support/Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db-wal"
