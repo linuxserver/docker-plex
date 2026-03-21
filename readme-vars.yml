@@ -125,6 +125,8 @@ init_diagram: |
   "plex:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "15.03.26:", desc: "Allow TMPDIR to be changed to better support read-only containers"}
+  - {date: "15.03.26:", desc: "Fix initial claim setup on non-root containers"}
   - {date: "04.11.24:", desc: "Add Nvidia capability needed for h265"}
   - {date: "18.07.24:", desc: "Rebase to Ubuntu Noble."}
   - {date: "12.02.24:", desc: "Use universal hardware acceleration blurb"}

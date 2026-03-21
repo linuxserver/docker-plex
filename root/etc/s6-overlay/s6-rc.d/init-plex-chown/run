@@ -1,7 +1,11 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
 
-mkdir -p /run/plex-temp
+# remove plex temporary directory after unclean stop
+if [[ -d "${TMPDIR}" ]]; then
+	rm -rf "${TMPDIR}"
+fi
+mkdir -p ${TMPDIR}
 
 # create folders
 if [[ ! -d "${PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR}" ]]; then
@@ -40,7 +44,7 @@ if [[ -z ${LSIO_NON_ROOT_USER} ]]; then
 
     # permissions (non-recursive) on config root and folders
     lsiown abc:abc \
-        /run/plex-temp \
+        "${TMPDIR}" \
         /config \
         /config/*
 fi

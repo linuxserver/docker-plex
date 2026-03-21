@@ -371,6 +371,8 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **15.03.26:** - Allow TMPDIR to be changed to better support read-only containers
+* **15.03.26:** - Fix initial claim setup on non-root containers
 * **04.11.24:** - Add Nvidia capability needed for h265
 * **18.07.24:** - Rebase to Ubuntu Noble.
 * **12.02.24:** - Use universal hardware acceleration blurb
