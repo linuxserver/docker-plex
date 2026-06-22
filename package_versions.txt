@@ -6,7 +6,7 @@ base-files                   13ubuntu10.4                       deb
 base-passwd                  3.6.3build1                        deb     
 bash                         5.2.21-2ubuntu4                    deb     
 bsdutils                     1:2.39.3-9ubuntu6.5                deb     
-ca-certificates              20240203                           deb     
+ca-certificates              20260601~24.04.1                   deb     
 catatonit                    0.1.7-1                            deb     
 coreutils                    9.4-3ubuntu6.2                     deb     
 cron                         3.0pl1-184ubuntu2                  deb     
