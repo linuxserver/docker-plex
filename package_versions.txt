@@ -126,7 +126,7 @@ ncurses-bin                  6.4+20240113-1ubuntu2              deb
 netcat-openbsd               1.226-1ubuntu2                     deb     
 openssl                      3.0.13-0ubuntu3.11                 deb     
 passwd                       1:4.13+dfsg1-4ubuntu3.2            deb     
-perl-base                    5.38.2-3.2ubuntu0.2                deb     
+perl-base                    5.38.2-3.2ubuntu0.3                deb     
 pinentry-curses              1.2.1-3ubuntu5                     deb     
 plexmediaserver              1.43.2.10687-563d026ea             deb     
 procps                       2:4.0.4-4ubuntu3.2                 deb     
@@ -138,7 +138,7 @@ systemd-dev                  255.4-1ubuntu8.16                  deb
 systemd-hwe-hwdb             255.1.7                            deb     
 systemd-standalone-sysusers  255.4-1ubuntu8.16                  deb     
 sysvinit-utils               3.08-6ubuntu3                      deb     
-tar                          1.35+dfsg-3build1                  deb     
+tar                          1.35+dfsg-3ubuntu0.1               deb     
 tzdata                       2026a-0ubuntu0.24.04.1             deb     
 ubuntu-keyring               2023.11.28.1                       deb     
 udev                         255.4-1ubuntu8.16                  deb     
