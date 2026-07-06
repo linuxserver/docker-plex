@@ -127,7 +127,7 @@ fi
 
 echo "Attempting to upgrade to: ${REMOTE_VERSION}"
 rm -f /tmp/plexmediaserver_*.deb
-wget -nv -P /tmp \
+curl -fLo "/tmp/plexmediaserver_${REMOTE_VERSION}_${PLEX_ARCH}.deb" \
     "${PLEX_DOWNLOAD}/${REMOTE_VERSION}/debian/plexmediaserver_${REMOTE_VERSION}_${PLEX_ARCH}.deb"
 last=$?
 
