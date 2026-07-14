@@ -371,6 +371,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **06.07.26:** - Rebase to Ubuntu Resolute.
 * **15.03.26:** - Allow TMPDIR to be changed to better support read-only containers
 * **15.03.26:** - Fix initial claim setup on non-root containers
 * **04.11.24:** - Add Nvidia capability needed for h265

@@ -2,7 +2,7 @@
 
 FROM ghcr.io/linuxserver/unrar:latest AS unrar
 
-FROM ghcr.io/linuxserver/baseimage-ubuntu:noble
+FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute
 
 # set version label
 ARG BUILD_DATE
@@ -31,8 +31,7 @@ RUN \
   echo "**** install runtime packages ****" && \
   apt-get update && \
   apt-get install -y \
-    udev \
-    wget && \
+    udev && \
   echo "**** install plex ****" && \
   if [ -z ${PLEX_RELEASE+x} ]; then \
     PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' \
