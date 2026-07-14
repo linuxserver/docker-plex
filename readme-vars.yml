@@ -120,7 +120,7 @@ init_diagram: |
     svc-plex -> legacy-services
   }
   Base Images: {
-    "baseimage-ubuntu:noble"
+    "baseimage-ubuntu:resolute"
   }
   "plex:latest" <- Base Images
 # changelog
