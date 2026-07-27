@@ -119,7 +119,7 @@ libsemanage-common             3.9-1build1                            deb
 libsemanage2                   3.9-1build1                            deb          
 libsepol2                      3.9-2                                  deb          
 libsmartcols1                  2.41.3-3ubuntu2                        deb          
-libsqlite3-0                   3.46.1-9ubuntu0.1                      deb          
+libsqlite3-0                   3.46.1-9ubuntu0.2                      deb          
 libss2                         1.47.2-3ubuntu4                        deb          
 libssh2-1t64                   1.11.1-1ubuntu0.26.04.3                deb          
 libssl3t64                     3.5.5-1ubuntu3.2                       deb          
@@ -158,7 +158,7 @@ stdlib                         go1.26.4                               go-module
 systemd-hwe-hwdb               259.5.3ubuntu                          deb          
 systemd-standalone-sysusers    259.5-0ubuntu3                         deb          
 sysvinit-utils                 3.15-5ubuntu1                          deb          
-tar                            1.35+dfsg-4ubuntu0.2                   deb          
+tar                            1.35+dfsg-4ubuntu0.3                   deb          
 tzdata                         2026b-0ubuntu0.26.04.1                 deb          
 ubuntu-keyring                 2023.11.28.1build1                     deb          
 udev                           259.5-0ubuntu3                         deb          
