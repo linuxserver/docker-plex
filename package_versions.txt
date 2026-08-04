@@ -146,7 +146,7 @@ openssl-provider-legacy        3.5.5-1ubuntu3.2                       deb
 passwd                         1:4.17.4-2ubuntu3                      deb          
 perl-base                      5.40.1-7ubuntu0.1                      deb          
 pinentry-curses                1.3.2-3ubuntu1                         deb          
-plexmediaserver                1.43.3.10828-00f62d37d                 deb          
+plexmediaserver                1.43.3.10861-07dfddaeb                 deb          
 procps                         2:4.0.4-9ubuntu1                       deb          
 publicsuffix                   20260129.1928-1                        deb          
 readline-common                8.3-4                                  deb          
