@@ -102,7 +102,7 @@ libpam-modules                 1.7.0-5ubuntu3.2                       deb
 libpam-modules-bin             1.7.0-5ubuntu3.2                       deb          
 libpam-runtime                 1.7.0-5ubuntu3.2                       deb          
 libpam0g                       1.7.0-5ubuntu3.2                       deb          
-libpcre2-8-0                   10.46-1build1                          deb          
+libpcre2-8-0                   10.46-1ubuntu0.1                       deb          
 libproc2-0                     2:4.0.4-9ubuntu1                       deb          
 libpsl5t64                     0.21.2-1.1build2                       deb          
 libreadline8t64                8.3-4                                  deb          
