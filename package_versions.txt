@@ -1,13 +1,13 @@
 NAME                           VERSION                                TYPE        
 adduser                        3.153ubuntu1                           deb          
-apt                            3.2.0                                  deb          
-apt-utils                      3.2.0                                  deb          
-base-files                     14ubuntu6.2                            deb          
+apt                            3.2.1ubuntu0.1                         deb          
+apt-utils                      3.2.1ubuntu0.1                         deb          
+base-files                     14ubuntu6.3                            deb          
 base-passwd                    3.6.8                                  deb          
 bash                           5.3-2ubuntu1                           deb          
 bash-completion                1:2.16.0-8build1                       deb          
 bsdutils                       1:2.41.3-3ubuntu2.2                    deb          
-ca-certificates                20260816ubuntu0.26.04.1                deb          
+ca-certificates                20260816ubuntu0.26.04.2                deb          
 catatonit                      0.2.1-2build1                          deb          
 coreutils                      9.5-1ubuntu2+0.0.0~ubuntu25            deb          
 coreutils-from-uutils          0.0.0~ubuntu25                         deb          
@@ -51,7 +51,7 @@ jq                             1.8.1-4ubuntu2                         deb
 krb5-locales                   1.22.1-2ubuntu4.1                      deb          
 libacl1                        2.3.2-2                                deb          
 libapparmor1                   5.0.2-0ubuntu1~26.04.1                 deb          
-libapt-pkg7.0                  3.2.0                                  deb          
+libapt-pkg7.0                  3.2.1ubuntu0.1                         deb          
 libassuan9                     3.0.2-2build1                          deb          
 libattr1                       1:2.5.2-4ubuntu0.1                     deb          
 libaudit-common                1:4.1.2-1ubuntu0.1                     deb          
@@ -142,7 +142,7 @@ netcat-openbsd                 1.234-1                                deb
 openssl                        3.5.5-1ubuntu3.7                       deb          
 openssl-provider-legacy        3.5.5-1ubuntu3.7                       deb          
 passwd                         1:4.17.4-2ubuntu3                      deb          
-perl-base                      5.40.1-7ubuntu0.3                      deb          
+perl-base                      5.40.1-7ubuntu0.4                      deb          
 pinentry-curses                1.3.2-3ubuntu1                         deb          
 plexmediaserver                1.43.5.11079-b3b13e506                 deb          
 procps                         2:4.0.4-9ubuntu1                       deb          
